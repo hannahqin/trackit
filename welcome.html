@@ -3,8 +3,14 @@
 <head>
     <title>trackit</title>
     <meta name="author" content="Hannah Qin, Emily Siu, Andrew Huang, Leah Chung">
-    <link rel="stylesheet" type="text/css" href="css/welcome.css">
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,700" rel="stylesheet">
+    
+    <script type="text/javascript" src="path/to/smoothscroll.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/welcome.css">
+    <script src="scripts/welcome.js"></script>
 </head>
 <body>
     <div class="page">
@@ -17,14 +23,22 @@
         </div>
         <div>
             <p>Let's get started.</p>
-            <img src="img/down_arrow.png">
+            <img id="down-arrow" src="img/down_arrow.png">
         </div>
     </div>
-    <div class="page">
-        <div class="flex">
-            <div>
-                sup
+    <div class="page upload-page">
+        <div class="upload-wrapper">
+            <h3 class="upload-heading">Upload Your Advisement Report</h3>
+            <p class="upload-description">Begin by uploading a PDF of your transcript so we can generate<br>
+                your graduation report based on what classes you have taken.</p>
+            <div class="upload-file">
+                <input id="file-input" type="file" style="display:none;"/>
+                <p id="selected-file">No file selected</p>
+                <button id="browse-button">Choose A File</button>
+                <!-- <input class="input-file" id="input-file" name="file" type="file" accept="application/pdf" /> -->
+                <!-- <label class="input-label" for="input-file">Choose a file...</label> -->
             </div>
+            <button class="generate-button">Generate My Report</button>
         </div>
     </div>
 </body>
