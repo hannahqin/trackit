@@ -47,6 +47,7 @@ body {
 /* ------ UPLOAD PAGE ------ */
 .upload-page {
     position: relative;
+    background-color: #fafafa;
 }
 
 .upload-wrapper {
