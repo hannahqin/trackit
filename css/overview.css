@@ -1,0 +1,28 @@
+body {
+    color: black;
+    font-size: x-large;
+    font-family: 'Helvetica', sans-serif;
+    text-align: center;
+    background: white;
+}
+
+h1 {
+	position: relative;
+    color:  #4A90E2;
+    font-family: 'Nunito Sans';
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: #4A90E2;
+}
+
+#text {
+	/*display: inline-block;*/
+	position: relative;
+	text-align: left;
+}
+
+#overview-title {
+	
+}
