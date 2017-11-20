@@ -9,25 +9,30 @@
         A{text-decoration:none}
     </STYLE>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
-<body>
-    <div id='trackit'>
-        <h1 align='left'><a href='welcome.html'>trackit.</a></h1>
-    </div>
+<body id ="body">
+    <nav class="nav-bar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" id="logo" href="welcome.html">trackit</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="menu-item active"><a href="overview.html">Overview</a></li>
+          <li class="menu-item"><a href="details.html">Details</a></li>
+          <li class="menu-item"><a href="planner.html">Planner</a></li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+
     <div id='text'>
         <p>Hey Emily, here's what we found:</p>
     </div>
     <div id='overview-titles'>
-        <!-- <div id='total-completed'>
-            <h2 id='overview-title' align='left'>Total Credits</h1>
-        </div>
-        <div id='core-courses'>
-            <h3 id='overview-title' align='left'>Core Courses</h1>
-        </div>
-        <div id='ulcs'>
-            <h4 id='overview-title' align='left'>Upper Level CS</h1>
-        </div> -->
-        <ul>
+        <ul class='ovw'>
           <li>Total Credits</li>
           <li>Core Courses</li>
           <li>Upper Level CS</li>
