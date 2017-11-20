@@ -2,23 +2,6 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-.nav-bar {
-	width: 100%;
-	margin: 0px;
-	padding: 5px;
-	background-color: #4A90E2;
-}
-.menu-item > a {
-	color: white;
-	text-decoration: none;
-}
-
-#logo {
-	color:  white;
-    font-family: 'Nunito Sans';
-    font-size: 36px;
-}
-
 .lsa-head > h1, .major-head > h1{
 	color: #4A90E2;
 	font-weight: 700;

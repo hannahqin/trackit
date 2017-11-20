@@ -1,3 +1,4 @@
+/* ------ GLOBAL STYLE ------ */
 body {
     font-size: x-large;
     font-family: 'Roboto', sans-serif;
@@ -9,15 +10,13 @@ body {
     height: 100vh;
 }
 
+
+/* ------ WELCOME PAGE ------ */
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
-}
-
-.welcome {
-    margin: 0;
 }
 
 .logo {
@@ -26,8 +25,90 @@ body {
     font-weight: 600;
     font-size: 4em;
     margin: 0;
+    margin-left: 7px;
 }
 
 .description {
-    width: 40em;
+    font-size: 22px;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+}
+
+.get-started {
+    font-size: 18px;
+}
+
+.down-arrow {
+    width: 50px;
+}
+
+
+/* ------ UPLOAD PAGE ------ */
+.upload-page {
+    position: relative;
+    background-color: #fafafa;
+}
+
+.upload-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+}
+
+.upload-heading {
+    color: #4A90E2;
+}
+
+.upload-description {
+    font-size: 20px;
+}
+
+/* Browse Files */
+.upload-file {
+    margin: 40px auto;
+    border: 1px solid #C7C7C7;
+    border-radius: 4px;
+    position: relative;
+    height: 35px;
+    width: 450px;
+}
+    .upload-file button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 35%;
+        background-color: #D8D8D8;
+        border: none;
+        border-right: 1px solid #C7C7C7;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .upload-file button:hover {
+        cursor: pointer;
+    }
+
+    .upload-file p {
+        margin: 7px 0;
+        width: 65%;
+        height: 100%;
+        font-size: 16px;
+        text-align: center;
+    }
+
+.generate-button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 8px 22px;
+}
+
+.generate-button:hover {
+    cursor: pointer;
 }

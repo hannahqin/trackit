@@ -1,28 +1,49 @@
-body {
+#body {
     color: black;
     font-size: x-large;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     background: white;
 }
 
-h1 {
-	position: relative;
-    color:  #4A90E2;
-    font-family: 'Nunito Sans';
-    text-decoration: none;
+.nav-bar {
+	width: 100%;
+	margin: 0px;
+	padding: 5px;
+	background-color: #4A90E2;
 }
 
-a:link, a:visited {
-    color: #4A90E2;
+.menu-item > a {
+	color: white;
+	text-decoration: none;
+}
+
+#logo {
+	color:  white;
+    font-family: 'Nunito Sans';
+    font-size: 36px;
 }
 
 #text {
 	/*display: inline-block;*/
 	position: relative;
 	text-align: left;
+	margin-top: 20px;
+	margin-left: 35px;
+	font-size: 1.4em;
 }
 
-#overview-title {
-	
+#overview-titles {
+	width: 350px;
 }
+
+.ovw li {
+	/*width: 50%;*/
+	list-style-type: none;
+	color:  #4A90E2;
+	font-weight: 400;
+	text-align: right;
+	font-size: 30px;
+	margin: 65px;
+}
+
