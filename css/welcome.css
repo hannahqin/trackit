@@ -5,7 +5,7 @@ body {
     text-align: center;
 }
 
-div {
+.page {
     height: 100vh;
 }
 
@@ -14,3 +14,73 @@ div {
     font-family: 'Nunito Sans';
     font-weight: 600;
 }
+
+
+/* UPLOAD PAGE */
+.upload-page {
+    position: relative;
+}
+
+.upload-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+}
+
+.upload-heading {
+    color: #4A90E2;
+}
+
+.upload-description {
+    font-size: 16px;
+}
+
+/* browse files... */
+.upload-file {
+    margin: 40px auto;
+    border: 1px solid #C7C7C7;
+    border-radius: 4px;
+    position: relative;
+    height: 30px;
+    width: 450px;
+}
+    .upload-file button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 35%;
+        background-color: #D8D8D8;
+        border: none;
+        border-right: 1px solid #C7C7C7;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+    }
+
+    .upload-file button:hover {
+        cursor: pointer;
+    }
+
+    .upload-file p {
+        margin: 5px 0;
+        width: 65%;
+        height: 100%;
+        font-size: 14px;
+        text-align: center;
+    }
+
+
+.generate-button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 8px 20px;
+}
+
+.generate-button:hover {
+    cursor: pointer;
+}
+
