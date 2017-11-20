@@ -29,10 +29,20 @@ body {
     font-weight: 600;
     font-size: 4em;
     margin: 0;
+    margin-left: 7px;
 }
 
 .description {
-    width: 40em;
+    font-size: 22px;
+    width: 35em;
+}
+
+.get-started {
+    font-size: 18px;
+}
+
+.down-arrow {
+    width: 50px;
 }
 
 
@@ -53,7 +63,7 @@ body {
 }
 
 .upload-description {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 /* Browse Files */
@@ -62,7 +72,7 @@ body {
     border: 1px solid #C7C7C7;
     border-radius: 4px;
     position: relative;
-    height: 30px;
+    height: 35px;
     width: 450px;
 }
     .upload-file button {
@@ -75,7 +85,8 @@ body {
         border: none;
         border-right: 1px solid #C7C7C7;
         font-family: 'Roboto', sans-serif;
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: 400;
     }
 
     .upload-file button:hover {
@@ -83,10 +94,10 @@ body {
     }
 
     .upload-file p {
-        margin: 5px 0;
+        margin: 7px 0;
         width: 65%;
         height: 100%;
-        font-size: 14px;
+        font-size: 16px;
         text-align: center;
     }
 
@@ -95,8 +106,8 @@ body {
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
-    padding: 8px 20px;
+    font-size: 18px;
+    padding: 8px 22px;
 }
 
 .generate-button:hover {
