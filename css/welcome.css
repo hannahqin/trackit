@@ -6,11 +6,11 @@ body {
     background: black;
 }
 
-div {
-    height: 100vh;
-}
-
 h1 {
     color:  #4A90E2;
     font-family: 'Nunito Sans';
+}
+
+div {
+    height: 100vh;
 }
