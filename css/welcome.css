@@ -16,8 +16,18 @@ body {
     height: 80vh;
 }
 
+.welcome {
+    margin: 0;
+}
+
 .logo {
     color:  #4A90E2;
     font-family: 'Nunito Sans';
     font-weight: 600;
+    font-size: 4em;
+    margin: 0;
+}
+
+.description {
+    width: 40em;
 }
