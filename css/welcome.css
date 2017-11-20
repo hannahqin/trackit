@@ -5,8 +5,15 @@ body {
     text-align: center;
 }
 
-div {
+.page {
     height: 100vh;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
 .logo {
