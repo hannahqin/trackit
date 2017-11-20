@@ -25,3 +25,20 @@
 	margin-left: 35px;
 }
 
+.lsa {
+	font-size: 20px;
+}
+
+.requirement, .class {
+	
+}
+
+.requirement {
+	font-weight: 700;
+	/*font-size: 22px;*/
+	padding: 2px;
+}
+
+.class {
+	padding: 2px;
+}
