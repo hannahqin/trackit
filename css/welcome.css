@@ -19,10 +19,6 @@ body {
     height: 80vh;
 }
 
-.welcome {
-    margin: 0;
-}
-
 .logo {
     color:  #4A90E2;
     font-family: 'Nunito Sans';
@@ -34,7 +30,9 @@ body {
 
 .description {
     font-size: 22px;
-    width: 35em;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
 }
 
 .get-started {
