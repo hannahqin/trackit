@@ -39,8 +39,8 @@ body {
     font-size: 18px;
 }
 
-.down-arrow {
-    width: 50px;
+#down-arrow:hover {
+    cursor: pointer;
 }
 
 
