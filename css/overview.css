@@ -19,13 +19,37 @@
 	width: 350px;
 }
 
+.info {
+	margin: 50px 25px;
+}
+
+.column {
+	float: left;
+	font-size: 30px;
+}
+
+.column ul {
+	list-style-type: none;
+}
+
+.column li {
+	width: 125px;
+	height: 100px;
+}
+
+.titles {
+	color:  #4A90E2;
+	text-align: right;
+}
+
+/* 
 .ovw li {
-	/*width: 50%;*/
 	list-style-type: none;
 	color:  #4A90E2;
 	font-weight: 400;
 	text-align: right;
 	font-size: 30px;
-	margin: 65px;
+	height: 100px;
+	margin-top: 50px;
 }
-
+ */
