@@ -6,7 +6,7 @@
 }
 
 .main-content {
-    margin: 40px 200px;
+    margin: 40px 200px 80px;
 }
 
 .page-header h2 {
@@ -19,27 +19,27 @@
     font-size: 17px;
 }
 
-.section-header h3 {
-    margin: 20px 0;
-    padding-top: 20px;
-    font-size: 22px;
-    color: #4A90E2;
+.section {
+    margin-top: 50px;
 }
 
-.section-header p {
-    font-size: 16px;
+.section:first-child {
+    margin-top: 35px;
 }
 
-
-.requirement {
-    font-weight: 700;
-    /*font-size: 22px;*/
-    padding: 2px;
+.section-header {
+    margin-bottom: 20px;
 }
 
-.class {
-    padding: 2px;
-}
+    .section-header h3 {
+        margin: 20px 0;
+        font-size: 22px;
+        color: #4A90E2;
+    }
+
+    .section-header p {
+        font-size: 16px;
+    }
 
 .table {
     font-size: 16px;
