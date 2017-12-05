@@ -14,6 +14,6 @@ $(document).ready(function() {
 
     // Generate My Report Button
     $('.generate-button').click(function() {
-        window.location.href = './overview.html';
+        //window.location.href = './overview.html';
     });
 });

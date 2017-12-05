@@ -1,36 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>trackit</title>
-    <meta name="author" content="Hannah Qin, Emily Siu, Andrew Huang, Leah Chung">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>trackit</title>
+        <meta name="author" content="Hannah Qin, Emily Siu, Andrew Huang, Leah Chung">
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-    <link rel="stylesheet" type="text/css" href="css/planner.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/planner.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body id="body">
     <nav class="nav-bar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" id="logo" href="#">trackit.</a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="logo" href="#">trackit.</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="menu-item"><a href="overview.html">Overview</a></li>
+                <li class="menu-item"><a href="details.html">Details</a></li>
+                <li class="menu-item active"><a href="#">Planner</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="menu-item"><a href="overview.html">Overview</a></li>
-          <li class="menu-item active"><a href="details.html">Details</a></li>
-          <li class="menu-item"><a href="#">Planner</a></li>
-        </ul>
-      </div>
     </nav>
-    <br>
-
-    <div class="main-content">
-        <div class="sidebar">
-
-        </div>
-    </div>
+    <div class="main-content row">
+        <div class="col col-md-3">
+            <div class="box CS-reqs">
+                <h4>Incomplete CS Requirements</h4>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr> <th>Requirement</th><th># Credits</th> </tr>
+                        </thead>
+                        <tbody>
+                            <tr> <td>EECS 376</td><td>4</td> </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box gen-reqs">
+                <h4>Incomplete General Distribution Requirements</h4>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr> <th>Requirement</th><th># Credits</th> </tr>
+                        </thead>
+                        <tbody>
+                            <tr> <td>NS</td><td>7</td> </tr>
+                            <tr> <td>HU</td><td>4</td> </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- .box.gen-reqs -->
+        </div><!-- .col.col-md-3 -->
+        <div class="col col-md-9">
+            <div class="box schedule-planner">
+                <h4>Schedule Planner</h4>
+                <div class="box-body">
+                    <div class="calendar-header">
+                        <h5 class="semester-picker">
+                            <span class="glyphicon glyphicon-menu-left"></span>
+                            F16 – W18
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </h5>
+                        <button class="btn-default add-semester-btn">+ Semester</button>
+                    </div>
+                    <div class="row calendar">
+                        <div class="col-md-1">
+                            <h5>Credits</h5>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="row planner-table">
+                                <div class="col-md-3 semester-col">
+                                    <div class="table-cell table-header">
+                                        <h5>F16</h5>
+                                    </div>
+                                    <div class="table-cell class">
+                                        <h5>EECS 183</h5>
+                                    </div>
+                                    <div class="table-cell class">
+                                        <h5>HON 241</h5>
+                                    </div>
+                                    <div class="table-cell class">
+                                        <h5>MATH 285</h5>
+                                    </div>
+                                    <div class="table-cell num-credits">
+                                        <h5>12 credits</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 semester-col">
+                                    <div class="table-cell table-header">
+                                        <h5>W17</h5>
+                                    </div>
+                                    <div class="table-cell class">
+                                        <h5>EECS 280</h5>
+                                    </div>
+                                    <div class="table-cell class">
+                                        <h5>EECS 203</h5>
+                                    </div>
+                                    <div class="table-cell class">
+                                        <h5>PSYCH 111</h5>
+                                    </div>
+                                    <div class="table-cell num-credits">
+                                        <h5>12 credits</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 semester-col">
+                                    <div class="table-cell table-header">
+                                        <h5>F17</h5>
+                                    </div>
+                                    <div class="table-cell num-credits">
+                                        <h5>0 credits</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 semester-col">
+                                    <div class="table-cell table-header">
+                                        <h5>W18</h5>
+                                    </div>
+                                    <div class="table-cell num-credits">
+                                        <h5>0 credits</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .row.calendar -->
+                </div><!-- .box-body -->
+            </div>
+        </div><!-- .col.col-md-9 -->
+    </div><!-- .main-content -->
 </body>
 </html>

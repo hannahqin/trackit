@@ -1,3 +1,143 @@
+/* ----------- Global CSS ----------- */
 #body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
 }
+
+.main-content {
+    max-height: 90vh;
+}
+
+.box {
+    margin: 20px;
+    margin-right: 5px;
+    background-color: white;
+    border-radius: 2px;
+    border: 0;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12)
+}
+
+.box h4 {
+    padding: 10px 15px;
+    margin: 0;
+    background-color: #eee;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.box-body {
+    padding: 5px 10px;
+}
+
+
+/* ----------- Incomplete Requirements ----------- */
+.table {
+    margin-bottom: 5px;
+}
+
+/* ----------- Schedule Planner ----------- */
+.schedule-planner {
+    margin-left: 0;
+}
+
+.schedule-planner .box-body {
+    margin: 20px;
+    padding-bottom: 20px;
+}
+
+/* Schedule Planner Calendar Header */
+.calendar-header {
+    text-align: center;
+}
+
+    .calendar-header .semester-picker {
+        font-size: 18px;
+        display: inline-block;
+        margin-right: -55px;
+    }
+
+    .calendar-header .semester-picker .glyphicon {
+        margin: 0 5px;
+        font-size: 14px;
+        color: #4A90E2;
+    }
+
+    .calendar-header .add-semester-btn {
+        float: right;
+        margin: 5px;
+        padding: 4px 18px;
+        /*border-radius: 4px;
+        border: none;
+        background-color: #4A90E2;
+        color: white;
+        font-size: 16px;
+        font-weight: 300;*/
+    }
+
+/* Schedule Planner Calendar */
+.calendar {
+    margin-top: 10px;
+}
+
+    .calendar h5 {
+        text-align: center;
+    }
+
+    .calendar .planner-table {
+        height: 420px;
+        border: 1px solid #303030;
+        position: relative;
+    }
+
+    .calendar .semester-col {
+        height: 100%;
+        border: 1px solid #303030;
+        border-left: none;
+        border-bottom: none;
+        padding: 0;
+    }
+
+    .calendar .semester-col:first-of-type {
+        border-left: 1px solid #303030;
+    }
+
+    .semester-col h5 {
+        margin: 0;
+        padding: 15px;
+    }
+
+    .semester-col .table-cell {
+        width: 100%;
+        border-bottom: 1px solid #303030;
+    }
+
+        .semester-col .table-header {
+            height: 40px;
+            background-color: #4A90E2;
+            color: white;
+        }
+
+        .semester-col .table-header h5 {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 9px;
+        }
+
+        .semester-col .class {
+            height: 80px;
+        }
+
+        .semester-col .num-credits {
+            background-color: #f0f0f0;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid #303030;
+        }
+
+        .semester-col .num-credits h5 {
+            font-weight: 700;
+        }
+
+
+

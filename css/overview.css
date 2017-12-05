@@ -22,6 +22,7 @@
 	height: 100px;
 }
 
+<<<<<<< HEAD
 .col1 {
 	display: inline-block;
 	width: 20%;
@@ -86,3 +87,39 @@
 	position: absolute;
 	left: 30%;
 }*/
+=======
+.info {
+	margin: 50px 25px;
+}
+
+.column {
+	float: left;
+	font-size: 30px;
+}
+
+.column ul {
+	list-style-type: none;
+}
+
+.column li {
+	width: 125px;
+	height: 100px;
+}
+
+.titles {
+	color:  #4A90E2;
+	text-align: right;
+}
+
+/* 
+.ovw li {
+	list-style-type: none;
+	color:  #4A90E2;
+	font-weight: 400;
+	text-align: right;
+	font-size: 30px;
+	height: 100px;
+	margin-top: 50px;
+}
+ */
+>>>>>>> 060ce653be762a3eb99c93e8838b84fb46fe725c

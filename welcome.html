@@ -6,10 +6,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,400,700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.169/pdf.min.js"></script>
     <script type="text/javascript" src="scripts/smoothscroll.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/welcome.css">
     <script src="scripts/welcome.js"></script>
+    <script src="scripts/parser.js"></script>
 </head>
 <body>
     <div class="page">
@@ -34,6 +36,15 @@
                 <input id="file-input" type="file" style="display:none;"/>
                 <p id="selected-file">No file selected</p>
                 <button id="browse-button">Choose A File</button>
+                <a href="#">
+                    <img class="help-img" src="img/help_question_mark.png">
+                    <span class="help-text">Select the correct PDF
+                        by navigating to Wolverine Access
+                        > Students > Student Business > Student Center
+                        > My Academics > View my advisement report
+                        > checklist report pdf
+                    </span>
+                </a>
             </div>
             <button class="generate-button">Generate My Report</button>
         </div>
