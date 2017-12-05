@@ -30,15 +30,66 @@
     <br>
 
     <div id='text'>
-        <p>Hey Emily, here's what we found:</p>
+        <p>Hey {{name}}, here's what we found:</p>
     </div>
-    <div id='overview-titles'>
-        <ul class='ovw'>
-          <li>Total Credits</li>
-          <li>Core Courses</li>
-          <li>Upper Level CS</li>
-        </ul>
+    <br>
+    <!-- <div id='overview-titles'> -->
+        <div class='row'>
+          <!-- <div class='col-sm-4'> -->
+          <div class='col1'>
+             <p id="title">Total Credits</p>
+          </div>
 
-    </div>
+          <!-- <div class='col-sm-8'> -->
+          <div class='col2'>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:70%; height: 40px;">
+                70%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='row'>
+          <!-- <div class='col-sm-4'> -->
+          <div class='col1'>
+            <p id="title">Core Courses</p>
+          </div>
+
+          <!-- <div class='col-sm-8'> -->
+          <div class='col2'>
+            <div class="square" id="sq1">
+              STATS 250</div>
+            <div class="square" id="sq2">
+              EECS 281</div>
+            <div class="square" id="sq3">
+              EECS 370</div>
+            <div class="square" id="sq4">
+              EECS 376</div>
+          </div>
+        </div>
+
+        <div class='row'>
+          <!-- <div class='col-sm-4'> -->
+          <div class='col1'>
+             <p id="title">Upper Level CS</p>
+          </div>
+
+          <!-- <div class='col-sm-8'> -->
+          <div class='col2'>
+            <div class="square">
+              {{ulcs1}}</div>
+            <div class="square">
+              {{ulcs2}}</div>
+            <div class="square">
+              {{ulcs3}}</div>
+            <div class="square">
+              {{ulcs4}}</div>
+            <div class="square">
+              {{capstone}}</div>
+          </div>
+        </div>
+    <!-- </div> -->
 </body>
 </html>
