@@ -5,6 +5,10 @@
     font-weight: 300;
 }
 
+.light { font-weight: 300; }
+.medium { font-weight: 500; }
+.bold { font-weight: 700; }
+
 .main-content {
     margin: 40px 200px 80px;
 }
@@ -12,7 +16,7 @@
 .page-header h2 {
     font-size: 26px;
     margin: 20px 0;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .page-header p {
@@ -34,6 +38,7 @@
     .section-header h3 {
         margin: 20px 0;
         font-size: 22px;
+        font-weight: 500;
         color: #4A90E2;
     }
 
