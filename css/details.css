@@ -2,14 +2,19 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-.lsa-head > h1, .major-head > h1{
+.main-content {
+	margin: 40px;
+}
+
+.lsa-head > h2, .major-head > h2 {
 	color: #4A90E2;
+	font-size: 26px;
 	font-weight: 700;
 	margin-left: 35px;
 }
 
 .lsa, .lsa-table {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .requirement, .class {
