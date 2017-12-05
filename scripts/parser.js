@@ -52,6 +52,7 @@ $(document).ready(function() {
                     cs_reqs = split.slice(indices[6], indices[7]);
 
                     // Save requirements to local storage
+                    window.localStorage.setItem("fullname", split[2])
                     window.localStorage.setItem("lsa_reqs", lsa_reqs);
                     window.localStorage.setItem("college_wide_reqs", college_wide_reqs);
                     window.localStorage.setItem("area_distribution", area_distribution);
@@ -65,7 +66,7 @@ $(document).ready(function() {
 
                 // Change windows upon successful PDF parsing
                 window.setTimeout(function() {
-                    window.location.href = './overview.html';
+                    //window.location.href = './overview.html';
                 }, 2000);
 
             }, function (reason) {
