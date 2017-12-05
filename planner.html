@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <link rel="stylesheet" type="text/css" href="css/nav.css">
-        <link rel="stylesheet" type="text/css" href="css/planner.css">
+        <link rel="stylesheet" type="text/css" href="css/planner-test.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -65,67 +65,78 @@
                             F16 – W18
                             <span class="glyphicon glyphicon-menu-right"></span>
                         </h5>
-                        <button class="btn-default add-semester-btn">+ Semester</button>
+                        <div class="calendar-buttons">
+                            <button class="btn-default add-semester-btn">+ Course</button>
+                            <button class="btn-default add-semester-btn">+ Semester</button>
+                        </div>
                     </div>
                     <div class="row calendar">
-                        <div class="col-md-1">
-                            <h5>Credits</h5>
+                        <div class="col-md-1 tick-marks">
+                            <span class="ticks-label">Credits</span>
+                            <span class="tick tick-2">2</span>
+                            <span class="tick tick-4">4</span>
+                            <span class="tick tick-6">6</span>
+                            <span class="tick tick-8">8</span>
+                            <span class="tick tick-10">10</span>
+                            <span class="tick tick-12">12</span>
+                            <span class="tick tick-14">14</span>
+                            <span class="tick tick-16">16</span>
+                            <span class="tick tick-18">18</span>
                         </div>
-                        <div class="col-md-11">
-                            <div class="row planner-table">
-                                <div class="col-md-3 semester-col">
-                                    <div class="table-cell table-header">
-                                        <h5>F16</h5>
+                        <div class="col-md-11 calendar-grid">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="header-row">
+                                        <th class="col-md-3">F16</th>
+                                        <th class="col-md-3">W17</th>
+                                        <th class="col-md-3">F17</th>
+                                        <th class="col-md-3">W18</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr> <td class="left-col"></td><td></td><td></td><td class="right-col"></td> </tr>
+                                    <tr class="total-credits-row"> 
+                                        <td>8 credits</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="courses-wrapper">
+                                <div class="courses">
+                                    <div class="semester semester1">
+                                        <div class="course" style="height: 80px; top: 40px;">
+                                            <h5>EECS 183</h5>
+                                            <span class="badge">QR</span>
+                                            <span class="badge">CS PRE-REQ</span>
+                                        </div>
+                                        <div class="course" style="height: 80px; top: 120px;">
+                                            <h5>ENG 101</h5>
+                                            <span class="badge">FYWR</span>
+                                        </div>
                                     </div>
-                                    <div class="table-cell class">
-                                        <h5>EECS 183</h5>
+                                    <div class="semester semester2">
+
                                     </div>
-                                    <div class="table-cell class">
-                                        <h5>HON 241</h5>
+                                    <div class="semester semester3">
+                                        
                                     </div>
-                                    <div class="table-cell class">
-                                        <h5>MATH 285</h5>
-                                    </div>
-                                    <div class="table-cell num-credits">
-                                        <h5>12 credits</h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 semester-col">
-                                    <div class="table-cell table-header">
-                                        <h5>W17</h5>
-                                    </div>
-                                    <div class="table-cell class">
-                                        <h5>EECS 280</h5>
-                                    </div>
-                                    <div class="table-cell class">
-                                        <h5>EECS 203</h5>
-                                    </div>
-                                    <div class="table-cell class">
-                                        <h5>PSYCH 111</h5>
-                                    </div>
-                                    <div class="table-cell num-credits">
-                                        <h5>12 credits</h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 semester-col">
-                                    <div class="table-cell table-header">
-                                        <h5>F17</h5>
-                                    </div>
-                                    <div class="table-cell num-credits">
-                                        <h5>0 credits</h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 semester-col">
-                                    <div class="table-cell table-header">
-                                        <h5>W18</h5>
-                                    </div>
-                                    <div class="table-cell num-credits">
-                                        <h5>0 credits</h5>
+                                    <div class="semester semester4">
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div><!-- .row.calendar -->
+                    </div>
                 </div><!-- .box-body -->
             </div>
         </div><!-- .col.col-md-9 -->
