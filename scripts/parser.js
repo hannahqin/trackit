@@ -43,8 +43,6 @@ $(document).ready(function() {
                             indices.push(i);
                         }
                     }
-
-                    console.log (indices);
                     
                     // Remove leading and trailing whitespace
                     lsa_reqs = split.slice(indices[0], indices[1]).map(s => s.trim());
@@ -52,17 +50,29 @@ $(document).ready(function() {
                     area_distribution = split.slice(indices[4], indices[5]).map(s => s.trim());
                     cs_reqs = split.slice(indices[6], indices[7]).map(s => s.trim());
 
+                    // Convert to the format of a dict of arrays of dicts...
+                    // Only grab total credits from lsa_reqs
+                    var college_wide_reqs_dict = getDictFormCollege(college_wide_reqs);
+                    var area_distribution_dict = getDictFormArea(area_distribution);
+                    var cs_reqs_dict = getDictFormCS(cs_reqs);
+
                     // Save requirements to local storage
                     window.localStorage.setItem("fullname", split[2].trim());
-                    window.localStorage.setItem("lsa_reqs", lsa_reqs);
-                    window.localStorage.setItem("college_wide_reqs", college_wide_reqs);
-                    window.localStorage.setItem("area_distribution", area_distribution);
-                    window.localStorage.setItem("cs_reqs", cs_reqs);
+                    window.localStorage.setItem("totalcredits", lsa_reqs[2]);
+                    window.localStorage.setItem("college_wide_reqs", JSON.stringify(college_wide_reqs_dict));
+                    window.localStorage.setItem("area_distribution", JSON.stringify(area_distribution_dict));
+                    window.localStorage.setItem("cs_reqs", JSON.stringify(cs_reqs_dict));
 
                     console.log("LSA Reqs:", lsa_reqs);
                     console.log("College-wide Reqs:",college_wide_reqs);
                     console.log("Area Distribution:", area_distribution);
                     console.log("CS Reqs:", cs_reqs);
+
+                    console.log("fullname", split[2].trim());
+                    console.log("totalcredits", lsa_reqs[2]);
+                    console.log("College-wide Reqs Dict:",college_wide_reqs_dict);
+                    console.log("Area Distribution Dict:", area_distribution_dict);
+                    console.log("CS Reqs Dict:", cs_reqs_dict);
                 });
 
                 // Change windows upon successful PDF parsing
@@ -109,4 +119,100 @@ function getPageText(pageNum, PDFDocumentInstance) {
             });
         });
     });
+}
+
+function getDictFormCollege(college_wide_reqs) {
+    // Initialize dict
+    var dict = {};
+    var category = ["FYWR", "ULWR", "RE", "QR", "LANG"];
+    var k = 0;
+    for (i = 0; i < category.length; ++i) {
+        dict[category[i]] = [];
+    }
+
+    // Add class information to all category dicts
+    for (k = 0, i = 0; i < college_wide_reqs.length; ++i) {
+        if (college_wide_reqs[i].indexOf("Upper Level Writing Requirement - one course required - C- or") >= 0 ||
+            college_wide_reqs[i].indexOf("Race and Ethnicity Requirement - one course required") >= 0 ||
+            college_wide_reqs[i].indexOf("Quantitative Reasoning Requirement - 1 QR1 or 2 QR2 courses") >= 0 ||
+            college_wide_reqs[i].indexOf("Language Requirement - one 4th term course required - C- or") >= 0) {
+                k += 1;
+        }
+        if (isClass(college_wide_reqs, i)) {
+            dict[category[k]].push(getClassDict(college_wide_reqs, i));
+        }
+    }
+
+    return dict;
+}
+
+function getDictFormArea(area_distribution) {
+    // Initialize dict
+    var dict = {};
+    // var category = ["HU", "NS", "SS", "3HU"];
+    // var k = 0;
+    // for (i = 0; i < category.length; ++i) {
+    //     dict[category[i]] = [];
+    // }
+
+    // // Add class information to all category dicts
+    // for (k = 0, i = 0; i < area_distribution.length; ++i) {
+    //     if (area_distribution[i].indexOf("7 Credits in Natural Sciences") >= 0 ||
+    //         area_distribution[i].indexOf("7 Credits in Social Sciences") >= 0 ||
+    //         area_distribution[i].indexOf("3 Additional Credits in Humanities") >= 0 ||
+    //         area_distribution[i].indexOf("3 Additional Credits in Social Sciences") >= 0 ||
+    //         area_distribution[i].indexOf("3 Additional Credits in Natural Sciences") >= 0 ||
+    //         area_distribution[i].indexOf("3 Credits in Mathematical and Symbolic Analysis") >= 0 ||
+    //         area_distribution[i].indexOf("3 Credits in Interdisciplinary") >= 0 ||
+    //         area_distribution[i].indexOf("3 Additional Creative Expression") >= 0) {
+    //         k += 1;
+    //     }
+    //     if (isClass(area_distribution, i)) {
+    //         dict[category[k]].push(getClassDict(area_distribution, i));
+    //     }
+    // }
+
+    return dict;
+}
+
+function getDictFormCS(cs_reqs) {
+    // Initialize dict
+    var dict = {};
+    var category = ["core", "probability", "capstone", "ul"];
+    var k = 0;
+    for (i = 0; i < category.length; ++i) {
+        dict[category[i]] = [];
+    }
+
+    // Add class information to all category dicts
+    for (k = 0, i = 0; i < cs_reqs.length; ++i) {
+        if (cs_reqs[i].indexOf("Probability and Statistics: IOE 265, STATS 250 (Fall 2010 or later)") >= 0 ||
+            cs_reqs[i].indexOf("Capstone Course - minimum 1 course - C or better per course") >= 0 ||
+            cs_reqs[i].indexOf("Technical Electives for Computer Science") >= 0) {
+            k += 1;
+        }
+        if (isClass(cs_reqs, i)) {
+            dict[category[k]].push(getClassDict(cs_reqs, i));
+        }
+    }
+
+    return dict;
+}
+
+function isClass(reqArray, index) {
+    return reqArray[i].indexOf("FA ") >= 0 ||
+        reqArray[i].indexOf("WN ") >= 0 ||
+        reqArray[i].indexOf("SP ") >= 0 ||
+        reqArray[i].indexOf("SU ") >= 0;
+}
+
+function getClassDict(reqArray, index) {
+    var classInfo = {};
+    classInfo['sem'] = reqArray[index];
+    classInfo['course'] = reqArray[index+1] + " " + reqArray[index+2];
+    classInfo['desc'] = reqArray[index+3];
+    classInfo['credits'] = reqArray[index+4];
+    classInfo['grade'] = reqArray[index+5];
+    console.log("classInfo:", classInfo);
+    return classInfo;
 }

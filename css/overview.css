@@ -11,49 +11,46 @@
 	position: relative;
 	text-align: left;
 	margin: 60px 100px;
-	font-size: 26px;
+	font-size: 30px;
 }
 
-.row {
+.overview-wrapper .row {
 	height: 120px;
-	width: 100%;
+	margin: 0 200px;
 	margin-bottom: 15px;
 	padding: 0px;
 	display: block;
-	width: 100%;
-	/*height: 120px;*/
 }
 
 .row1 {
 	height: 50px;
 }
 
-.col1 {
-	display: inline-block;
-	width: 15%;
-	height: 100%;
-	margin-right: 20px;
+.column.col-md-3 {
 	text-align: right;
 	font-weight: 500;
 }
 
 #title {
-	/*top: 30px;*/
+	/*color:  #4A90E2;*/
+	/*color: #003366;*/
 	vertical-align: middle;
-	font-size: 20px;
+	font-size: 25px;
 }
 
-.col2 {
-	width: 60%;
-	height: 100%;
-	display: inline-block;
+.column.col-md-9 {
 	align-content: left;
 	text-align: left;
-	padding: 10px;
 }
 
-.col2 .progress {
-	margin: 0;
+.col-md-8 {
+	padding-top: 7px;
+	align-content: left;
+}
+
+#creds {
+	font-size: 20px;
+	margin-top: 12px;
 }
 
 .square {
@@ -76,7 +73,6 @@
 	margin-left: 0;
 }
 
-.titles {
-	color:  #4A90E2;
-	text-align: right;
+#creds {
+	display: inline-block;
 }
