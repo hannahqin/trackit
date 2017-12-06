@@ -186,24 +186,43 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     }
     
-    var semester_order = ["WN", "FA"];
+    $scope.courses = dict;
+
+/******CREATE ARRAY FOR FIRST 4 SEMESTERS***************/    
+
     var earliest_sem;
     var earliest_year = 3000;
     for (var key in dict) {
-        var year = parseInt(key.substring(3, 4));
+        var year = parseInt(key.substring(3, 7));
         if (earliest_year > year) {
             earliest_year = year;
+            earliest_sem = key;
         } else if (earliest_year === year) {
             if (key.substring(0, 2) === "WN") {
                 earliest_sem = key;
             }
-        } else {
-            earliest_sem = key;
         }
     }
-    console.log(earliest_sem);
+    var semesters = [];
+    semesters.push(earliest_sem);
+    var last = earliest_sem.substring(0,2);
+    while (earliest_year !== 2017 || last !== "FA") {
+        if (last === "WN") {
+            last = "FA";
+            semesters.push("FA " + earliest_year.toString());
+        } else {
+            last = "WN";
+            earliest_year += 1;
+            semesters.push("WN " + earliest_year.toString())
+        }
+    }
+
+
+    console.log(semesters);
     console.log(dict);
-    $scope.courses = dict;
+    
+
+
 
 
 
