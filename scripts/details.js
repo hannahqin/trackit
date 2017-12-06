@@ -41,9 +41,29 @@ app.controller('details',[ '$scope', function($scope) {
             creditsHU += parseInt($scope.area_distribution["7HU"][i]["credits"]);
         }
         $scope.HU = allHU.join(", ");
-        console.log(creditsHU);
         $scope.HU_creds = creditsHU;
-        console.log($scope.HU_creds);
+    }
+
+    if ($scope.area_distribution["7NS"].length > 0) {
+        var allNS = [];
+        var creditsNS = 0;
+        for (i = 0; i < $scope.area_distribution["7NS"].length; ++i) {
+            allNS.push($scope.area_distribution["7NS"][i]["course"]);
+            creditsNS += parseInt($scope.area_distribution["7NS"][i]["credits"]);
+        }
+        $scope.NS = allNS.join(", ");
+        $scope.NS_creds = creditsNS;
+    }
+    
+    if ($scope.area_distribution["7SS"].length > 0) {
+        var allSS = [];
+        var creditsSS = 0;
+        for (i = 0; i < $scope.area_distribution["7SS"].length; ++i) {
+            allSS.push($scope.area_distribution["7SS"][i]["course"]);
+            creditsSS += parseInt($scope.area_distribution["7SS"][i]["credits"]);
+        }
+        $scope.SS = allSS.join(", ");
+        $scope.SS_creds = creditsSS;
     }
 
     if ($scope.cs_reqs["ul"].length > 0) {
@@ -60,16 +80,4 @@ app.controller('details',[ '$scope', function($scope) {
     if ($scope.cs_reqs["capstone"].length > 0) {
     	$scope.capstone = $scope.cs_reqs["capstone"][0]["course"];
     }
-
-    $scope.NS_creds = 3;
-    $scope.NS = "";
-    $scope.SS_creds;
-    $scope.SS
-    $scope.addtnl1_creds;
-    $scope.addtnl1;
-    $scope.addtnl2_creds;
-    $scope.addtnl2;
-    $scope.addtnl3_creds;
-    $scope.addtnl3;
-    $scope.ULCS_creds;
 }]);
