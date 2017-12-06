@@ -20,7 +20,7 @@
     <nav class="nav-bar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" id="logo" href="#">trackit.</a>
+                <a class="navbar-brand" id="logo" href="welcome.html">trackit.</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="menu-item"><a href="overview.html">Overview</a></li>
@@ -31,47 +31,54 @@
     </nav>
     <div ng-controller="planner" class="main-content row">
         <div class="col col-md-3">
-            <div class="box gen-reqs">
+            <div id="common-reqs-box" class="box">
                 <h4>Incomplete Common LSA Requirements</h4>
                 <div class="box-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" ng-if="incompleteCommonReqs.length != 0">
                         <thead>
                             <tr> <th>Requirement</th> <th></th> </tr>
                         </thead>
-                        <tbody>
-                            <tr> <td>Upper-Level Writing</td> <td class="text-right">ULWR</td> </tr>
-                            <tr> <td>Race and Ethnicity</td> <td class="text-right">RE</td> </tr>
+                        <tbody id="common-reqs-table-body" ng-repeat="commonReq in incompleteCommonReqs">
+                            <tr> <td>{{ commonReq.name }}</td> <td class='text-right'>{{ commonReq.abbreviation }}</td> </tr>
                         </tbody>
                     </table>
+                    <div class="all-done" ng-if="incompleteCommonReqs.length == 0">
+                        All done!
+                    </div>
                 </div>
-            </div><!-- .box.gen-reqs -->
-            <div class="box gen-reqs">
+            </div>
+            <div id="area-reqs-box" class="box">
                 <h4>Incomplete Area Distribution Requirements</h4>
                 <div class="box-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" ng-if="incompleteAreaDistReqs.length != 0">
                         <thead>
                             <tr> <th>Requirement</th><th># Credits</th> </tr>
                         </thead>
-                        <tbody>
-                            <tr> <td>NS</td><td>7</td> </tr>
-                            <tr> <td>HU</td><td>4</td> </tr>
+                        <tbody id="area-dist-table-body" ng-repeat="genReq in incompleteAreaDistReqs">
+                            <tr> <td>{{ genReq.req }}</td><td>{{ genReq.credits }}</td> </tr>
                         </tbody>
                     </table>
+                    <div class="all-done" ng-if="incompleteAreaDistReqs.length == 0">
+                        All done!
+                    </div>
                 </div>
-            </div><!-- .box.gen-reqs -->
-            <div class="box CS-reqs">
+            </div>
+            <div id="cs-reqs-box" class="box">
                 <h4>Incomplete Major Requirements</h4>
                 <div class="box-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" ng-if="incompleteCsReqs.length != 0">
                         <thead>
                             <tr> <th>Requirement</th><th># Credits</th> </tr>
                         </thead>
-                        <tbody>
-                            <tr> <td>EECS 376</td><td>4</td> </tr>
+                        <tbody id="cs-reqs-table-body" ng-repeat="csReq in incompleteCsReqs">
+                            <tr> <td>{{ csReq.courseName }}</td><td>{{ csReq.credits }}</td> </tr>
                         </tbody>
                     </table>
+                    <div class="all-done" ng-if="incompleteCsReqs.length == 0">
+                        All done!
+                    </div>
                 </div>
-            </div><!-- .box.CS-reqs -->
+            </div>
         </div><!-- .col.col-md-3 -->
         <div class="col col-md-9">
             <div class="box schedule-planner">

@@ -56,6 +56,11 @@
     padding-bottom: 30px;
 }
 
+    .box-body .all-done {
+        text-align: center;
+        margin: 10px;
+    }
+
 /* Schedule Planner Calendar Header */
 .calendar-header {
     /*text-align: center;*/
