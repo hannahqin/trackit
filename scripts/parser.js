@@ -66,8 +66,8 @@ $(document).ready(function() {
 
                 // Change windows upon successful PDF parsing
                 window.setTimeout(function() {
-                    //window.location.href = './overview.html';
-                }, 2000);
+                    window.location.href = './overview.html';
+                }, 1000);
 
             }, function (reason) {
                 // PDF loading error
