@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="scripts/overview.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="scripts/overview.js"></script>
@@ -39,50 +38,48 @@
 
     <div class="overview-wrapper">
         <div class='row row1'>
-            <!-- <div class='col-sm-4'> -->
-            <div class='column col1'>
+            <div class='col-md-3'>
                 <p id="title">Total Credits</p>
             </div>
 
-            <!-- <div class='col-sm-8'> -->
-            <div class='column col2'>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                        aria-valuemin="0" aria-valuemax="100" style="width:{{percentage}}; height: 40px;">
-                        {{percentage}}
-                    </div>
+            <div class='col-md-8'>
+              <div class="progress" style="height: 40px; width: 100%; vertical-align: middle">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                    aria-valuemin="0" aria-valuemax="100" style="width:{{percentage}}; background-color: #4A90E2;">
+                    {{percentage}}
                 </div>
+              </div>
+            </div>
+
+            <div class='col-md-1' id='creds'>
                 {{total_credits}}/120
             </div>
+
         </div>
         <div class='row core-courses-row'>
-            <!-- <div class='col-sm-4'> -->
-            <div class='column col1'>
-                <p id="title">Core Courses</p>
-            </div>
+          <div class='col-md-3'>
+              <p id="title">Core Courses</p>
+          </div>
 
-            <!-- <div class='col-sm-8'> -->
-            <div class='column col2'>
-                <div class="square" id="sq1">STATS 250</div>
-                <div class="square" id="sq2">EECS 281</div>
-                <div class="square" id="sq3">EECS 370</div>
-                <div class="square" id="sq4">EECS 376</div>
-            </div>
+          <div class='column col-md-9'>
+              <div class="square" id="sq1">STATS 250</div>
+              <div class="square" id="sq2">EECS 281</div>
+              <div class="square" id="sq3">EECS 370</div>
+              <div class="square" id="sq4">EECS 376</div>
+          </div>
         </div>
         <div class='row ulcs-row'>
-            <!-- <div class='col-sm-4'> -->
-            <div class='column col1'>
-                 <p id="title">Upper Level CS</p>
-            </div>
+          <div class='col-md-3'>
+            <p id="title">Upper Level CS</p>
+          </div>
 
-            <!-- <div class='col-sm-8'> -->
-            <div class='column col2'>
-                <div class="square">{{ulcs1}}</div>
-                <div class="square">{{ulcs2}}</div>
-                <div class="square">{{ulcs3}}</div>
-                <div class="square">{{ulcs4}}</div>
-                <div class="square">{{capstone}}</div>
-            </div>
+          <div class='column col-md-9'>
+              <div class="square" id="ulcs1">{{ulcs1}}</div>
+              <div class="square" id="ulcs2">{{ulcs2}}</div>
+              <div class="square" id="ulcs3">{{ulcs3}}</div>
+              <div class="square" id="ulcs4">{{ulcs4}}</div>
+              <div class="square" id="capstn">{{capstone}}</div>
+          </div>
         </div>
     </div>
 </body>
