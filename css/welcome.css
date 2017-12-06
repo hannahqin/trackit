@@ -83,6 +83,7 @@ body {
         background-color: #D8D8D8;
         border: none;
         border-right: 1px solid #C7C7C7;
+        border-radius: 3px;
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         font-weight: 400;
@@ -118,8 +119,7 @@ body {
         position: absolute;
         right: -35px;
         top: 5px;
-        width: 25px;
-        opacity: .7;
+        width: 23px;
     }
 
     .help-text {
