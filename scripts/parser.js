@@ -163,9 +163,9 @@ function getDictFormArea(area_distribution) {
         }
         if (area_distribution[i].indexOf("3 Additional Credits in Humanities") >= 0) {
             k = 3;
-        } else if (area_distribution[i].indexOf("3 Additional Credits in Social Sciences") >= 0) {
-            k = 4;
         } else if (area_distribution[i].indexOf("3 Additional Credits in Natural Sciences") >= 0) {
+            k = 4;
+        } else if (area_distribution[i].indexOf("3 Additional Credits in Social Sciences") >= 0) {
             k = 5;
         } else if (area_distribution[i].indexOf("3 Credits in Mathematical and Symbolic Analysis") >= 0) {
             k = 6;

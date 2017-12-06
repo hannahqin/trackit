@@ -13,6 +13,10 @@ app.controller('details',[ '$scope', function($scope) {
     console.log("Area Distribution:", $scope.area_distribution);
     console.log("CS Reqs:", $scope.cs_reqs);
 
+
+
+    // ---- COLLEGE WIDE DISTRIBUTION ---- //
+
     if ($scope.college_wide_reqs["FYWR"].length > 0) {
     	$scope.FYWR = $scope.college_wide_reqs["FYWR"][0]["course"];
     }
@@ -32,6 +36,10 @@ app.controller('details',[ '$scope', function($scope) {
     if ($scope.college_wide_reqs["LANG"].length > 0) {
     	$scope.LANG = $scope.college_wide_reqs["LANG"][0]["course"];
     }
+
+
+
+    // ---- AREA DISTRIBUTION ---- //
 
     if ($scope.area_distribution["7HU"].length > 0) {
         var allHU = [];
@@ -65,6 +73,12 @@ app.controller('details',[ '$scope', function($scope) {
         $scope.SS = allSS.join(", ");
         $scope.SS_creds = creditsSS;
     }
+
+    
+
+
+
+    // ---- COMPUTER SCIENCE ---- //
 
     if ($scope.cs_reqs["ul"].length > 0) {
         var allULCS = [];
