@@ -5,6 +5,8 @@ $(document).ready(function() {
 
     $('#cancel-add-course-btn').click(resetReqInputsOnModal);
     $('#approve-add-course-btn').click(resetReqInputsOnModal);
+    $('#cancel-add-sem-btn').click();
+    $('#approve-add-sem-btn').click(addSemester);
 });
 
 function resetReqInputsOnModal() {
@@ -13,17 +15,61 @@ function resetReqInputsOnModal() {
     $('#add-course-modal .reqs-section').append('<span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>');
 }
 
+function addSemester() {
+    $('.header-row').append('<th class="col-md-3">' + $('#add-sem-text').val() + '</th>');
+}
+
+
+
 var app = angular.module('trackit', []);
 app.controller('planner',[ '$scope', function($scope) {
     $scope.name = window.localStorage.getItem("fullname");
-    $scope.collegeWideReqs = window.localStorage.getItem("college_wide_reqs");
-    $scope.areaDistribution = window.localStorage.getItem("area_distribution");
-    $scope.csReqs = window.localStorage.getItem("cs_reqs");
+    $scope.collegeWideReqs =JSON.parse(window.localStorage.getItem("college_wide_reqs"));
+    $scope.areaDistribution = JSON.parse(window.localStorage.getItem("area_distribution"));
+    $scope.csReqs = JSON.parse(window.localStorage.getItem("cs_reqs"));
 
     console.log(JSON.stringify($scope.name));
     console.log($scope.collegeWideReqs);
     console.log($scope.areaDistribution);
     console.log($scope.csReqs);
+
+    var dict = {};
+    for (var key in $scope.collegeWideReqs){
+        for (var i in $scope.collegeWideReqs[key]) {
+            var sem = $scope.collegeWideReqs[key][i].sem;
+            if (dict[sem] === undefined) {
+                dict[sem] = {};
+            }
+            if (dict[sem][$scope.collegeWideReqs[key][i].course] === undefined) {
+                dict[sem][$scope.collegeWideReqs[key][i].course] = $scope.collegeWideReqs[key][i];
+            }
+        }
+    }
+    for (var key in $scope.areaDistribution){
+        for (var i in $scope.areaDistribution[key]) {
+            var sem = $scope.areaDistribution[key][i].sem;
+            if (dict[sem] === undefined) {
+                dict[sem] = {};
+            }
+            if (dict[sem][$scope.areaDistribution[key][i].course] === undefined) {
+                dict[sem][$scope.areaDistribution[key][i].course] = $scope.areaDistribution[key][i];
+            }
+        }
+    }
+    for (var key in $scope.csReqs){
+        for (var i in $scope.csReqs[key]) {
+            var sem = $scope.csReqs[key][i].sem;
+            if (dict[sem] === undefined) {
+                dict[sem] = {};
+            }
+            if (dict[sem][$scope.csReqs[key][i].course] === undefined) {
+                dict[sem][$scope.csReqs[key][i].course] = $scope.csReqs[key][i];
+            }
+        }
+    }
+
+    console.log(dict);
+
 
     // if ($scope.college_wide_reqs["FYWR"].length < 1) {
     //     $scope.FYWR = "";
