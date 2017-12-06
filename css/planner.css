@@ -4,7 +4,7 @@
     background-color: #f0f0f0;
 }
 
-button, button:active, button:focus {
+#body button, #body button:active, #body button:focus {
     outline: none;
 }
 
@@ -80,13 +80,13 @@ button, button:active, button:focus {
 
     .calendar-header .add-btn {
         border: none;
-        background-color: #e0e0e0;
+        background-color: #e8e8e8;
         margin: 5px;
         padding: 4px 18px;
     }
 
     .calendar-header .add-btn:hover {
-        background-color: #c6c6c6;
+        background-color: #dfdfdf;
     }
 
 
@@ -247,26 +247,27 @@ button, button:active, button:focus {
     text-align: center;
 }
 
-    @media screen and (min-width: 768px) { 
-        .modal:before {
-            display: inline-block;
-            vertical-align: middle;
-            content: " ";
-            height: 100%;
-        }
-    }
-
-    .modal .modal-dialog {
+@media screen and (min-width: 768px) { 
+    .modal:before {
         display: inline-block;
-        text-align: left;
         vertical-align: middle;
-        width: 40%;
+        content: " ";
+        height: 100%;
     }
+}
 
-    .modal-dialog .modal-content {
-        border-radius: 4px;
-        border: none;
-    }
+.modal .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 35%;
+}
+
+.modal-dialog .modal-content {
+    padding: 8px 22px;
+    border-radius: 4px;
+    border: none;
+}
 
     .modal .modal-content input {
         border: none;
@@ -275,7 +276,7 @@ button, button:active, button:focus {
     }
 
 
-    .modal .course-name-input {
+    .modal .main-input {
         width: 100%;
         font-size: 22px;
         line-height: 1.8;
@@ -314,16 +315,52 @@ button, button:active, button:focus {
             margin-top: 10px;
         }
 
-    .modal .num-credits-section, .modal .reqs-section {
+    .modal .num-credits-section,
+    .modal .reqs-section {
         display: inline-block;
         margin-right: 20px;
+        margin-bottom: 5px;
         padding-bottom: 5px;
         font-size: 18px;
         vertical-align: bottom;
     }
 
+    .reqs-section .req-input {
+        margin-right: 5px;
+    }
+
+        .reqs-section .glyphicon {
+            color: gray;
+        }
+
+        .reqs-section .glyphicon:hover {
+            cursor: pointer;
+        }
+
     .modal .reqs-row {
         margin-top: 20px;
+    }
+
+.modal-footer {
+    padding: 5px 10px 10px;
+    border: none;
+}
+
+    .modal-footer .btn-cancel {
+        background-color: #e8e8e8;
+    }
+
+    .modal-footer .btn-cancel:hover {
+        background-color: #dfdfdf;
+    }
+
+    .modal-footer .btn-add {
+        background-color: #4A90E2;
+        color: white;
+    }
+
+    .modal-footer .btn-add:hover {
+        background-color: #397dce;
     }
 
 
