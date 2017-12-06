@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 });
 
-var app = angular.module('trackit', [])
+var app = angular.module('trackit', []);
 
 app.controller('overview',[ '$scope', function($scope) {
     $scope.name = window.localStorage.getItem("fullname");

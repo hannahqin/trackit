@@ -12,8 +12,11 @@
 
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/details.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="scripts/details.js"></script>
 </head>
-<body id="body">
+<body id="body" ng-app = "trackit" ng-controller="details">
     <nav class="nav-bar">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -39,29 +42,29 @@
             <table class="table table-hover borderless">
                 <tbody>
                     <tr>
-                        <td class="col-md-1">✔</td>
+                        <td class="col-md-1">{{FYWR === null ? "✔" : "✗"}}</td>
                         <td class="col-md-5 medium">First-Year Writing</td>
-                        <td>ENG 125</td>
+                        <td>{{FYWR}}</td>
                     </tr>
                     <tr>
-                        <td>✔</td>
+                        <td>{{ULWR != "" ? "✔" : "✗"}}</td>
                         <td class="medium">Upper-Level Writing</td>
-                        <td>SAC 333</td>
+                        <td>{{ULWR}}</td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td>{{QR != "" ? "✔" : "✗"}}</td>
                         <td class="medium">Quantitative Reasoning</td>
-                        <td></td>
+                        <td>{{QR}}</td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td>{{RE != "" ? "✔" : "✗"}}</td>
                         <td class="medium">Race and Ethnicity</td>
-                        <td></td>
+                        <td>{{RE}}</td>
                     </tr>
                     <tr>
-                        <td>✔</td>
+                        <td>{{language != "" ? "✔" : "✗"}}</td>
                         <td class="medium">Language</td>
-                        <td>French 101, French 102, French 231, French 232</td>
+                        <td>{{lanauge}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -73,6 +76,7 @@
             </div>
             <table class="table table-hover">
                 <thead>
+                    <th class="col-md-1"></th>
                     <th class="col-md-2">Requirement</th>
                     <th class="col-md-2">Total Credits</th>
                     <th class="col-md-2"># Credits Completed</th>
@@ -81,25 +85,52 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{NS_creds != 7 ? "✔" : "✗"}}</td>
                         <td>NS</td>
                         <td>7</td>
-                        <td>0</td>
-                        <td>7</td>
-                        <td></td>
+                        <td>{{NS_creds}}</td>
+                        <td>{{7-NS_creds}}</td>
+                        <td>{{NS}}</td>
                     </tr>
                     <tr>
+                        <td>{{HU_creds != 7 ? "✔" : "✗"}}</td>
                         <td>HU</td>
                         <td>7</td>
-                        <td>4</td>
-                        <td>3</td>
-                        <td>idk</td>
+                        <td>{{HU_creds}}</td>
+                        <td>{{7-HU_creds}}</td>
+                        <td>{{HU}}</td>
                     </tr>
                     <tr>
+                        <td>{{SS_creds != 7 ? "✔" : "✗"}}</td>
                         <td>SS</td>
                         <td>7</td>
-                        <td>7</td>
-                        <td>0</td>
-                        <td>PSYCH 111, PSYCH 112</td>
+                        <td>{{SS_creds}}</td>
+                        <td>{{7-SS_creds}}</td>
+                        <td>{{SS}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{addtnl1_creds != 7 ? "✔" : "✗"}}</td>
+                        <td>Addtnl</td>
+                        <td>3</td>
+                        <td>{{addtnl1_creds}}</td>
+                        <td>{{3-addtnl1_creds}}</td>
+                        <td>{{addtnl1}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{addtnl2_creds != 7 ? "✔" : "✗"}}</td>
+                        <td>Addtnl</td>
+                        <td>3</td>
+                        <td>{{addtnl2_creds}}</td>
+                        <td>{{3-addtnl2_creds}}</td>
+                        <td>{{addtnl2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{addtnl3_creds != 7 ? "✔" : "✗"}}</td>
+                        <td>Addtnl</td>
+                        <td>3</td>
+                        <td>{{addtnl3_creds}}</td>
+                        <td>{{3-addtnl3_creds}}</td>
+                        <td>{{addtnl3}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -110,6 +141,7 @@
             </div>
             <table class="table table-hover">
                 <thead class="thead-dark">
+                    <th class="col-md-1"></th>
                     <th class="col-md-2">Requirement</th>
                     <th class="col-md-2">Total Credits</th>
                     <th class="col-md-2"># Credits Completed</th>
@@ -118,18 +150,20 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{ULCS_creds != 7 ? "✔" : "✗"}}</td>
                         <td>ULCS</td>
                         <td>16</td>
-                        <td>8</td>
-                        <td>8</td>
-                        <td>EECS 485, EECS 388</td>
+                        <td>{{ULCS_creds}}</td>
+                        <td>{{8-ULCS_creds}}</td>
+                        <td>{{ULCS}}</td>
                     </tr>
                     <tr>
+                        <td>{{capstone != "" ? "✔" : "✗"}}</td>
                         <td>Senior Capstone</td>
                         <td>4</td>
-                        <td>4</td>
-                        <td>0</td>
-                        <td></td>
+                        <td>{{capstone != "" ? "4" : "0"}}</td>
+                        <td>{{capstone != "" ? "0" : "4"}}</td>
+                        <td>{{capstone}}</td>
                     </tr>
                 </tbody>
             </table>
