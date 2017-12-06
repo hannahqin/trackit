@@ -36,5 +36,4 @@ app.controller('details',[ '$scope', function($scope) {
     $scope.ULCS;
     $scope.capstone;
 
-
 }]);

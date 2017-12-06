@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- jquery -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  <!-- angular -->
 
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/details.css">
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="scripts/details.js"></script>
 </head>
@@ -29,7 +30,7 @@
         </ul>
       </div>
     </nav>
-    <div class="main-content">
+    <div class="main-content" ng-controller="progressDetails">
         <div class="page-header">
             <h2 class="medium">Your Graduation Progress Details</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non volutpat nulla. Sed ut dapibus risus, at varius neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. You can view more information about LSA Degree Requirements at <a href="https://admissions.umich.edu/summary-lsa-degree-requirements">https://admissions.umich.edu/summary-lsa-degree-requirements</a>.</p>
