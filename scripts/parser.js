@@ -149,28 +149,35 @@ function getDictFormCollege(college_wide_reqs) {
 function getDictFormArea(area_distribution) {
     // Initialize dict
     var dict = {};
-    // var category = ["HU", "NS", "SS", "3HU"];
-    // var k = 0;
-    // for (i = 0; i < category.length; ++i) {
-    //     dict[category[i]] = [];
-    // }
+    var category = ["7HU", "7NS", "7SS", "3HU", "3NS", "3SS", "3MATH", "3ID", "3CE"];
+    var k = 0;
+    for (i = 0; i < category.length; ++i) {
+        dict[category[i]] = [];
+    }
 
-    // // Add class information to all category dicts
-    // for (k = 0, i = 0; i < area_distribution.length; ++i) {
-    //     if (area_distribution[i].indexOf("7 Credits in Natural Sciences") >= 0 ||
-    //         area_distribution[i].indexOf("7 Credits in Social Sciences") >= 0 ||
-    //         area_distribution[i].indexOf("3 Additional Credits in Humanities") >= 0 ||
-    //         area_distribution[i].indexOf("3 Additional Credits in Social Sciences") >= 0 ||
-    //         area_distribution[i].indexOf("3 Additional Credits in Natural Sciences") >= 0 ||
-    //         area_distribution[i].indexOf("3 Credits in Mathematical and Symbolic Analysis") >= 0 ||
-    //         area_distribution[i].indexOf("3 Credits in Interdisciplinary") >= 0 ||
-    //         area_distribution[i].indexOf("3 Additional Creative Expression") >= 0) {
-    //         k += 1;
-    //     }
-    //     if (isClass(area_distribution, i)) {
-    //         dict[category[k]].push(getClassDict(area_distribution, i));
-    //     }
-    // }
+    // Add class information to all category dicts
+    for (k = 0, i = 0; i < area_distribution.length; ++i) {
+        if (area_distribution[i].indexOf("7 Credits in Natural Sciences") >= 0 ||
+            area_distribution[i].indexOf("7 Credits in Social Sciences") >= 0) {
+            k += 1;
+        }
+        if (area_distribution[i].indexOf("3 Additional Credits in Humanities") >= 0) {
+            k = 3;
+        } else if (area_distribution[i].indexOf("3 Additional Credits in Social Sciences") >= 0) {
+            k = 4;
+        } else if (area_distribution[i].indexOf("3 Additional Credits in Natural Sciences") >= 0) {
+            k = 5;
+        } else if (area_distribution[i].indexOf("3 Credits in Mathematical and Symbolic Analysis") >= 0) {
+            k = 6;
+        } else if (area_distribution[i].indexOf("3 Credits in Interdisciplinary") >= 0) {
+            k = 7;
+        } else if (area_distribution[i].indexOf("3 Additional Creative Expression") >= 0) {
+            k = 8;
+        }
+        if (isClass(area_distribution, i)) {
+            dict[category[k]].push(getClassDict(area_distribution, i));
+        }
+    }
 
     return dict;
 }
