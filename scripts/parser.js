@@ -53,7 +53,7 @@ $(document).ready(function() {
                     cs_reqs = split.slice(indices[6], indices[7]).map(s => s.trim());
 
                     // Save requirements to local storage
-                    window.localStorage.setItem("fullname", split[2])
+                    window.localStorage.setItem("fullname", split[2].trim());
                     window.localStorage.setItem("lsa_reqs", lsa_reqs);
                     window.localStorage.setItem("college_wide_reqs", college_wide_reqs);
                     window.localStorage.setItem("area_distribution", area_distribution);
