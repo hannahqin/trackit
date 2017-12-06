@@ -2,18 +2,18 @@ $(document).ready(function() {
 
     // Retrieve checklist info
     var fullname = window.localStorage.getItem("fullname");
-    var lsa_reqs = window.localStorage.getItem("lsa_reqs").split(",");
-    var college_wide_reqs = window.localStorage.getItem("college_wide_reqs").split(",");
-    var area_distribution = window.localStorage.getItem("area_distribution").split(",");
-    var cs_reqs = window.localStorage.getItem("cs_reqs").split(",");
+    var totalcredits = window.localStorage.getItem("totalcredits");
+    var college_wide_reqs = JSON.parse(window.localStorage.getItem("college_wide_reqs"));
+    var area_distribution = JSON.parse(window.localStorage.getItem("area_distribution"));
+    var cs_reqs = JSON.parse(window.localStorage.getItem("cs_reqs"));
 
     console.log("Full name:", fullname);
-    console.log("LSA Reqs:", lsa_reqs);
+    console.log("Total credits:", totalcredits);
     console.log("College-wide Reqs:", college_wide_reqs);
     console.log("Area Distribution:", area_distribution);
     console.log("CS Reqs:", cs_reqs);
 
-    $("#total-credits").text(lsa_reqs[2]);
+    $("#total-credits").text(totalcredits);
 
 });
 
