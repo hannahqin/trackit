@@ -23,7 +23,7 @@ app.controller('overview',[ '$scope', function($scope) {
     $scope.data = window.localStorage.getItem("lsa_reqs").split(",");
     $scope.total_credits = parseInt(window.localStorage.getItem("totalcredits"));
     if (($scope.total_credits / 120) > 1) {
-        $scope.percentage = "100%"
+        $scope.percentage = "100%";
     } else {
         $scope.percentage = (($scope.total_credits / 120) * 100).toFixed(2).toString() + "%";
     }
@@ -114,7 +114,7 @@ app.controller('overview',[ '$scope', function($scope) {
     }
 
     if(cs_reqs["capstone"].length + uppers == 5) {
-        $('#ulcsComplete')[0].show();
+        $('#ulcsComplete').show();
     }
 
     $scope.capstone = capstone;

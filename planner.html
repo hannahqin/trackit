@@ -7,19 +7,16 @@
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- Material Design Lite Links -->
-        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
-        <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"> -->
-        <!-- <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
 
         <link rel="stylesheet" type="text/css" href="css/nav.css">
         <link rel="stylesheet" type="text/css" href="css/planner.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="scripts/planner.js"></script>
 </head>
-<body id="body">
+<body ng-app="trackit" id="body">
     <nav class="nav-bar">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -32,23 +29,24 @@
             </ul>
         </div>
     </nav>
-    <div class="main-content row">
+    <div ng-controller="planner" class="main-content row">
         <div class="col col-md-3">
-            <div class="box CS-reqs">
-                <h4>Incomplete CS Requirements</h4>
+            <div class="box gen-reqs">
+                <h4>Incomplete Common LSA Requirements</h4>
                 <div class="box-body">
                     <table class="table table-hover">
                         <thead>
-                            <tr> <th>Requirement</th><th># Credits</th> </tr>
+                            <tr> <th>Requirement</th> <th></th> </tr>
                         </thead>
                         <tbody>
-                            <tr> <td>EECS 376</td><td>4</td> </tr>
+                            <tr> <td>Upper-Level Writing</td> <td class="text-right">ULWR</td> </tr>
+                            <tr> <td>Race and Ethnicity</td> <td class="text-right">RE</td> </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div><!-- .box.gen-reqs -->
             <div class="box gen-reqs">
-                <h4>Incomplete General Distribution Requirements</h4>
+                <h4>Incomplete Area Distribution Requirements</h4>
                 <div class="box-body">
                     <table class="table table-hover">
                         <thead>
@@ -61,6 +59,19 @@
                     </table>
                 </div>
             </div><!-- .box.gen-reqs -->
+            <div class="box CS-reqs">
+                <h4>Incomplete Major Requirements</h4>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr> <th>Requirement</th><th># Credits</th> </tr>
+                        </thead>
+                        <tbody>
+                            <tr> <td>EECS 376</td><td>4</td> </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- .box.CS-reqs -->
         </div><!-- .col.col-md-3 -->
         <div class="col col-md-9">
             <div class="box schedule-planner">
