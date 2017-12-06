@@ -16,8 +16,15 @@ $(document).ready(function() {
     $("#total-credits").text(totalcredits);
 });
 
+<<<<<<< HEAD
 var app = angular.module('trackit', []);
 
+=======
+});
+
+var app = angular.module('trackit', []);
+
+>>>>>>> 99b9974f22e93c43617265375d61919883aa7156
 app.controller('overview',[ '$scope', function($scope) {
     var firstname = window.localStorage.getItem("fullname");
     firstname = firstname.substr(0, firstname.indexOf(' '));
@@ -81,7 +88,11 @@ app.controller('overview',[ '$scope', function($scope) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }]);
+=======
+}]);
+>>>>>>> 99b9974f22e93c43617265375d61919883aa7156
 =======
 }]);
 >>>>>>> 99b9974f22e93c43617265375d61919883aa7156
