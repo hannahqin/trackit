@@ -135,7 +135,8 @@ function getDictFormCollege(college_wide_reqs) {
         if (college_wide_reqs[i].indexOf("Upper Level Writing Requirement - one course required - C- or") >= 0 ||
             college_wide_reqs[i].indexOf("Race and Ethnicity Requirement - one course required") >= 0 ||
             college_wide_reqs[i].indexOf("Quantitative Reasoning Requirement - 1 QR1 or 2 QR2 courses") >= 0 ||
-            college_wide_reqs[i].indexOf("Language Requirement - one 4th term course required - C- or") >= 0) {
+            college_wide_reqs[i].indexOf("Language Requirement - one 4th term course required - C- or") >= 0 ||
+            college_wide_reqs[i].indexOf("One presumption of proficiency course in a language other than") >= 0) {
                 k += 1;
         }
         if (isClass(college_wide_reqs, i)) {
@@ -219,7 +220,7 @@ function getClassDict(reqArray, index) {
     classInfo['course'] = reqArray[index+1] + " " + reqArray[index+2];
     classInfo['desc'] = reqArray[index+3];
     // Avoid edge case where the desc takes up two indices
-    if (isNaN(reqArray[index+4])) {
+    while (isNaN(reqArray[index+4])) {
         index +=1;
     }
     classInfo['credits'] = reqArray[index+4];
