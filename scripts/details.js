@@ -46,7 +46,7 @@ app.controller('details',[ '$scope', function($scope) {
         var creditsHU = 0;
         for (i = 0; i < $scope.area_distribution["7HU"].length; ++i) {
             allHU.push($scope.area_distribution["7HU"][i]["course"]);
-            creditsHU += parseInt($scope.area_distribution["7HU"][i]["credits"]);
+            creditsHU += parseFloat($scope.area_distribution["7HU"][i]["credits"]);
         }
         $scope.HU = allHU.join(", ");
         $scope.HU_creds = creditsHU;
@@ -57,7 +57,7 @@ app.controller('details',[ '$scope', function($scope) {
         var creditsNS = 0;
         for (i = 0; i < $scope.area_distribution["7NS"].length; ++i) {
             allNS.push($scope.area_distribution["7NS"][i]["course"]);
-            creditsNS += parseInt($scope.area_distribution["7NS"][i]["credits"]);
+            creditsNS += parseFloat($scope.area_distribution["7NS"][i]["credits"]);
         }
         $scope.NS = allNS.join(", ");
         $scope.NS_creds = creditsNS;
@@ -68,7 +68,7 @@ app.controller('details',[ '$scope', function($scope) {
         var creditsSS = 0;
         for (i = 0; i < $scope.area_distribution["7SS"].length; ++i) {
             allSS.push($scope.area_distribution["7SS"][i]["course"]);
-            creditsSS += parseInt($scope.area_distribution["7SS"][i]["credits"]);
+            creditsSS += parseFloat($scope.area_distribution["7SS"][i]["credits"]);
         }
         $scope.SS = allSS.join(", ");
         $scope.SS_creds = creditsSS;
@@ -96,7 +96,7 @@ app.controller('details',[ '$scope', function($scope) {
         var creditsULCS = 0;
         for (i = 0; i < $scope.cs_reqs["ul"].length; ++i) {
             allULCS.push($scope.cs_reqs["ul"][i]["course"]);
-            creditsULCS += parseInt($scope.cs_reqs["ul"][i]["credits"]);
+            creditsULCS += parseFloat($scope.cs_reqs["ul"][i]["credits"]);
         }
         $scope.ULCS = allULCS.join(", ");
         $scope.ULCS_creds = creditsULCS;
