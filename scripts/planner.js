@@ -27,6 +27,7 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.areaDist = JSON.parse(window.localStorage.getItem("area_distribution"));
     $scope.csReqs = JSON.parse(window.localStorage.getItem("cs_reqs"));
 
+    console.log(JSON.stringify($scope.name));
     console.log($scope.collegeWideReqs);
     console.log($scope.areaDist);
     console.log($scope.csReqs);
@@ -66,27 +67,18 @@ app.controller('planner',[ '$scope', function($scope) {
 
     $scope.incompleteAreaDistReqs = [];
 
-    var huCredits = 0;
-    var nsCredits = 0;
-    var ssCredits = 0;
+    var huCreditsLeft = 7;
+    var nsCreditsLeft = 7;
+    var ssCreditsLeft = 7;
 
     // 7 Humanities
-    if ($scope.areaDist["7HU"].length) {
-        for (course in $scope.areaDist["7HU"]) {
-            huCredits += course.credits;
-        }
-    }
-
-
-
-    // 7 Humanities
-    if ($scope.areaDist["7HU"].length) {
+    if (! $scope.areaDist["7HU"].length == 0) {
         for (course in $scope.areaDist["7HU"]) {
             huCreditsLeft -= course.credits;
         }
     }
     // 7 Social Science
-    if ($scope.areaDist["7SS"].length) {
+    if (! $scope.areaDist["7SS"].length == 0) {
         for (course in $scope.areaDist["7SS"]) {
             ssCreditsLeft -= course.credits;
         }
