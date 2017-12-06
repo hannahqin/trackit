@@ -15,6 +15,20 @@ $(document).ready(function() {
 
     $("#total-credits").text(lsa_reqs[2]);
 
-    
-
 });
+
+var app = angular.module('trackit', [])
+
+app.controller('overview',[ '$scope', function($scope) {
+    $scope.name = window.localStorage.getItem("fullname");
+    $scope.data = window.localStorage.getItem("lsa_reqs").split(",");
+    $scope.total_credits = parseInt($scope.data[2]);
+    if (($scope.total_credits / 120) > 1) {
+        $scope.percentage = "100%"
+    } else {
+        $scope.percentage = (($scope.total_credits / 120) * 100).toFixed(2).toString() + "%";
+    }
+
+
+
+}]);
