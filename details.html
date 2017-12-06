@@ -42,12 +42,12 @@
             <table class="table table-hover borderless">
                 <tbody>
                     <tr>
-                        <td class="col-md-1">{{FYWR != "" ? "✔" : "✗"}}</td>
+                        <td class="col-md-1">{{FYWR != null ? "✔" : "✗"}}</td>
                         <td class="col-md-5 medium">First-Year Writing</td>
                         <td>{{FYWR}}</td>
                     </tr>
                     <tr>
-                        <td>{{ULWR != "" ? "✔" : "✗"}}</td>
+                        <td>{{ULWR != null ? "✔" : "✗"}}</td>
                         <td class="medium">Upper-Level Writing</td>
                         <td>{{ULWR}}</td>
                     </tr>
@@ -57,12 +57,12 @@
                         <td>{{QR}}</td>
                     </tr>
                     <tr>
-                        <td>{{RE != "" ? "✔" : "✗"}}</td>
+                        <td>{{RE != null ? "✔" : "✗"}}</td>
                         <td class="medium">Race and Ethnicity</td>
                         <td>{{RE}}</td>
                     </tr>
                     <tr>
-                        <td>{{LANG != "" ? "✔" : "✗"}}</td>
+                        <td>{{LANG != null ? "✔" : "✗"}}</td>
                         <td class="medium">Language</td>
                         <td>{{LANG}}</td>
                     </tr>
@@ -85,20 +85,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{NS_creds != 7 ? "✔" : "✗"}}</td>
-                        <td>NS</td>
-                        <td>7</td>
-                        <td>{{NS_creds}}</td>
-                        <td>{{7-NS_creds}}</td>
-                        <td>{{NS}}</td>
-                    </tr>
-                    <tr>
                         <td>{{HU_creds != 7 ? "✔" : "✗"}}</td>
                         <td>HU</td>
                         <td>7</td>
                         <td>{{HU_creds}}</td>
                         <td>{{7-HU_creds}}</td>
                         <td>{{HU}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{NS_creds != 7 ? "✔" : "✗"}}</td>
+                        <td>NS</td>
+                        <td>7</td>
+                        <td>{{NS_creds}}</td>
+                        <td>{{7-NS_creds}}</td>
+                        <td>{{NS}}</td>
                     </tr>
                     <tr>
                         <td>{{SS_creds != 7 ? "✔" : "✗"}}</td>
@@ -150,19 +150,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ULCS_creds != 7 ? "✔" : "✗"}}</td>
+                        <td>{{ULCS_creds == 16 ? "✔" : "✗"}}</td>
                         <td>ULCS</td>
                         <td>16</td>
                         <td>{{ULCS_creds}}</td>
-                        <td>{{8-ULCS_creds}}</td>
+                        <td>{{16-ULCS_creds}}</td>
                         <td>{{ULCS}}</td>
                     </tr>
                     <tr>
-                        <td>{{capstone != "" ? "✔" : "✗"}}</td>
+                        <td>{{capstone != null ? "✔" : "✗"}}</td>
                         <td>Senior Capstone</td>
                         <td>4</td>
-                        <td>{{capstone != "" ? "4" : "0"}}</td>
-                        <td>{{capstone != "" ? "0" : "4"}}</td>
+                        <td>{{capstone != null ? "4" : "0"}}</td>
+                        <td>{{capstone != null ? "0" : "4"}}</td>
                         <td>{{capstone}}</td>
                     </tr>
                 </tbody>
