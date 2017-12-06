@@ -76,17 +76,124 @@ app.controller('details',[ '$scope', function($scope) {
 
     var addtnl = 0;
     if ($scope.area_distribution["3HU"].length > 0) {
-
+        var allHU = [];
+        var creditsHU = 0;
+        for (i = 0; i < $scope.area_distribution["3HU"].length; ++i) {
+            allHU.push($scope.area_distribution["3HU"][i]["course"]);
+            creditsHU += parseFloat($scope.area_distribution["3HU"][i]["credits"]);
+        }
+        if (addtnl == 0) {
+            $scope.addtnl1 = allHU.join(", ");
+            $scope.addtnl1_creds = creditsHU;
+        } else if (addtnl == 1) {
+            $scope.addtnl2 = allHU.join(", ");
+            $scope.addtnl2_creds = creditsHU;
+        } else {
+            $scope.addtnl3 = allHU.join(", ");
+            $scope.addtnl3_creds = creditsHU;
+        }
+        addtnl += 1;
     }
 
     if ($scope.area_distribution["3NS"].length > 0) {
-        
+        var allNS = [];
+        var creditsNS = 0;
+        for (i = 0; i < $scope.area_distribution["3NS"].length; ++i) {
+            allNS.push($scope.area_distribution["3NS"][i]["course"]);
+            creditsNS += parseFloat($scope.area_distribution["3NS"][i]["credits"]);
+        }
+        if (addtnl == 0) {
+            $scope.addtnl1 = allNS.join(", ");
+            $scope.addtnl1_creds = creditsNS;
+        } else if (addtnl == 1) {
+            $scope.addtnl2 = allNS.join(", ");
+            $scope.addtnl2_creds = creditsNS;
+        } else {
+            $scope.addtnl3 = allNS.join(", ");
+            $scope.addtnl3_creds = creditsNS;
+        }
+        addtnl += 1;
     }
 
-    if ($scope.area_distribution["3NS"].length > 0) {
-        
+    if ($scope.area_distribution["3SS"].length > 0) {
+        var allSS = [];
+        var creditsSS = 0;
+        for (i = 0; i < $scope.area_distribution["3SS"].length; ++i) {
+            allSS.push($scope.area_distribution["3SS"][i]["course"]);
+            creditsSS += parseFloat($scope.area_distribution["3SS"][i]["credits"]);
+        }
+        if (addtnl == 0) {
+            $scope.addtnl1 = allSS.join(", ");
+            $scope.addtnl1_creds = creditsSS;
+        } else if (addtnl == 1) {
+            $scope.addtnl2 = allSS.join(", ");
+            $scope.addtnl2_creds = creditsSS;
+        } else {
+            $scope.addtnl3 = allSS.join(", ");
+            $scope.addtnl3_creds = creditsSS;
+        }
+        addtnl += 1;
     }
 
+    if ($scope.area_distribution["3ID"].length > 0) {
+        var allID = [];
+        var creditsID = 0;
+        for (i = 0; i < $scope.area_distribution["3ID"].length; ++i) {
+            allID.push($scope.area_distribution["3ID"][i]["course"]);
+            creditsID += parseFloat($scope.area_distribution["3ID"][i]["credits"]);
+        }
+        if (addtnl == 0) {
+            $scope.addtnl1 = allID.join(", ");
+            $scope.addtnl1_creds = creditsID;
+        } else if (addtnl == 1) {
+            $scope.addtnl2 = allID.join(", ");
+            $scope.addtnl2_creds = creditsID;
+        } else {
+            $scope.addtnl3 = allID.join(", ");
+            $scope.addtnl3_creds = creditsID;
+        }
+        addtnl += 1;
+    }
+
+    if ($scope.area_distribution["3CE"].length > 0) {
+        var allCE = [];
+        var creditsCE = 0;
+        for (i = 0; i < $scope.area_distribution["3CE"].length; ++i) {
+            allCE.push($scope.area_distribution["3CE"][i]["course"]);
+            creditsCE += parseFloat($scope.area_distribution["3CE"][i]["credits"]);
+        }
+        if (addtnl == 0) {
+            $scope.addtnl1 = allCE.join(", ");
+            $scope.addtnl1_creds = creditsCE;
+        } else if (addtnl == 1) {
+            $scope.addtnl2 = allCE.join(", ");
+            $scope.addtnl2_creds = creditsCE;
+        } else {
+            $scope.addtnl3 = allCE.join(", ");
+            $scope.addtnl3_creds = creditsCE;
+        }
+        addtnl += 1;
+    }
+
+    if ($scope.area_distribution["3MATH"].length > 0) {
+        var allMATH = [];
+        var creditsMATH = 0;
+        for (i = 0; i < $scope.area_distribution["3MATH"].length; ++i) {
+            allMATH.push($scope.area_distribution["3MATH"][i]["course"]);
+            creditsMATH += parseFloat($scope.area_distribution["3MATH"][i]["credits"]);
+        }
+        if (addtnl == 0) {
+            $scope.addtnl1 = allMATH.join(", ");
+            $scope.addtnl1_creds = creditsMATH;
+        } else if (addtnl == 1) {
+            $scope.addtnl2 = allMATH.join(", ");
+            $scope.addtnl2_creds = creditsMATH;
+        } else {
+            $scope.addtnl3 = allMATH.join(", ");
+            $scope.addtnl3_creds = creditsMATH;
+        }
+        addtnl += 1;
+    }
 
 
     // ---- COMPUTER SCIENCE ---- //
