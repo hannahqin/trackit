@@ -21,7 +21,7 @@ app.controller('overview',[ '$scope', function($scope) {
     firstname = firstname.substr(0, firstname.indexOf(' '));
     $scope.name = firstname;
     $scope.data = window.localStorage.getItem("lsa_reqs").split(",");
-    $scope.total_credits = window.localStorage.getItem("totalcredits");;
+    $scope.total_credits = parseInt(window.localStorage.getItem("totalcredits"));
     if (($scope.total_credits / 120) > 1) {
         $scope.percentage = "100%"
     } else {

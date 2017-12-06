@@ -218,6 +218,10 @@ function getClassDict(reqArray, index) {
     classInfo['sem'] = reqArray[index];
     classInfo['course'] = reqArray[index+1] + " " + reqArray[index+2];
     classInfo['desc'] = reqArray[index+3];
+    // Avoid edge case where the desc takes up two indices
+    if (isNaN(reqArray[index+4])) {
+        index +=1;
+    }
     classInfo['credits'] = reqArray[index+4];
     classInfo['grade'] = reqArray[index+5];
     console.log("classInfo:", classInfo);
