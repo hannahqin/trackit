@@ -74,7 +74,18 @@ app.controller('details',[ '$scope', function($scope) {
         $scope.SS_creds = creditsSS;
     }
 
-    
+    var addtnl = 0;
+    if ($scope.area_distribution["3HU"].length > 0) {
+
+    }
+
+    if ($scope.area_distribution["3NS"].length > 0) {
+        
+    }
+
+    if ($scope.area_distribution["3NS"].length > 0) {
+        
+    }
 
 
 
