@@ -54,21 +54,18 @@
 }
 
 #title {
-	/*color:  #4A90E2;*/
-	/*color: #003366;*/
-	vertical-align: middle;
+	margin-top: 30rpx;
 	font-size: 20px;
 }
 
-.column.col-md-9 {
+.col-md-8 {
+	/*padding-top: 7px;*/
 	align-content: left;
 	text-align: left;
 }
 
-.col-md-8 {
-	padding-top: 7px;
-	align-content: left;
-	text-align: left;
+.col-md-3 {
+	text-align: right;
 }
 
 #creds {
