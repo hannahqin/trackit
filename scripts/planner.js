@@ -193,6 +193,23 @@ app.controller('planner',[ '$scope', function($scope) {
             top += parseInt(dict[key][key2]["credits"]) * 20;
         }
     }
+    
+    var semester_order = ["WN", "FA"];
+    var earliest_sem;
+    var earliest_year = 3000;
+    for (var key in dict) {
+        var year = parseInt(key.substring(3, 4));
+        if (earliest_year > year) {
+            earliest_year = year;
+        } else if (earliest_year === year) {
+            if (key.substring(0, 2) === "WN") {
+                earliest_sem = key;
+            }
+        } else {
+            earliest_sem = key;
+        }
+    }
+    console.log(earliest_sem);
     console.log(dict);
     $scope.courses = dict;
 
