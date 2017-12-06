@@ -148,6 +148,7 @@
             </div>
         </div><!-- .col.col-md-9 -->
     </div><!-- .main-content -->
+
     <div id="add-course-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -170,17 +171,18 @@
                         </div>
                         <div class="reqs-section">
                             <input class="req-input body-input" type="text" size="8" name="req-1" placeholder="SS">
-                            <span class="glyphicon glyphicon-plus"></span>
+                            <span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-add" data-dismiss="modal">Add Course</button>
+                    <button id="cancel-add-course-btn" type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                    <button id="approve-add-course-btn" type="button" class="btn btn-add" data-dismiss="modal">Add Course</button>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="add-semester-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
