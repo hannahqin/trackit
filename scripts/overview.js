@@ -12,9 +12,6 @@ $(document).ready(function() {
     console.log("College-wide Reqs:", college_wide_reqs);
     console.log("Area Distribution:", area_distribution);
     console.log("CS Reqs:", cs_reqs);
-
-    $("#total-credits").text(totalcredits);
-
 });
 
 var app = angular.module('trackit', [])
@@ -24,7 +21,7 @@ app.controller('overview',[ '$scope', function($scope) {
     firstname = firstname.substr(0, firstname.indexOf(' '));
     $scope.name = firstname;
     $scope.data = window.localStorage.getItem("lsa_reqs").split(",");
-    $scope.total_credits = parseInt($scope.data[2]);
+    $scope.total_credits = window.localStorage.getItem("totalcredits");;
     if (($scope.total_credits / 120) > 1) {
         $scope.percentage = "100%"
     } else {
