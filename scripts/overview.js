@@ -2,29 +2,23 @@ $(document).ready(function() {
 
     // Retrieve checklist info
     var fullname = window.localStorage.getItem("fullname");
-    var totalcredits = window.localStorage.getItem("totalcredits");
-    var college_wide_reqs = JSON.parse(window.localStorage.getItem("college_wide_reqs").split(","));
-    var area_distribution = JSON.parse(window.localStorage.getItem("area_distribution").split(","));
-    var cs_reqs = JSON.parse(window.localStorage.getItem("cs_reqs").split(","));
+    var lsa_reqs = window.localStorage.getItem("lsa_reqs").split(",");
+    var college_wide_reqs = window.localStorage.getItem("college_wide_reqs").split(",");
+    var area_distribution = window.localStorage.getItem("area_distribution").split(",");
+    var cs_reqs = window.localStorage.getItem("cs_reqs").split(",");
 
     console.log("Full name:", fullname);
-    console.log("Total credits:", totalcredits);
+    console.log("LSA Reqs:", lsa_reqs);
     console.log("College-wide Reqs:", college_wide_reqs);
     console.log("Area Distribution:", area_distribution);
     console.log("CS Reqs:", cs_reqs);
 
-    $("#total-credits").text(totalcredits);
+    $("#total-credits").text(lsa_reqs[2]);
+
 });
 
-<<<<<<< HEAD
-var app = angular.module('trackit', []);
+var app = angular.module('trackit', [])
 
-=======
-});
-
-var app = angular.module('trackit', []);
-
->>>>>>> 99b9974f22e93c43617265375d61919883aa7156
 app.controller('overview',[ '$scope', function($scope) {
     var firstname = window.localStorage.getItem("fullname");
     firstname = firstname.substr(0, firstname.indexOf(' '));
@@ -83,25 +77,4 @@ app.controller('overview',[ '$scope', function($scope) {
     var capstone = "EECS 441";
     $scope.capstone = capstone;
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 }]);
-=======
-}]);
->>>>>>> 99b9974f22e93c43617265375d61919883aa7156
-=======
-}]);
->>>>>>> 99b9974f22e93c43617265375d61919883aa7156
-=======
-}]);
->>>>>>> 99b9974f22e93c43617265375d61919883aa7156
-=======
-}]);
->>>>>>> 99b9974f22e93c43617265375d61919883aa7156
-=======
-}]);
->>>>>>> 99b9974f22e93c43617265375d61919883aa7156
