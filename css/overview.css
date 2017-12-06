@@ -68,6 +68,7 @@
 .col-md-8 {
 	padding-top: 7px;
 	align-content: left;
+	text-align: left;
 }
 
 #creds {
@@ -99,4 +100,12 @@
 
 #creds {
 	display: inline-block;
+}
+
+#coreComplete {
+	width: 80px;
+}
+
+#ulcsComplete {
+	width: 80px;
 }
