@@ -83,12 +83,15 @@ app.controller('details',[ '$scope', function($scope) {
             creditsHU += parseFloat($scope.area_distribution["3HU"][i]["credits"]);
         }
         if (addtnl == 0) {
+            $scope.category1 = "(HU)";
             $scope.addtnl1 = allHU.join(", ");
             $scope.addtnl1_creds = creditsHU;
         } else if (addtnl == 1) {
+            $scope.category2 = "(HU)";
             $scope.addtnl2 = allHU.join(", ");
             $scope.addtnl2_creds = creditsHU;
         } else {
+            $scope.category3 = "(HU)";
             $scope.addtnl3 = allHU.join(", ");
             $scope.addtnl3_creds = creditsHU;
         }
@@ -103,12 +106,15 @@ app.controller('details',[ '$scope', function($scope) {
             creditsNS += parseFloat($scope.area_distribution["3NS"][i]["credits"]);
         }
         if (addtnl == 0) {
+            $scope.category1 = "(NS)";
             $scope.addtnl1 = allNS.join(", ");
             $scope.addtnl1_creds = creditsNS;
         } else if (addtnl == 1) {
+            $scope.category2 = "(NS)";
             $scope.addtnl2 = allNS.join(", ");
             $scope.addtnl2_creds = creditsNS;
         } else {
+            $scope.category3 = "(NS)";
             $scope.addtnl3 = allNS.join(", ");
             $scope.addtnl3_creds = creditsNS;
         }
@@ -123,12 +129,15 @@ app.controller('details',[ '$scope', function($scope) {
             creditsSS += parseFloat($scope.area_distribution["3SS"][i]["credits"]);
         }
         if (addtnl == 0) {
+            $scope.category1 = "(SS)";
             $scope.addtnl1 = allSS.join(", ");
             $scope.addtnl1_creds = creditsSS;
         } else if (addtnl == 1) {
+            $scope.category2 = "(SS)";
             $scope.addtnl2 = allSS.join(", ");
             $scope.addtnl2_creds = creditsSS;
         } else {
+            $scope.category3 = "(SS)";
             $scope.addtnl3 = allSS.join(", ");
             $scope.addtnl3_creds = creditsSS;
         }
@@ -143,12 +152,15 @@ app.controller('details',[ '$scope', function($scope) {
             creditsID += parseFloat($scope.area_distribution["3ID"][i]["credits"]);
         }
         if (addtnl == 0) {
+            $scope.category1 = "(ID)";
             $scope.addtnl1 = allID.join(", ");
             $scope.addtnl1_creds = creditsID;
         } else if (addtnl == 1) {
+            $scope.category2 = "(ID)";
             $scope.addtnl2 = allID.join(", ");
             $scope.addtnl2_creds = creditsID;
         } else {
+            $scope.category3 = "(ID)";
             $scope.addtnl3 = allID.join(", ");
             $scope.addtnl3_creds = creditsID;
         }
@@ -163,12 +175,15 @@ app.controller('details',[ '$scope', function($scope) {
             creditsCE += parseFloat($scope.area_distribution["3CE"][i]["credits"]);
         }
         if (addtnl == 0) {
+            $scope.category1 = "(CE)";
             $scope.addtnl1 = allCE.join(", ");
             $scope.addtnl1_creds = creditsCE;
         } else if (addtnl == 1) {
+            $scope.category2 = "(CE)";
             $scope.addtnl2 = allCE.join(", ");
             $scope.addtnl2_creds = creditsCE;
         } else {
+            $scope.category3 = "(CE)";
             $scope.addtnl3 = allCE.join(", ");
             $scope.addtnl3_creds = creditsCE;
         }
@@ -183,12 +198,15 @@ app.controller('details',[ '$scope', function($scope) {
             creditsMATH += parseFloat($scope.area_distribution["3MATH"][i]["credits"]);
         }
         if (addtnl == 0) {
+            $scope.category1 = "(MATH)";
             $scope.addtnl1 = allMATH.join(", ");
             $scope.addtnl1_creds = creditsMATH;
         } else if (addtnl == 1) {
+            $scope.category2 = "(MATH)";
             $scope.addtnl2 = allMATH.join(", ");
             $scope.addtnl2_creds = creditsMATH;
         } else {
+            $scope.category3 = "(MATH)";
             $scope.addtnl3 = allMATH.join(", ");
             $scope.addtnl3_creds = creditsMATH;
         }
