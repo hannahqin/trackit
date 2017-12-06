@@ -143,7 +143,9 @@
                                         </div>
                                     </div>
                                     <div class="semester semester2">
-
+                                        <div class="course" ng-repeat="course in courses['WN 2017']" style="height: {{course.credits * 20}}px; top: {{course.top}}px">
+                                            <h5>{{course.course}}</h5>
+                                        </div>
                                     </div>
                                     <div class="semester semester3">
                                         
@@ -198,7 +200,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <input class="main-input" type="text" name="new-semester" placeholder="Semester (e.g. Spring 2017)" autofocus>
+                    <input id="add-sem-text" class="main-input" type="text" name="new-semester" placeholder="Semester (e.g. Spring 2017)" autofocus>
                 </div>
                 <div class="modal-footer">
                     <button id="cancel-add-sem-btn" type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>

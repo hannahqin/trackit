@@ -33,6 +33,7 @@ app.controller('planner',[ '$scope', function($scope) {
     console.log($scope.areaDistribution);
     console.log($scope.csReqs);
 
+    //store classes by semester
     var dict = {};
     for (var key in $scope.collegeWideReqs){
         for (var i in $scope.collegeWideReqs[key]) {
@@ -68,7 +69,17 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     }
 
+    for (var key in dict) {
+        var top = 40;
+        for (var key2 in dict[key]) {
+            dict[key][key2]["top"] = top;
+            top += parseInt(dict[key][key2]["credits"]) * 20;
+        }
+    }
     console.log(dict);
+    $scope.courses = dict;
+
+
 
 
     // if ($scope.college_wide_reqs["FYWR"].length < 1) {
