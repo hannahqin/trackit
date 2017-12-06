@@ -11,9 +11,4 @@ $(document).ready(function() {
     $('#file-input').change(function() {
         $('#selected-file').text($('#file-input')[0].files[0].name);
     });
-
-    // Generate My Report Button
-    $('.generate-button').click(function() {
-        //window.location.href = './overview.html';
-    });
 });

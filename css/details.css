@@ -1,27 +1,54 @@
+/*common requirements - area distribution requirements*/
+
 #body {
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
-.lsa-head > h1, .major-head > h1{
-	color: #4A90E2;
-	font-weight: 700;
-	margin-left: 35px;
+.light { font-weight: 300; }
+.medium { font-weight: 500; }
+.bold { font-weight: 700; }
+
+.main-content {
+    margin: 40px 200px 80px;
 }
 
-.lsa, .lsa-table {
-	font-size: 20px;
+.page-header h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    font-weight: 500;
 }
 
-.requirement, .class {
-	
+.page-header p {
+    font-size: 17px;
 }
 
-.requirement {
-	font-weight: 700;
-	/*font-size: 22px;*/
-	padding: 2px;
+.section {
+    margin-top: 50px;
 }
 
-.class {
-	padding: 2px;
+.section:first-child {
+    margin-top: 35px;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+    .section-header h3 {
+        margin: 20px 0;
+        font-size: 22px;
+        font-weight: 500;
+        color: #4A90E2;
+    }
+
+    .section-header p {
+        font-size: 16px;
+    }
+
+.table {
+    font-size: 16px;
+}
+
+.table tr td:first-child {
 }

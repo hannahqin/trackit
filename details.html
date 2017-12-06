@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>trackit</title>
+    <title>trackit.</title>
     <meta name="author" content="Hannah Qin, Emily Siu, Andrew Huang, Leah Chung">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,500,700" rel="stylesheet"> <!-- fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- jquery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- bootstrap -->
+
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/details.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600|Roboto:300,700" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body id="body">
     <nav class="nav-bar">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" id="logo" href="#">trackit</a>
+          <a class="navbar-brand" id="logo" href="#">trackit.</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="menu-item"><a href="overview.html">Overview</a></li>
@@ -28,73 +26,114 @@
         </ul>
       </div>
     </nav>
-    <br>
-
-    <div class = "main-content">
-        <div class ="page-header lsa-head">
-            <h1>LSA Requirements</h1>
+    <div class="main-content">
+        <div class="page-header">
+            <h2 class="medium">Your Graduation Progress Details</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non volutpat nulla. Sed ut dapibus risus, at varius neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. You can view more information about LSA Degree Requirements at <a href="https://admissions.umich.edu/summary-lsa-degree-requirements">https://admissions.umich.edu/summary-lsa-degree-requirements</a>.</p>
         </div>
-        <div class = "lsa">
-            <div class="row">
-                <div class="col-lg-1 col-lg-offset-1 requirement">FYWR</div>
-                <div class="col-lg-1 class">ENG 125</div>
-                <div class="col-lg-1 requirement">ULWR</div>
-                <div class="col-lg-1 class">SAC 376</div>
-                <div class="col-lg-1 requirement">Race and Ethnicity</div>
-                <div class="col-lg-1 class">idk</div>
-                <div class="col-lg-1 requirement">QR1</div>
-                <div class="col-lg-1 class">EECS 203</div>
-                <div class="col-lg-1 requirement">Language</div>
-                <div class="col-lg-1 class">English :)</div>
+        <div class="section">
+            <div class="section-header">
+                <h3 class="medium">Common LSA Requirements</h3>
+                <p>These are specific degree requirements fulfilled by approved courses rather than a number of credits.
             </div>
+            <table class="table table-hover borderless">
+                <tbody>
+                    <tr>
+                        <td class="col-md-1">✔</td>
+                        <td class="col-md-5 medium">First-Year Writing</td>
+                        <td>ENG 125</td>
+                    </tr>
+                    <tr>
+                        <td>✔</td>
+                        <td class="medium">Upper-Level Writing</td>
+                        <td>SAC 333</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="medium">Quantitative Reasoning</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="medium">Race and Ethnicity</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>✔</td>
+                        <td class="medium">Language</td>
+                        <td>French 101, French 102, French 231, French 232</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <br>
-        <hr />
-        <br>
-        <div class = "lsa-table">
-            <div class="row">
-                <div class="col-lg-2 text-right requirement">HU</div>
-                <div class="col-lg-2 text-left">
-                    <p>1</p>
-                    <p>2</p>
-                </div>
-                <div class="col-lg-2 text-right requirement">NS</div>
-                <div class="col-lg-2 text-left">
-                    <p>1</p>
-                    <p>2</p>
-                </div>
-                <div class="col-lg-2 text-right requirement">SS</div>
-                <div class="col-lg-2 text-left">
-                    <p>1</p>
-                    <p>2</p>
-                </div>
+        <div class="section">
+            <div class="section-header">
+                <h3 class="medium">Area Distribution Requirements</h3>
+                <p>These are 30 credits outside your major in NS, SS, HU, MSA, and CE.</p>
             </div>
-            <hr/ >
-            <!-- <div class="row">
-                <div class="col-lg-2 text-center requirement">HU</div>
-                <div class="col-lg-2 text-center requirement">NS</div>
-                <div class="col-lg-2 text-center requirement">SS</div>
-                <div class="col-lg-2 text-center requirement">3 Additional</div>
-                <div class="col-lg-2 text-center requirement">Addtnl</div>
-                <div class="col-lg-2 text-center requirement">Addtnl</div>
-            </div> -->
-            <div class="row">
-                <div class="col-lg-2 text-right requirement"><img height = "30px" src = "img/checkmark.png">Addtnl</div>
-                <div class="col-lg-2 text-left">
-                    <p>1</p>
-                    <p>2</p>
-                </div>
-                <div class="col-lg-2 text-right requirement">Addtnl</div>
-                <div class="col-lg-2 text-left">
-                    <p>1</p>
-                    <p>2</p>
-                </div>
+            <table class="table table-hover">
+                <thead>
+                    <th class="col-md-2">Requirement</th>
+                    <th class="col-md-2">Total Credits</th>
+                    <th class="col-md-2"># Credits Completed</th>
+                    <th class="col-md-2"># Credits Left</th>
+                    <th class="col-md-4">Courses</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NS</td>
+                        <td>7</td>
+                        <td>0</td>
+                        <td>7</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>HU</td>
+                        <td>7</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>idk</td>
+                    </tr>
+                    <tr>
+                        <td>SS</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>0</td>
+                        <td>PSYCH 111, PSYCH 112</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <div class="section-header major-head">
+                <h3 class="medium">Major Requirements</h3>
             </div>
-        </div>
-        <div class ="page-header major-head">
-            <h1>Major Requirements</h1>
-        </div>
-        <div class = "major">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <th class="col-md-2">Requirement</th>
+                    <th class="col-md-2">Total Credits</th>
+                    <th class="col-md-2"># Credits Completed</th>
+                    <th class="col-md-2"># Credits Left</th>
+                    <th class="col-md-4">Courses</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ULCS</td>
+                        <td>16</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>EECS 485, EECS 388</td>
+                    </tr>
+                    <tr>
+                        <td>Senior Capstone</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>0</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
         </div>
     </div>
 </body>

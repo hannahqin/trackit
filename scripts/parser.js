@@ -46,12 +46,14 @@ $(document).ready(function() {
 
                     console.log (indices);
                     
-                    lsa_reqs = split.slice(indices[0], indices[1]);
-                    college_wide_reqs = split.slice(indices[3], indices[4]);
-                    area_distribution = split.slice(indices[4], indices[5]);
-                    cs_reqs = split.slice(indices[6], indices[7]);
+                    // Remove leading and trailing whitespace
+                    lsa_reqs = split.slice(indices[0], indices[1]).map(s => s.trim());
+                    college_wide_reqs = split.slice(indices[3], indices[4]).map(s => s.trim());
+                    area_distribution = split.slice(indices[4], indices[5]).map(s => s.trim());
+                    cs_reqs = split.slice(indices[6], indices[7]).map(s => s.trim());
 
                     // Save requirements to local storage
+                    window.localStorage.setItem("fullname", split[2])
                     window.localStorage.setItem("lsa_reqs", lsa_reqs);
                     window.localStorage.setItem("college_wide_reqs", college_wide_reqs);
                     window.localStorage.setItem("area_distribution", area_distribution);
@@ -66,7 +68,7 @@ $(document).ready(function() {
                 // Change windows upon successful PDF parsing
                 window.setTimeout(function() {
                     window.location.href = './overview.html';
-                }, 2000);
+                }, 1000);
 
             }, function (reason) {
                 // PDF loading error
