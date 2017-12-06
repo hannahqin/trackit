@@ -14,4 +14,7 @@ $(document).ready(function() {
     console.log("CS Reqs:", cs_reqs);
 
     $("#total-credits").text(lsa_reqs[2]);
+
+    
+
 });
