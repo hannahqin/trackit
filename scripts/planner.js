@@ -20,21 +20,130 @@ function addSemester() {
 }
 
 
-
 var app = angular.module('trackit', []);
 app.controller('planner',[ '$scope', function($scope) {
     $scope.name = window.localStorage.getItem("fullname");
-    $scope.collegeWideReqs =JSON.parse(window.localStorage.getItem("college_wide_reqs"));
-    $scope.areaDistribution = JSON.parse(window.localStorage.getItem("area_distribution"));
+    $scope.collegeWideReqs = JSON.parse(window.localStorage.getItem("college_wide_reqs"));
+    $scope.areaDist = JSON.parse(window.localStorage.getItem("area_distribution"));
     $scope.csReqs = JSON.parse(window.localStorage.getItem("cs_reqs"));
 
     console.log(JSON.stringify($scope.name));
     console.log($scope.collegeWideReqs);
-    console.log($scope.areaDistribution);
+    console.log($scope.areaDist);
     console.log($scope.csReqs);
 
+
+    // ------- COLLEGE WIDE DISTRIBUTION ------- //
+
+    $scope.incompleteCommonReqs = [];
+
+    if (! $scope.collegeWideReqs["FYWR"].length) {
+        var req = {  name: 'First-Year Writing', abbreviation: 'FYWR' };
+        $scope.incompleteCommonReqs.append(req);
+    }
+
+    if (! $scope.collegeWideReqs["ULWR"].length) {
+        var req = {  name: 'Upper-Level Writing', abbreviation: 'ULWR' };
+        $scope.incompleteCommonReqs.append(req);
+    }
+
+    if (! $scope.collegeWideReqs["QR"].length) {
+        var req = {  name: 'Quantitative Reasoning', abbreviation: 'QR' };
+        $scope.incompleteCommonReqs.append(req);
+    }
+
+    if (! $scope.collegeWideReqs["RE"].length) {
+        var req = {  name: 'Race and Ethnicity', abbreviation: 'RE' };
+        $scope.incompleteCommonReqs.append(req);
+    }
+
+    if (! $scope.collegeWideReqs["LANG"].length) {
+        var req = {  name: 'Language Requirement', abbreviation: 'LANG' };
+        $scope.incompleteCommonReqs.append(req);
+    }
+
+
+    // ------- AREA DISTRIBUTION ------- //
+
+    $scope.incompleteAreaDistReqs = [];
+
+    var huCreditsLeft = 7;
+    var nsCreditsLeft = 7;
+    var ssCreditsLeft = 7;
+
+    // 7 Humanities
+    if (! $scope.areaDist["7HU"].length == 0) {
+        for (course in $scope.areaDist["7HU"]) {
+            huCreditsLeft -= course.credits;
+        }
+    }
+    // 7 Social Science
+    if (! $scope.areaDist["7SS"].length == 0) {
+        for (course in $scope.areaDist["7SS"]) {
+            ssCreditsLeft -= course.credits;
+        }
+    }
+    // 7 Natural Science
+    if (! $scope.areaDist["7NS"].length == 0) {
+        for (course in $scope.areaDist["7NS"]) {
+            nsCreditsLeft -= course.credits;
+        }
+    }
+
+    if (huCreditsLeft) {
+        var req = { req: 'HU', credits: huCreditsLeft };
+        incompleteAreaDistReqs.append(req);
+    }
+    if (ssCreditsLeft) {
+        var req = { req: 'SS', credits: ssCreditsLeft };
+        incompleteAreaDistReqs.append(req);
+    }
+    if (nsCreditsLeft) {
+        var req = { req: 'NS', credits: nsCreditsLeft };
+        incompleteAreaDistReqs.append(req);
+    }
+
+
+    // ------- CS REQUIREMENTS ------- //
+
+    $scope.incompleteCsReqs = [];
+
+    if ($scope.csReqs['core'].length < 3) {
+        var coreCourses = {};
+        for (course in $scope.csReqs['core']) {
+            coreCourses[course.course] = course;
+        }
+
+        for (coreReq in ['EECS 281', 'EESC 370', 'EECS 376']) {
+            if (! coreReq in coreCourses) {
+                var req = { courseName: coreReq, credits: 4 };
+                incompleteCsReqs.append(req);
+            }
+            if ($scope.csReqs['probability'].length < 1) {
+                var req = { courseName: 'STATS 250', credits: 4 };
+                incompleteCsReqs.append(req);
+            }
+
+            if ($scope.csReqs['capstone'].length < 1) {
+                var req = { courseName: 'Capstone', credits: 4 };
+                incompleteCsReqs.append(req);
+            }
+
+            if ($scope.csReqs['ul'].length < 4) {
+                var numLeft = 4 - $scope.csReqs['ul'].length;
+                var req = { courseName: 'Upper-Level CS', credits: 4 };
+                for (var i = 0; i < numLeft; i++) {
+                    incompleteCsReqs.append(req);
+                }
+            }
+        }
+    }
+
+
+    // ------- CREATE SEMESTER DICTS ------- //
+
     var dict = {};
-    for (var key in $scope.collegeWideReqs){
+    for (var key in $scope.collegeWideReqs) {
         for (var i in $scope.collegeWideReqs[key]) {
             var sem = $scope.collegeWideReqs[key][i].sem;
             if (dict[sem] === undefined) {
@@ -45,18 +154,18 @@ app.controller('planner',[ '$scope', function($scope) {
             }
         }
     }
-    for (var key in $scope.areaDistribution){
-        for (var i in $scope.areaDistribution[key]) {
-            var sem = $scope.areaDistribution[key][i].sem;
+    for (var key in $scope.areaDist) {
+        for (var i in $scope.areaDist[key]) {
+            var sem = $scope.areaDist[key][i].sem;
             if (dict[sem] === undefined) {
                 dict[sem] = {};
             }
-            if (dict[sem][$scope.areaDistribution[key][i].course] === undefined) {
-                dict[sem][$scope.areaDistribution[key][i].course] = $scope.areaDistribution[key][i];
+            if (dict[sem][$scope.areaDist[key][i].course] === undefined) {
+                dict[sem][$scope.areaDist[key][i].course] = $scope.areaDist[key][i];
             }
         }
     }
-    for (var key in $scope.csReqs){
+    for (var key in $scope.csReqs) {
         for (var i in $scope.csReqs[key]) {
             var sem = $scope.csReqs[key][i].sem;
             if (dict[sem] === undefined) {
@@ -67,39 +176,8 @@ app.controller('planner',[ '$scope', function($scope) {
             }
         }
     }
-
     console.log(dict);
 
-
-    // if ($scope.college_wide_reqs["FYWR"].length < 1) {
-    //     $scope.FYWR = "";
-    // } else {
-    //     $scope.FYWR = $scope.college_wide_reqs["FYWR"][0]["course"];
-    // }
-
-    // if ($scope.college_wide_reqs["ULWR"].length < 1) {
-    //     $scope.ULWR = "";
-    // } else {
-    //     $scope.ULWR = $scope.college_wide_reqs["ULWR"][0]["course"];
-    // }
-    // //$scope.ULWR = "SAC 376";
-    // $scope.QR = "";
-    // $scope.RE = "";
-    // $scope.language = "francais";
-    // $scope.NS_creds = 3;
-    // $scope.NS = "BIO 172, BIO 171, asdf, dsaf , asdf,a sdff,a dsf, ds, asd, asdf , adsf, afd, a,a dfs adfs,";
-    // $scope.HU_creds = 0;
-    // $scope.HU;
-    // $scope.SS_creds;
-    // $scope.SS
-    // $scope.addtnl1_creds;
-    // $scope.addtnl1;
-    // $scope.addtnl2_creds;
-    // $scope.addtnl2;
-    // $scope.addtnl3_creds;
-    // $scope.addtnl3;
-    // $scope.ULCS_creds;
-    // $scope.ULCS;
-    // $scope.capstone;
-
 }]);
+
+
