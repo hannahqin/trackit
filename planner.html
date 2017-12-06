@@ -50,7 +50,7 @@
             <div id="area-reqs-box" class="box">
                 <h4>Incomplete Area Distribution Requirements</h4>
                 <div class="box-body">
-                    <table class="table table-hover" ng-if="incompleteCommonReqs.length != 0">
+                    <table class="table table-hover" ng-if="incompleteAreaDistReqs.length != 0">
                         <thead>
                             <tr> <th>Requirement</th><th># Credits</th> </tr>
                         </thead>
@@ -58,7 +58,7 @@
                             <tr> <td>{{ genReq.req }}</td><td>{{ genReq.credits }}</td> </tr>
                         </tbody>
                     </table>
-                    <div class="all-done" ng-if="incompleteCommonReqs.length == 0">
+                    <div class="all-done" ng-if="incompleteAreaDistReqs.length == 0">
                         All done!
                     </div>
                 </div>
@@ -66,15 +66,15 @@
             <div id="cs-reqs-box" class="box">
                 <h4>Incomplete Major Requirements</h4>
                 <div class="box-body">
-                    <table class="table table-hover" ng-if="incompleteCommonReqs.length != 0">
+                    <table class="table table-hover" ng-if="incompleteCsReqs.length != 0">
                         <thead>
                             <tr> <th>Requirement</th><th># Credits</th> </tr>
                         </thead>
-                        <tbody id="cs-reqs-table-body" ng=repeate="csReq in incompleteCsReqs">
+                        <tbody id="cs-reqs-table-body" ng-repeat="csReq in incompleteCsReqs">
                             <tr> <td>{{ csReq.courseName }}</td><td>{{ csReq.credits }}</td> </tr>
                         </tbody>
                     </table>
-                    <div class="all-done" ng-if="incompleteCommonReqs.length == 0">
+                    <div class="all-done" ng-if="incompleteCsReqs.length == 0">
                         All done!
                     </div>
                 </div>

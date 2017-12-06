@@ -39,27 +39,27 @@ app.controller('planner',[ '$scope', function($scope) {
 
     if (! $scope.collegeWideReqs["FYWR"].length) {
         var req = {  name: 'First-Year Writing', abbreviation: 'FYWR' };
-        $scope.incompleteCommonReqs.append(req);
+        $scope.incompleteCommonReqs.push(req);
     }
 
     if (! $scope.collegeWideReqs["ULWR"].length) {
         var req = {  name: 'Upper-Level Writing', abbreviation: 'ULWR' };
-        $scope.incompleteCommonReqs.append(req);
+        $scope.incompleteCommonReqs.push(req);
     }
 
     if (! $scope.collegeWideReqs["QR"].length) {
         var req = {  name: 'Quantitative Reasoning', abbreviation: 'QR' };
-        $scope.incompleteCommonReqs.append(req);
+        $scope.incompleteCommonReqs.push(req);
     }
 
     if (! $scope.collegeWideReqs["RE"].length) {
         var req = {  name: 'Race and Ethnicity', abbreviation: 'RE' };
-        $scope.incompleteCommonReqs.append(req);
+        $scope.incompleteCommonReqs.push(req);
     }
 
     if (! $scope.collegeWideReqs["LANG"].length) {
         var req = {  name: 'Language Requirement', abbreviation: 'LANG' };
-        $scope.incompleteCommonReqs.append(req);
+        $scope.incompleteCommonReqs.push(req);
     }
 
 
@@ -92,15 +92,15 @@ app.controller('planner',[ '$scope', function($scope) {
 
     if (huCreditsLeft) {
         var req = { req: 'HU', credits: huCreditsLeft };
-        incompleteAreaDistReqs.append(req);
+        $scope.incompleteAreaDistReqs.push(req);
     }
     if (ssCreditsLeft) {
         var req = { req: 'SS', credits: ssCreditsLeft };
-        incompleteAreaDistReqs.append(req);
+        $scope.incompleteAreaDistReqs.push(req);
     }
     if (nsCreditsLeft) {
         var req = { req: 'NS', credits: nsCreditsLeft };
-        incompleteAreaDistReqs.append(req);
+        $scope.incompleteAreaDistReqs.push(req);
     }
 
 
@@ -117,28 +117,31 @@ app.controller('planner',[ '$scope', function($scope) {
         for (coreReq in ['EECS 281', 'EESC 370', 'EECS 376']) {
             if (! coreReq in coreCourses) {
                 var req = { courseName: coreReq, credits: 4 };
-                incompleteCsReqs.append(req);
-            }
-            if ($scope.csReqs['probability'].length < 1) {
-                var req = { courseName: 'STATS 250', credits: 4 };
-                incompleteCsReqs.append(req);
-            }
-
-            if ($scope.csReqs['capstone'].length < 1) {
-                var req = { courseName: 'Capstone', credits: 4 };
-                incompleteCsReqs.append(req);
-            }
-
-            if ($scope.csReqs['ul'].length < 4) {
-                var numLeft = 4 - $scope.csReqs['ul'].length;
-                var req = { courseName: 'Upper-Level CS', credits: 4 };
-                for (var i = 0; i < numLeft; i++) {
-                    incompleteCsReqs.append(req);
-                }
+                $scope.incompleteCsReqs.push(req);
             }
         }
     }
 
+    if ($scope.csReqs['probability'].length < 1) {
+        var req = { courseName: 'STATS 250', credits: 4 };
+        $scope.incompleteCsReqs.push(req);
+    }
+
+    if ($scope.csReqs['capstone'].length < 1) {
+        var req = { courseName: 'Capstone', credits: 4 };
+        $scope.incompleteCsReqs.push(req);
+    }
+
+    if ($scope.csReqs['ul'].length < 4) {
+        var numLeft = 4 - $scope.csReqs['ul'].length;
+        console.log(numLeft);
+        var req = { courseName: 'ULCS', credits: 4 };
+        for (var i = 0; i < numLeft; i++) {
+            $scope.incompleteCsReqs.push(req);
+        }
+    }
+
+    console.log($scope.incompleteCsReqs);
 
     // ------- CREATE SEMESTER DICTS ------- //
 
