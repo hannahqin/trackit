@@ -26,73 +26,74 @@ app.controller('planner',[ '$scope', function($scope) {
     console.log($scope.csReqs);
 
 
+    // ----------- FUNCTIONS ----------- //
+
+    $scope.checkCommonReqCredits = function(keyName, reqName, reqAbbreviation) {
+        if (! $scope.collegeWideReqs[keyName].length) {
+            var req = { name: reqName, abbreviation: reqAbbreviation };
+            $scope.incompleteCommonReqs.push(req);
+        }
+    };
+
+    $scope.checkAreaDistCredits = function(credits, keyName) {
+        var numCreditsLeft = credits;
+        if (! $scope.areaDist[keyName].length == 0) {
+            for (course in $scope.areaDist[keyName]) {
+                numCreditsLeft -= course.credits;
+            }
+        }
+        if (numCreditsLeft) {
+            var req = { req: keyName.substring(1), credits: numCreditsLeft };
+            $scope.incompleteAreaDistReqs.push(req);
+        }
+    };
+
+    // $scope.checkAddtlAreaDistCredits()
+
+
     // ------- COLLEGE WIDE DISTRIBUTION ------- //
 
     $scope.incompleteCommonReqs = [];
 
-    if (! $scope.collegeWideReqs["FYWR"].length) {
-        var req = {  name: 'First-Year Writing', abbreviation: 'FYWR' };
-        $scope.incompleteCommonReqs.push(req);
-    }
-
-    if (! $scope.collegeWideReqs["ULWR"].length) {
-        var req = {  name: 'Upper-Level Writing', abbreviation: 'ULWR' };
-        $scope.incompleteCommonReqs.push(req);
-    }
-
-    if (! $scope.collegeWideReqs["QR"].length) {
-        var req = {  name: 'Quantitative Reasoning', abbreviation: 'QR' };
-        $scope.incompleteCommonReqs.push(req);
-    }
-
-    if (! $scope.collegeWideReqs["RE"].length) {
-        var req = {  name: 'Race and Ethnicity', abbreviation: 'RE' };
-        $scope.incompleteCommonReqs.push(req);
-    }
-
-    if (! $scope.collegeWideReqs["LANG"].length) {
-        var req = {  name: 'Language Requirement', abbreviation: 'LANG' };
-        $scope.incompleteCommonReqs.push(req);
-    }
+    $scope.checkCommonReqCredits("FYWR", "First-Year Writing", "FYWR");
+    $scope.checkCommonReqCredits("ULWR", "Upper-Level Writing", "ULWR");
+    $scope.checkCommonReqCredits("QR", "Quantitative Reasoning", "QR");
+    $scope.checkCommonReqCredits("RE", "Race and Ethnicity", "RE");
+    $scope.checkCommonReqCredits("LANG", "Language Requirement", "LANG");
 
 
     // ------- AREA DISTRIBUTION ------- //
 
     $scope.incompleteAreaDistReqs = [];
 
-    var huCreditsLeft = 7;
-    var nsCreditsLeft = 7;
-    var ssCreditsLeft = 7;
 
-    // 7 Humanities
-    if (! $scope.areaDist["7HU"].length == 0) {
-        for (course in $scope.areaDist["7HU"]) {
-            huCreditsLeft -= course.credits;
-        }
-    }
-    // 7 Social Science
-    if (! $scope.areaDist["7SS"].length == 0) {
-        for (course in $scope.areaDist["7SS"]) {
-            ssCreditsLeft -= course.credits;
-        }
-    }
-    // 7 Natural Science
-    if (! $scope.areaDist["7NS"].length == 0) {
-        for (course in $scope.areaDist["7NS"]) {
-            nsCreditsLeft -= course.credits;
+    // Core Area Dist: 7 credits each of HU, SS, and NS
+
+    $scope.checkAreaDistCredits(7, "7HU");     // 7 Humanities
+    $scope.checkAreaDistCredits(7, "7SS");     // 7 Social Science
+    $scope.checkAreaDistCredits(7, "7NS");     // 7 Natural Science
+
+
+    // Additional : 3 credits of 3/5 categories
+
+    var additionalCredits = [];
+
+    // figure out which 3 categories to display as incomplete
+    var keys = ["3HU", "3NS", "3SS", "3MATH", "3ID", "3CE"];
+    for (var i = 0; i < keys.length; i++) {
+        if ($scope.areaDist[keys[i]].length > 0) {
+            additionalCredits.push(keys[i]);
         }
     }
 
-    if (huCreditsLeft) {
-        var req = { req: 'HU', credits: huCreditsLeft };
-        $scope.incompleteAreaDistReqs.push(req);
+    for (var i = 0; i < additionalCredits.length; i++) {
+        $scope.checkAreaDistCredits(3, additionalCredits[i]);
     }
-    if (ssCreditsLeft) {
-        var req = { req: 'SS', credits: ssCreditsLeft };
-        $scope.incompleteAreaDistReqs.push(req);
-    }
-    if (nsCreditsLeft) {
-        var req = { req: 'NS', credits: nsCreditsLeft };
+
+    // if less than 3 categories started, add plain "Additional"
+    var categoriesLeft = 3 - additionalCredits.length;
+    for (var i = 0; i < categoriesLeft; i++) {
+        var req = { req: "Additional", credits: 3 };
         $scope.incompleteAreaDistReqs.push(req);
     }
 
@@ -199,7 +200,8 @@ app.controller('planner',[ '$scope', function($scope) {
     var semesters = [];
     semesters.push(earliest_sem);
     var last = earliest_sem.substring(0,2);
-    while (earliest_year !== 2018 || last !== "WN") {
+
+    while (semesters.length < 8) {
         if (last === "WN") {
             last = "FA";
             semesters.push("FA " + earliest_year.toString());
@@ -222,15 +224,21 @@ app.controller('planner',[ '$scope', function($scope) {
         }
         console.log($scope.semesters);
 
+
         $('.courses').append('<div class="semester semester' + 
             ($('.courses .semester').length + 1).toString() + '"></div>');
 
     });
 
-    console.log(semesters);
-    console.log(dict);
-    
+    $scope.sem1 = semesters[4];
+    $scope.sem2 = semesters[5];
+    $scope.sem3 = semesters[6];
+    $scope.sem4 = semesters[7];
 
+
+    console.log("Semesters:", semesters);
+    console.log("Classes per sem:", dict);
+    
 
 
 
