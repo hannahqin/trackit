@@ -60,17 +60,17 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     };
 
-    $scope.createSemesterDicts = function(reqDict) {
+    $scope.createSemesterDicts = function(reqDict, tempSemDict) {
         for (var key in reqDict) {
             for (var i in reqDict[key]) {
                 var sem = reqDict[key][i].sem;
 
-                if (dict[sem] === undefined) {
-                    dict[sem] = {};
+                if (tempSemDict[sem] === undefined) {
+                    tempSemDict[sem] = {};
                 }
 
-                if (dict[sem][reqDict[key][i].course] === undefined) {
-                    dict[sem][reqDict[key][i].course] = reqDict[key][i];
+                if (tempSemDict[sem][reqDict[key][i].course] === undefined) {
+                    tempSemDict[sem][reqDict[key][i].course] = reqDict[key][i];
                 }
             }
         }
@@ -179,34 +179,36 @@ app.controller('planner',[ '$scope', function($scope) {
     // ------- CREATE SEMESTER DICTS ------- //
 
     // create dictionary of semesters
-    var dict = {};
+    var tempSemDict = {};
     var reqDicts = [ $scope.collegeWideReqs, $scope.areaDist, $scope.csReqs ];
     for (var i = 0; i < reqDicts.length; i++) {
-        $scope.createSemesterDicts(reqDicts[i]);
+        $scope.createSemesterDicts(reqDicts[i], tempSemDict);
     };
 
     // add positioning to each course
-    for (var key in dict) {
+    for (var key in tempSemDict) {
         var top = 40;
 
-        for (var key2 in dict[key]) {
-            dict[key][key2]["top"] = top;
-            top += parseInt(dict[key][key2]["credits"]) * 20;
+        for (var key2 in tempSemDict[key]) {
+            tempSemDict[key][key2]["top"] = top;
+            top += parseInt(tempSemDict[key][key2]["credits"]) * 20;
         }
     }
     
-    $scope.courses = dict;
+    $scope.courses = tempSemDict;
 
 
-    // ------- FIND LAST 4 SEMESTERS ------- //   
+    // Order semesters by earliest to latest
 
     var earliest_sem;
     var earliest_year = 3000;
-    for (var key in dict) {
+    for (var key in tempSemDict) {
         var year = parseInt(key.substring(3, 7));
+
         if (earliest_year > year) {
             earliest_year = year;
             earliest_sem = key;
+
         } else if (earliest_year === year) {
             if (key.substring(0, 2) === "WN") {
                 earliest_sem = key;
@@ -245,11 +247,11 @@ app.controller('planner',[ '$scope', function($scope) {
 
     console.log("Semesters:", semesters);
     console.log("Showing Semesters:", $scope.showingSemesters);
-    console.log("Classes per sem:", dict);
+    console.log("Classes per sem:", tempSemDict);
 
     $("#approve-add-course-btn").on("click", function() {
-        dict = addClass(dict);
-        $scope.courses = dict;
+        tempSemDict = addClass(tempSemDict);
+        $scope.courses = tempSemDict;
     });
 }]);
 
