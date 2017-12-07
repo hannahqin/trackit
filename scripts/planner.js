@@ -26,6 +26,18 @@ app.controller('planner',[ '$scope', function($scope) {
     console.log($scope.csReqs);
 
 
+    // ----------- SCOPE VARIABLES ----------- //
+
+    $scope.incompleteCommonReqs = [];
+    $scope.incompleteAreaDistReqs = [];
+    $scope.incompleteCsReqs = [];
+
+    $scope.courses = {};
+    $scope.semesters = [];
+    $scope.showingSemesters = [];
+    $scope.addedSemesters = [];
+
+
     // ----------- FUNCTIONS ----------- //
 
     $scope.checkCommonReqCredits = function(keyName, reqName, reqAbbreviation) {
@@ -45,6 +57,22 @@ app.controller('planner',[ '$scope', function($scope) {
         if (numCreditsLeft) {
             var req = { req: keyName.substring(1), credits: numCreditsLeft };
             $scope.incompleteAreaDistReqs.push(req);
+        }
+    };
+
+    $scope.createSemesterDicts = function(reqDict) {
+        for (var key in reqDict) {
+            for (var i in reqDict[key]) {
+                var sem = reqDict[key][i].sem;
+
+                if (dict[sem] === undefined) {
+                    dict[sem] = {};
+                }
+
+                if (dict[sem][reqDict[key][i].course] === undefined) {
+                    dict[sem][reqDict[key][i].course] = reqDict[key][i];
+                }
+            }
         }
     };
 
@@ -73,8 +101,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
     // ------- COLLEGE WIDE DISTRIBUTION ------- //
 
-    $scope.incompleteCommonReqs = [];
-
     $scope.checkCommonReqCredits("FYWR", "First-Year Writing", "FYWR");
     $scope.checkCommonReqCredits("ULWR", "Upper-Level Writing", "ULWR");
     $scope.checkCommonReqCredits("QR", "Quantitative Reasoning", "QR");
@@ -83,9 +109,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
 
     // ------- AREA DISTRIBUTION ------- //
-
-    $scope.incompleteAreaDistReqs = [];
-
 
     // Core Area Dist: 7 credits each of HU, SS, and NS
 
@@ -119,8 +142,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
 
     // ------- CS REQUIREMENTS ------- //
-
-    $scope.incompleteCsReqs = [];
 
     if ($scope.csReqs['core'].length < 3) {
         var coreCourses = {};
@@ -157,43 +178,17 @@ app.controller('planner',[ '$scope', function($scope) {
 
     // ------- CREATE SEMESTER DICTS ------- //
 
+    // create dictionary of semesters
     var dict = {};
-    for (var key in $scope.collegeWideReqs) {
-        for (var i in $scope.collegeWideReqs[key]) {
-            var sem = $scope.collegeWideReqs[key][i].sem;
-            if (dict[sem] === undefined) {
-                dict[sem] = {};
-            }
-            if (dict[sem][$scope.collegeWideReqs[key][i].course] === undefined) {
-                dict[sem][$scope.collegeWideReqs[key][i].course] = $scope.collegeWideReqs[key][i];
-            }
-        }
-    }
-    for (var key in $scope.areaDist) {
-        for (var i in $scope.areaDist[key]) {
-            var sem = $scope.areaDist[key][i].sem;
-            if (dict[sem] === undefined) {
-                dict[sem] = {};
-            }
-            if (dict[sem][$scope.areaDist[key][i].course] === undefined) {
-                dict[sem][$scope.areaDist[key][i].course] = $scope.areaDist[key][i];
-            }
-        }
-    }
-    for (var key in $scope.csReqs) {
-        for (var i in $scope.csReqs[key]) {
-            var sem = $scope.csReqs[key][i].sem;
-            if (dict[sem] === undefined) {
-                dict[sem] = {};
-            }
-            if (dict[sem][$scope.csReqs[key][i].course] === undefined) {
-                dict[sem][$scope.csReqs[key][i].course] = $scope.csReqs[key][i];
-            }
-        }
-    }
+    var reqDicts = [ $scope.collegeWideReqs, $scope.areaDist, $scope.csReqs ];
+    for (var i = 0; i < reqDicts.length; i++) {
+        $scope.createSemesterDicts(reqDicts[i]);
+    };
 
+    // add positioning to each course
     for (var key in dict) {
         var top = 40;
+
         for (var key2 in dict[key]) {
             dict[key][key2]["top"] = top;
             top += parseInt(dict[key][key2]["credits"]) * 20;
@@ -202,7 +197,8 @@ app.controller('planner',[ '$scope', function($scope) {
     
     $scope.courses = dict;
 
-/******CREATE ARRAY FOR FIRST 4 SEMESTERS***************/    
+
+    // ------- FIND LAST 4 SEMESTERS ------- //   
 
     var earliest_sem;
     var earliest_year = 3000;
@@ -275,7 +271,7 @@ function addClass(dict) {
         "taken": false,
         "top": 40,
     };
-    console.log("classInfo:", classInfo);
+    // console.log("classInfo:", classInfo);
 
     // Add new class to course dict
     if (dict[semester] === undefined) {
