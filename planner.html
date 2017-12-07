@@ -168,11 +168,12 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <input class="main-input" type="text" name="course-name" 
-                               placeholder="Course Name (e.g. EECS 183)" autofocus>
+                        <input class="main-input" type="text" name="course-name"
+                               placeholder="Course Name (e.g. EECS 183)"
+                               ng-model="course.name" autofocus>
                         <div class="row">
                             <div class="dropdown" id="semester-dropdown">
-                                <select class="form-control" id="semester-selection">
+                                <select class="form-control" id="semester-selection" ng-model="course.sem">
                                     <option ng-repeat="semester in addedSemesters" 
                                             ng-selected="semesters[semester].selected == true" 
                                             value="{{ semester }}" ng-disabled="$index == 0">
@@ -193,8 +194,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="cancel-add-course-btn" type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
-                        <button id="approve-add-course-btn" type="button" class="btn btn-add" ng-click="addCourse()" data-dismiss="modal">Add Course</button>
+                        <button id="cancel-add-course-btn" class="btn btn-cancel"
+                                type="button" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button id="approve-add-course-btn" class="btn btn-add" 
+                                type="button" ng-click="addCourse()" data-dismiss="modal"
+                                ng-disabled="!course.name || !course.sem">
+                            Add Course
+                        </button>
                     </div>
                 </div>
             </div>

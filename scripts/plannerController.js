@@ -64,7 +64,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
     // reqDict is one of the 3 we got from localstorage
     $scope.createSemesterDicts = function(reqDict, tempSemDict) {
-        console.log('reqDict: ', reqDict);
         for (var key in reqDict) {
             for (var i in reqDict[key]) {
                 var sem = reqDict[key][i].sem;
