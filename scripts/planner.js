@@ -206,7 +206,7 @@ app.controller('planner',[ '$scope', function($scope) {
     var semesters = [];
     semesters.push(earliest_sem);
     var last = earliest_sem.substring(0,2);
-    while (earliest_year !== 2017 || last !== "FA") {
+    while ((earliest_year !== 2018 || last !== "FA") && semesters.length < 8) {
         if (last === "WN") {
             last = "FA";
             semesters.push("FA " + earliest_year.toString());
@@ -217,9 +217,14 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     }
 
+    $scope.sem1 = semesters[4];
+    $scope.sem2 = semesters[5];
+    $scope.sem3 = semesters[6];
+    $scope.sem4 = semesters[7];
 
-    console.log(semesters);
-    console.log(dict);
+
+    console.log("Semesters:", semesters);
+    console.log("Classes per sem:", dict);
     
 
 
