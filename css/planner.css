@@ -227,7 +227,7 @@
         .courses-wrapper .courses .semester {
             position: relative;
             display: inline-block;
-            width: calc(25% - 3px);
+            width: calc(25%);
             height: 100%;
             padding-left: 1.5px;
         }
