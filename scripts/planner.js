@@ -243,7 +243,6 @@ app.controller('planner',[ '$scope', function($scope) {
             semesters.push("FA " + year.toString());
         }
         $scope.showNextSemester();
-        //console.log($scope.semesters);
     });
 
     $scope.showingSemesters = [ semesters[4], semesters[5], semesters[6], semesters[7] ];
@@ -253,11 +252,13 @@ app.controller('planner',[ '$scope', function($scope) {
     console.log("Classes per sem:", dict);
 
     $("#approve-add-course-btn").on("click", function() {
-        console.log(createClass());
+        dict = addClass(dict);
+        $scope.courses = dict;
     });
 }]);
 
-function createClass() {
+function addClass(dict) {
+    // Retrieve data from modal
     var courseName = $(".main-input").val();
     var semester = $(".form-control option:selected").val();
     var credits = $(".num-credits-input").val();
@@ -265,8 +266,22 @@ function createClass() {
     $(".req-input").each(function(index, input) {
         reqs.push($(input).val());
     });
-    console.log(courseName, semester, credits, reqs);
-    return {"course": courseName, "sem": semester, "credits": credits, "reqs": reqs, "taken": false}
+
+    var classInfo = {
+        "course": courseName,
+        "sem": semester,
+        "credits": credits,
+        "reqs": reqs,
+        "taken": false
+    };
+    console.log("classInfo:", classInfo);
+
+    // Add new class to course dict
+    if (dict[semester] === undefined) {
+        dict[semester] = {};
+    }
+    dict[semester][courseName] = classInfo;
+    return dict;
 }
 
 
