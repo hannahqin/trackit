@@ -127,37 +127,16 @@
         right: 0;
     }
 
-    .tick-marks .ticks-label {
-        top: 15px;
-    }
+    .tick-marks .ticks-label { top: 15px; }
+    .tick-marks .tick-2 { top: 70px; }
+    .tick-marks .tick-4 { top: 110px; }
+    .tick-marks .tick-6 { top: 150px; }
+    .tick-marks .tick-8 { top: 190px; }
+    .tick-marks .tick-10 { top: 230px; }
+    .tick-marks .tick-12 { top: 270px;}
+    .tick-marks .tick-14 { top: 310px; }
+    .tick-marks .tick-16 { top: 350px; }
 
-    .tick-marks .tick-2 {
-        top: 70px;
-    }
-    .tick-marks .tick-4 {
-        top: 110px;
-    }
-    .tick-marks .tick-6 {
-        top: 150px;
-    }
-    .tick-marks .tick-8 {
-        top: 190px;
-    }
-    .tick-marks .tick-10 {
-        top: 230px;
-    }
-    .tick-marks .tick-12 {
-        top: 270px;
-    }
-    .tick-marks .tick-14 {
-        top: 310px;
-    }
-    .tick-marks .tick-16 {
-        top: 350px;
-    }
-    .tick-marks .tick-18 {
-        top: 390px;
-    }
 
 .calendar .calendar-grid {
     position: relative;
