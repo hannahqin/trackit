@@ -42,6 +42,12 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.5);
 }
 
+.no-select {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */   
+}
 
 
 
