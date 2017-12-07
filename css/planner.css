@@ -227,7 +227,7 @@
         .courses-wrapper .courses .semester {
             position: relative;
             display: inline-block;
-            width: 25%;
+            width: calc(25% - 0.5px);
             height: 100%;
             padding-left: 1.5px;
         }
@@ -243,12 +243,23 @@
         }
 
             .courses .course h5 {
-                font-size: 16px;
+                font-size: 14px;
+                margin: 0 0 5px;
+                color: #615512;
+            }
+
+            .courses .course.taken h5 {
+                color: #38485a;
             }
 
         .course .badge {
             font-weight: 400;
-            line-height: 1.3;
+            background-color: #b59c21;
+            margin: 0 2px;
+        }
+
+        .course.taken .badge {
+            background-color: #4d637d;
         }
 
 

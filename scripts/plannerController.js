@@ -11,6 +11,22 @@ app.controller('planner',[ '$scope', function($scope) {
     console.log($scope.areaDist);
     console.log($scope.csReqs);
 
+    var badgeKeyDict = {
+        "7HU": "HU",
+        "7SS": "SS",
+        "7NS": "NS",
+        "3CE": "CE",
+        "3HU": "HU",
+        "3SS": "SS",
+        "3NS": "NS",
+        "3ID": "ID",
+        "3MATH": "MATH",
+        "capstone": "CAPSTONE",
+        "core": "CS CORE",
+        "probability": "STATS",
+        "ul": "ULCS"
+    };
+
 
     // ----------- SCOPE VARIABLES ----------- //
 
@@ -46,17 +62,27 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     };
 
+    // reqDict is one of the 3 we got from localstorage
     $scope.createSemesterDicts = function(reqDict, tempSemDict) {
+        console.log('reqDict: ', reqDict);
         for (var key in reqDict) {
             for (var i in reqDict[key]) {
                 var sem = reqDict[key][i].sem;
 
+                // if this semester hasn't been created before, initialize it
                 if (tempSemDict[sem] === undefined) {
                     tempSemDict[sem] = {};
                 }
 
+                var badgeString = badgeKeyDict[key] ? badgeKeyDict[key] : key;
+                // if this course hasn't been created before for this semester, initialize it
                 if (tempSemDict[sem][reqDict[key][i].course] === undefined) {
                     tempSemDict[sem][reqDict[key][i].course] = reqDict[key][i];
+                    tempSemDict[sem][reqDict[key][i].course]["reqs"] = [ badgeString ];
+
+                // otherwise, add this requirement to the existing course
+                } else {
+                    tempSemDict[sem][reqDict[key][i].course]["reqs"].push(badgeString);
                 }
             }
         }
