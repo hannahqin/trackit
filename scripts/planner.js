@@ -44,7 +44,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
     $scope.checkAreaDistCredits = function(credits, keyName) {
         var numCreditsLeft = credits;
-        console.log($scope.areaDist[keyName]);
         if (! $scope.areaDist[keyName].length == 0) {
             for (course in $scope.areaDist[keyName]) {
                 numCreditsLeft -= course.credits;
