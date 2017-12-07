@@ -44,8 +44,9 @@ app.controller('details',[ '$scope', function($scope) {
             details.done = true;
             details.course = $scope.college_wide_reqs[key][0]["course"];
         }
-        if ($scope.college_wide_reqs["placedOutLANG"]) {
+        if (key == "LANG" && $scope.college_wide_reqs["placedOutLANG"]) {
             details.done = true;
+            details.course = "Placement Exam";
         }
         $scope.incompleteCollegeWide.push(details);
     }
