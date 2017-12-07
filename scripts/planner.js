@@ -5,8 +5,6 @@ $(document).ready(function() {
 
     $('#cancel-add-course-btn').click(resetReqInputsOnModal);
     $('#approve-add-course-btn').click(resetReqInputsOnModal);
-    $('#cancel-add-sem-btn').click();
-    $('#approve-add-sem-btn').click(addSemester);
 });
 
 function resetReqInputsOnModal() {
@@ -14,11 +12,6 @@ function resetReqInputsOnModal() {
     $('#add-course-modal .reqs-section').append('<input class="req-input body-input" type="text" size="8" name="req-1" placeholder="SS">');
     $('#add-course-modal .reqs-section').append('<span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>');
 }
-
-function addSemester() {
-    $('.header-row').append('<th class="col-md-3">' + $('#add-sem-text').val() + '</th>');
-}
-
 
 var app = angular.module('trackit', []);
 app.controller('planner',[ '$scope', function($scope) {
@@ -206,17 +199,33 @@ app.controller('planner',[ '$scope', function($scope) {
     var semesters = [];
     semesters.push(earliest_sem);
     var last = earliest_sem.substring(0,2);
-    while (earliest_year !== 2017 || last !== "FA") {
+    while (earliest_year !== 2018 || last !== "WN") {
         if (last === "WN") {
             last = "FA";
             semesters.push("FA " + earliest_year.toString());
         } else {
             last = "WN";
             earliest_year += 1;
-            semesters.push("WN " + earliest_year.toString())
+            semesters.push("WN " + earliest_year.toString());
         }
     }
+    $scope.semesters = semesters;
 
+    $('#add-semester').click(function() {
+        var last = $scope.semesters[$scope.semesters.length - 1];
+        var year = parseInt(last.substring(3, 7))
+        if (last.substring(0,2) == "FA") {
+            year += 1;
+            semesters.push("WN " + year.toString());
+        } else {
+            semesters.push("FA " + year.toString());
+        }
+        console.log($scope.semesters);
+
+        $('.courses').append('<div class="semester semester' + 
+            ($('.courses .semester').length + 1).toString() + '"></div>');
+
+    });
 
     console.log(semesters);
     console.log(dict);
