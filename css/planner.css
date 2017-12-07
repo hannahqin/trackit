@@ -110,6 +110,11 @@
         background-color: #dfdfdf;
     }
 
+    .calendar-header .add-btn:disabled {
+        background-color: #f5f5f5;
+        color: #bdbdbd;
+    }
+
 
 /* Schedule Planner Calendar */
 .calendar {

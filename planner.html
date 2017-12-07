@@ -98,8 +98,15 @@
                             </span>
                         </h5>
                         <div class="calendar-buttons">
-                            <button id="add-course" class="btn-default add-btn"  data-toggle="modal" data-target="#add-course-modal">+ Course</button>
-                            <button id="add-semester" class="btn-default add-btn" ng-click="addSemester()">+ Semester</button>
+                            <button id="add-course" class="btn-default add-btn"  
+                                    data-toggle="modal" data-target="#add-course-modal"
+                                    ng-disabled="addedSemesters.length == 1">
+                                + Course
+                            </button>
+                            <button id="add-semester" class="btn-default add-btn" 
+                                    ng-click="addSemester()">
+                                + Semester
+                            </button>
                         </div>
                     </div>
                     <div class="row calendar">
