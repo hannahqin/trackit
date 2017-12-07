@@ -242,7 +242,8 @@ app.controller('planner',[ '$scope', function($scope) {
         } else {
             semesters.push("FA " + year.toString());
         }
-        console.log($scope.semesters);
+        $scope.showNextSemester();
+        //console.log($scope.semesters);
     });
 
     $scope.showingSemesters = [ semesters[4], semesters[5], semesters[6], semesters[7] ];
