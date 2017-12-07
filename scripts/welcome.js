@@ -4,7 +4,9 @@ $(document).ready(function() {
     Particles.init({
         selector: '.background',
         connectParticles: true,
-        color: '#C0C0C0',
+        maxParticles: 50,
+        minDistance: 170,
+        color: '#e0e0e0'
     });
 
     $('#down-arrow').click(function() {
