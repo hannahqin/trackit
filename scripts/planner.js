@@ -272,7 +272,8 @@ function addClass(dict) {
         "sem": semester,
         "credits": credits,
         "reqs": reqs,
-        "taken": false
+        "taken": false,
+        "top": 40,
     };
     console.log("classInfo:", classInfo);
 
@@ -281,6 +282,16 @@ function addClass(dict) {
         dict[semester] = {};
     }
     dict[semester][courseName] = classInfo;
+
+    // Set top value
+    for (var key in dict) {
+        var top = 40;
+        for (var key2 in dict[key]) {
+            dict[key][key2]["top"] = top;
+            top += parseInt(dict[key][key2]["credits"]) * 20;
+        }
+    }
+    
     return dict;
 }
 
