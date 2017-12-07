@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $('.main-content').css('visibility', 'visible');
+
     $('#add-course-modal').on('click', '#plus-req-btn', function() {
         $(this).before('<input class="req-input body-input" type="text" size="8" name="req-1" placeholder="SS">');
     });

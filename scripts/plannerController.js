@@ -117,6 +117,43 @@ app.controller('planner',[ '$scope', function($scope) {
                 top += parseInt($scope.courses[key][key2]["credits"]) * 20;
             }
         }
+
+        for (var i = 0; i < newCourse["reqs"].length; i++) {
+            var req = newCourse["reqs"][i];
+
+            for (var j = 0; j < $scope.incompleteCommonReqs.length; j++) {
+                var incomplete = $scope.incompleteCommonReqs[j];
+                if (req == incomplete.abbreviation) {
+                    $scope.incompleteCommonReqs.splice(j, 1);
+                }
+            }
+
+            for (var j = 0; j < $scope.incompleteAreaDistReqs.length; j++) {
+                var incomplete = $scope.incompleteAreaDistReqs[j];
+                if (req == incomplete.req) {
+                    $scope.incompleteAreaDistReqs.splice(j, 1);
+                }
+            }
+
+            for (var j = 0; j < $scope.incompleteCsReqs.length; j++) {
+                var incomplete = $scope.incompleteCsReqs[j];
+                if (req == incomplete.courseName) {
+                    $scope.incompleteCsReqs.splice(j, 1);
+                }
+            }
+
+        };
+    }
+
+    $scope.mouseoverCourse = function($event) {
+        $($event.currentTarget).css('height', '80px');
+        $($event.currentTarget).css('z-index', '100');
+    }
+
+    $scope.mouseleaveCourse = function($event) {
+        var originalHeight = $($event.currentTarget).data('origHeight');
+        $($event.currentTarget).css('height', originalHeight);
+        $($event.currentTarget).css('z-index', '');
     }
 
 

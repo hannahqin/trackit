@@ -10,6 +10,7 @@
 
 .main-content {
     max-height: 90vh;
+    visibility: hidden;
 }
 
 .row {
@@ -37,11 +38,6 @@
     padding: 5px 10px;
 }
 
-.courses-wrapper .courses .semester .course.taken {
-    background-color: #e8e8e8;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(31, 72, 122, 0.3);
-}
-
 .no-select {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
@@ -49,6 +45,14 @@
     user-select: none;          /* Likely future */   
 }
 
+.courses-wrapper .courses .semester .course.taken {
+    background-color: #e8e8e8;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(31, 72, 122, 0.3);
+}
+
+.courses-wrapper .courses .semester .course:hover {
+    height: 100px;
+}
 
 
 /* ----------- Incomplete Requirements ----------- */
