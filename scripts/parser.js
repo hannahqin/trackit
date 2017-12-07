@@ -217,7 +217,13 @@ function isClass(reqArray, index) {
 function getClassDict(reqArray, index) {
     var classInfo = {};
     classInfo['sem'] = reqArray[index];
-    classInfo['course'] = reqArray[index+1] + " " + reqArray[index+2];
+    // Avoid edge case where the course name and number take up only one index
+    if (reqArray[index+1].indexOf(" ") >= 0) {
+        classInfo['course'] = reqArray[index+1].split(" ").join(" ");
+        index -=1;
+    } else {
+        classInfo['course'] = reqArray[index+1] + " " + reqArray[index+2];
+    }
     classInfo['desc'] = reqArray[index+3];
     // Avoid edge case where the desc takes up two indices
     while (isNaN(reqArray[index+4])) {
