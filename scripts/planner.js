@@ -48,7 +48,27 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     };
 
-    // $scope.checkAddtlAreaDistCredits()
+    $scope.showPrevSemester = function() {
+        var startIndex = $scope.semesters.indexOf($scope.showingSemesters[0]) - 1;
+
+        if (startIndex >= 0) {
+            $scope.showingSemesters = [];
+            for (var i = 0; i < 4; i ++) {
+                $scope.showingSemesters.push($scope.semesters[startIndex+i]);
+            }
+        }
+    }
+
+    $scope.showNextSemester = function() {
+        var startIndex = $scope.semesters.indexOf($scope.showingSemesters[0]) + 1;
+
+        if (startIndex + 3 < $scope.semesters.length) {
+            $scope.showingSemesters = []
+            for (var i = 0; i < 4; i ++) {
+                $scope.showingSemesters.push($scope.semesters[startIndex+i]);
+            }
+        }
+    }
 
 
     // ------- COLLEGE WIDE DISTRIBUTION ------- //
@@ -223,25 +243,13 @@ app.controller('planner',[ '$scope', function($scope) {
             semesters.push("FA " + year.toString());
         }
         console.log($scope.semesters);
-
-
-        // $('.courses').append('<div class="semester semester' + 
-        //     ($('.courses .semester').length + 1).toString() + '"></div>');
-
     });
 
-    $scope.sem1 = semesters[4];
-    $scope.sem2 = semesters[5];
-    $scope.sem3 = semesters[6];
-    $scope.sem4 = semesters[7];
-
+    $scope.showingSemesters = [ semesters[4], semesters[5], semesters[6], semesters[7] ];
 
     console.log("Semesters:", semesters);
+    console.log("Showing Semesters:", $scope.showingSemesters);
     console.log("Classes per sem:", dict);
-    
-
-
-
 
 }]);
 

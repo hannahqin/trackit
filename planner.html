@@ -86,9 +86,15 @@
                 <div class="box-body">
                     <div class="calendar-header">
                         <h5 class="semester-picker">
-                            <span class="glyphicon glyphicon-menu-left"></span>
-                            <span>F16 – W18</span>
-                            <span class="glyphicon glyphicon-menu-right"></span>
+                            <span id="prev-semesters-btn" class="glyphicon glyphicon-menu-left" 
+                                  ng-show="semesters.indexOf(showingSemesters[0]) > 0"
+                                  ng-click="showPrevSemester()">
+                            </span>
+                            <span>{{ showingSemesters[0] }} – {{ showingSemesters[3] }}</span>
+                            <span id="next-semesters-btn" class="glyphicon glyphicon-menu-right" 
+                                  ng-show="semesters.indexOf(showingSemesters[3]) < semesters.length - 1"
+                                  ng-click="showNextSemester()">
+                            </span>
                         </h5>
                         <div class="calendar-buttons">
                             <button id="add-course" class="btn-default add-btn"  data-toggle="modal" data-target="#add-course-modal">+ Course</button>
@@ -112,10 +118,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="header-row">
-                                        <th class="col-md-3">{{sem1}}</th>
-                                        <th class="col-md-3">{{sem2}}</th>
-                                        <th class="col-md-3">{{sem3}}</th>
-                                        <th class="col-md-3">{{sem4}}</th>
+                                        <th class="col-md-3" ng-repeat="semester in showingSemesters">{{ semester }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -138,30 +141,13 @@
                             </table>
                             <div class="courses-wrapper">
                                 <div class="courses">
-                                    <div class="semester semester1">
-                                        <div class="course" style="height: 80px; top: 40px;">
-                                            <h5>EECS 183</h5>
-                                            <span class="badge">QR</span>
-                                            <span class="badge">CS PRE-REQ</span>
-                                        </div>
-                                        <div class="course" style="height: 80px; top: 120px;">
-                                            <h5>ENG 101</h5>
-                                            <span class="badge">FYWR</span>
-                                        </div>
-                                    </div>
-                                    <div class="semester semester2">
-                                        <div class="course" ng-repeat="course in courses['WN 2017']" style="height: {{course.credits * 20}}px; top: {{course.top}}px">
+                                    <div class="semester" ng-repeat="semester in showingSemesters" ng-data-index="{{ $index }}" data-semester="{{ semester }}">
+                                        <div class="course" ng-repeat="course in courses[semester]" style="height: {{ course.credits * 20 }}px; top: {{ course.top }}px">
                                             <h5>{{course.course}}</h5>
                                         </div>
                                     </div>
-                                    <div class="semester semester3">
-                                        
-                                    </div>
-                                    <div class="semester semester4">
-                                        
-                                    </div>
                                 </div>
-                            </div>
+                            </div> <!-- .courses-wrapper -->
                         </div>
                     </div>
                 </div><!-- .box-body -->

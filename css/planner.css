@@ -78,6 +78,10 @@
         color: #4A90E2;
     }
 
+    .calendar-header .semester-picker .glyphicon:hover {
+        cursor: pointer;
+    }
+
     .calendar-header .calendar-buttons {
         float: right;
         margin-right: 10px;
