@@ -73,7 +73,9 @@ app.controller('details',[ '$scope', function($scope) {
                 courses.push($scope.area_distribution[key][i]["course"]);
                 details.creditsDone += parseFloat($scope.area_distribution[key][i]["credits"]);
             }
-            details.done = true;
+            if (details.creditsDone == details.creditsRequired) {
+                details.done = true;
+            }
             details.coursesTaken = courses.join(", ");
         }
         $scope.incompleteAreaDist.push(details);
