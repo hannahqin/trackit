@@ -123,7 +123,7 @@ function getPageText(pageNum, PDFDocumentInstance) {
 
 function getDictFormCollege(college_wide_reqs) {
     // Initialize dict
-    var dict = {};
+    var dict = {"placedOutLANG": false};
     var category = ["FYWR", "ULWR", "RE", "QR", "LANG"];
     var k = 0;
     for (i = 0; i < category.length; ++i) {
@@ -138,6 +138,10 @@ function getDictFormCollege(college_wide_reqs) {
             college_wide_reqs[i].indexOf("Language Requirement - one 4th term course required - C- or") >= 0 ||
             college_wide_reqs[i].indexOf("One presumption of proficiency course in a language other than") >= 0) {
                 k += 1;
+        }
+        // Edge case for placement test for language
+        if (college_wide_reqs[i].indexOf("Placement Exam") >= 0) {
+            dict["placedOutLANG"] = true;
         }
         if (isClass(college_wide_reqs, i)) {
             dict[category[k]].push(getClassDict(college_wide_reqs, i));
