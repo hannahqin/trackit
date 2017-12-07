@@ -38,8 +38,8 @@
 }
 
 .courses-wrapper .courses .semester .course.taken {
-    background-color: lightgrey;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.5);
+    background-color: #e8e8e8;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(31, 72, 122, 0.3);
 }
 
 .no-select {

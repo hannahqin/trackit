@@ -35,7 +35,7 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.courses = {};
     $scope.semesters = [];
     $scope.showingSemesters = [];
-    $scope.addedSemesters = [];
+    $scope.addedSemesters = ['Semester'];
 
 
     // ----------- FUNCTIONS ----------- //
@@ -96,6 +96,25 @@ app.controller('planner',[ '$scope', function($scope) {
                 $scope.showingSemesters.push($scope.semesters[startIndex+i]);
             }
         }
+    }
+
+    $scope.addSemester = function() {
+        var last = $scope.semesters[$scope.semesters.length - 1];
+        var year = parseInt(last.substring(3, 7))
+        var newSem = "";
+
+        if (last.substring(0,2) == "FA") {
+            year += 1;
+            newSem = "WN " + year.toString();
+        } else {
+            newSem = "FA " + year.toString();
+        }
+
+        $scope.addedSemesters.push(newSem);
+        $scope.semesters.push(newSem);
+        $scope.showNextSemester();
+
+        console.log($scope.addedSemesters);
     }
 
 
@@ -199,7 +218,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
 
     // Order semesters by earliest to latest
-
     var earliest_sem;
     var earliest_year = 3000;
     for (var key in tempSemDict) {
@@ -229,20 +247,8 @@ app.controller('planner',[ '$scope', function($scope) {
             semesters.push("WN " + earliest_year.toString());
         }
     }
+
     $scope.semesters = semesters;
-
-    $('#add-semester').click(function() {
-        var last = $scope.semesters[$scope.semesters.length - 1];
-        var year = parseInt(last.substring(3, 7))
-        if (last.substring(0,2) == "FA") {
-            year += 1;
-            semesters.push("WN " + year.toString());
-        } else {
-            semesters.push("FA " + year.toString());
-        }
-        $scope.showNextSemester();
-    });
-
     $scope.showingSemesters = [ semesters[4], semesters[5], semesters[6], semesters[7] ];
 
     console.log("Semesters:", semesters);

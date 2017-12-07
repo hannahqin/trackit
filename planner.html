@@ -98,7 +98,7 @@
                         </h5>
                         <div class="calendar-buttons">
                             <button id="add-course" class="btn-default add-btn"  data-toggle="modal" data-target="#add-course-modal">+ Course</button>
-                            <button id="add-semester" class="btn-default add-btn" ng-click="showNextSemester()">+ Semester</button>
+                            <button id="add-semester" class="btn-default add-btn" ng-click="addSemester()">+ Semester</button>
                         </div>
                     </div>
                     <div class="row calendar">
@@ -142,7 +142,9 @@
                             <div class="courses-wrapper">
                                 <div class="courses">
                                     <div class="semester" ng-repeat="semester in showingSemesters" ng-data-index="{{ $index }}">
-                                        <div class="course" ng-repeat="course in courses[semester]" ng-class="{taken: course.taken == true}" style="height: {{ course.credits * 20 }}px; top: {{ course.top }}px">
+                                        <div class="course" ng-repeat="course in courses[semester]" 
+                                             ng-class="{taken: course.taken == true}" 
+                                             style="height: {{ course.credits * 20 }}px; top: {{ course.top }}px">
                                             <h5>{{ course.course }}</h5>
                                         </div>
                                     </div>
@@ -153,39 +155,43 @@
                 </div><!-- .box-body -->
             </div>
         </div><!-- .col.col-md-9 -->
-    </div><!-- .main-content -->
 
-    <div ng-controller="planner" id="add-course-modal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <input class="main-input" type="text" name="course-name" placeholder="Course Name (e.g. EECS 183)" autofocus>
-                    <div class="row">
-                        <div class="dropdown" id="semester-dropdown">
-                            <select class="form-control" id="semester-selection">
-                                <option ng-repeat="semester in semesters" ng-selected="semester.selected == true" value="{{semester}}">
-                                    {{semester}}
-                                </option>
-                            </select>
+        <div id="add-course-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <input class="main-input" type="text" name="course-name" 
+                               placeholder="Course Name (e.g. EECS 183)" autofocus>
+                        <div class="row">
+                            <div class="dropdown" id="semester-dropdown">
+                                <select class="form-control" id="semester-selection">
+                                    <option ng-repeat="semester in addedSemesters" 
+                                            ng-selected="semesters[semester].selected == true" 
+                                            value="{{ semester }}" ng-disabled="$index == 0">
+                                        {{ semester }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row reqs-row">
+                            <div class="num-credits-section">
+                                <input class="num-credits-input body-input" type="number" min="1" max="8" name="num-credits" value="4">
+                                <span>credits</span>
+                            </div>
+                            <div class="reqs-section">
+                                <input class="req-input body-input" type="text" size="8" name="req-1" placeholder="SS">
+                                <span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="row reqs-row">
-                        <div class="num-credits-section">
-                            <input class="num-credits-input body-input" type="number" min="1" max="8" name="num-credits" value="4">
-                            <span>credits</span>
-                        </div>
-                        <div class="reqs-section">
-                            <input class="req-input body-input" type="text" size="8" name="req-1" placeholder="SS">
-                            <span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>
-                        </div>
+                    <div class="modal-footer">
+                        <button id="cancel-add-course-btn" type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                        <button id="approve-add-course-btn" type="button" class="btn btn-add" data-dismiss="modal">Add Course</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="cancel-add-course-btn" type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
-                    <button id="approve-add-course-btn" type="button" class="btn btn-add" data-dismiss="modal">Add Course</button>
                 </div>
             </div>
         </div>
-    </div>
+
+    </div><!-- .main-content -->
 </body>
 </html>
