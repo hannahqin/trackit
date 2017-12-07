@@ -252,6 +252,20 @@ app.controller('planner',[ '$scope', function($scope) {
     console.log("Showing Semesters:", $scope.showingSemesters);
     console.log("Classes per sem:", dict);
 
+    $("#approve-add-course-btn").on("click", function() {
+        addClass();
+    });
 }]);
+
+function addClass() {
+    var courseName = $(".main-input").val();
+    var semester = $(".form-control option:selected").val();
+    var credits = $(".num-credits-input").val();
+    var reqs = [];
+    $(".req-input").each(function(index, input) {
+        reqs.push($(input).val());
+    });
+    console.log(courseName, semester, credits, reqs);
+}
 
 
