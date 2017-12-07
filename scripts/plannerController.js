@@ -252,10 +252,8 @@ app.controller('planner',[ '$scope', function($scope) {
 
     if ($scope.csReqs['ul'].length < 4) {
         var numLeft = 4 - $scope.csReqs['ul'].length;
-        var req = { courseName: 'ULCS', credits: 4 };
-        for (var i = 0; i < numLeft; i++) {
-            $scope.incompleteCsReqs.push(req);
-        }
+        var req = { courseName: 'ULCS', credits: numLeft * 4 };
+        $scope.incompleteCsReqs.push(req);
     }
 
 
