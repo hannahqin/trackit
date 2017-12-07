@@ -44,8 +44,10 @@ app.controller('planner',[ '$scope', function($scope) {
 
     $scope.checkCommonReqCredits = function(keyName, reqName, reqAbbreviation) {
         if (! $scope.collegeWideReqs[keyName].length) {
-            var req = { name: reqName, abbreviation: reqAbbreviation };
-            $scope.incompleteCommonReqs.push(req);
+            if (reqAbbreviation == "LANG" && !$scope.collegeWideReqs["placedOutLANG"]) {
+                var req = { name: reqName, abbreviation: reqAbbreviation };
+                $scope.incompleteCommonReqs.push(req);
+            }
         }
     };
 
