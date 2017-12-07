@@ -155,7 +155,7 @@
         </div><!-- .col.col-md-9 -->
     </div><!-- .main-content -->
 
-    <div id="add-course-modal" class="modal fade" role="dialog">
+    <div ng-controller="planner" id="add-course-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
@@ -163,10 +163,9 @@
                     <div class="row">
                         <div class="dropdown" id="semester-dropdown">
                             <select class="form-control" id="semester-selection">
-                                <option value="" disabled selected>Semester</option>
-                                <option value="F17">FA 2017</option>
-                                <option value="W18">W18</option>
-                                <option value="FA 2018">FA 2018</option>
+                                <option ng-repeat="semester in semesters" ng-selected="semester.selected == true" value="{{semester}}">
+                                    {{semester}}
+                                </option>
                             </select>
                         </div>
                     </div>
