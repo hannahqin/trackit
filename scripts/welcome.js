@@ -1,4 +1,12 @@
+// Referenced https://marcbruederlin.github.io/particles.js/
+
 $(document).ready(function() {
+    Particles.init({
+        selector: '.background',
+        connectParticles: true,
+        color: '#C0C0C0',
+    });
+
     $('#down-arrow').click(function() {
         window.smoothScroll(1000, 1000);
     })
