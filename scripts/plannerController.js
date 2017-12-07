@@ -7,9 +7,9 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.csReqs = JSON.parse(window.localStorage.getItem("cs_reqs"));
 
     console.log("Hi " + $scope.name + "!");
-    console.log($scope.collegeWideReqs);
-    console.log($scope.areaDist);
-    console.log($scope.csReqs);
+    console.log("College-Wide Reqs Dictionary", $scope.collegeWideReqs);
+    console.log("Area Dist Reqs Dictionary", $scope.areaDist);
+    console.log("CS Reqs Dictionary", $scope.csReqs);
 
     var badgeKeyDict = {
         "7HU": "HU",
@@ -314,10 +314,6 @@ app.controller('planner',[ '$scope', function($scope) {
 
     $scope.semesters = semesters;
     $scope.showingSemesters = [ semesters[4], semesters[5], semesters[6], semesters[7] ];
-
-    // console.log("Semesters:", semesters);
-    console.log("Showing Semesters:", $scope.showingSemesters);
-    console.log("Classes per sem:", tempSemDict);
 }]);
 
 function getClassInput() {
