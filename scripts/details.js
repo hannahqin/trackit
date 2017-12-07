@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('.main-content').css('visibility', 'visible');
+});
+
 var app = angular.module('trackit', []);
 
 app.controller('details',[ '$scope', function($scope) {

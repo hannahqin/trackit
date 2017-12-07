@@ -42,27 +42,27 @@
             <table class="table table-hover borderless">
                 <tbody>
                     <tr>
-                        <td class="col-md-1">{{FYWR != null ? "✔" : "✗"}}</td>
+                        <td  class="col-md-1"ng-class="{ complete: FYWR != null, incomplete: FYWR == null }">{{FYWR != null ? "✔" : "✗"}}</td>
                         <td class="col-md-5 medium">First-Year Writing</td>
                         <td>{{FYWR}}</td>
                     </tr>
                     <tr>
-                        <td>{{ULWR != null ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: ULWR != null, incomplete: ULWR == null }">{{ULWR != null ? "✔" : "✗"}}</td>
                         <td class="medium">Upper-Level Writing</td>
                         <td>{{ULWR}}</td>
                     </tr>
                     <tr>
-                        <td>{{QR != null ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: QR != null, incomplete: QR == null }">{{QR != null ? "✔" : "✗"}}</td>
                         <td class="medium">Quantitative Reasoning</td>
                         <td>{{QR}}</td>
                     </tr>
                     <tr>
-                        <td>{{RE != null ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: RE != null, incomplete: RE == null }">{{RE != null ? "✔" : "✗"}}</td>
                         <td class="medium">Race and Ethnicity</td>
                         <td>{{RE}}</td>
                     </tr>
                     <tr>
-                        <td>{{LANG != null ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: LANG != null, incomplete: LANG == null }">{{LANG != null ? "✔" : "✗"}}</td>
                         <td class="medium">Language</td>
                         <td>{{LANG}}</td>
                     </tr>
@@ -85,7 +85,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{HU_creds == 7 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: HU_creds == 7, incomplete: HU_creds != 7 }">{{HU_creds == 7 ? "✔" : "✗"}}</td>
                         <td>HU</td>
                         <td>7</td>
                         <td>{{HU_creds}}</td>
@@ -93,7 +93,7 @@
                         <td>{{HU}}</td>
                     </tr>
                     <tr>
-                        <td>{{NS_creds == 7 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: NS_creds == 7, incomplete: NS_creds != 7 }">{{NS_creds == 7 ? "✔" : "✗"}}</td>
                         <td>NS</td>
                         <td>7</td>
                         <td>{{NS_creds}}</td>
@@ -101,7 +101,7 @@
                         <td>{{NS}}</td>
                     </tr>
                     <tr>
-                        <td>{{SS_creds == 7 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: SS_creds == 7, incomplete: SS_creds != 7 }">{{SS_creds == 7 ? "✔" : "✗"}}</td>
                         <td>SS</td>
                         <td>7</td>
                         <td>{{SS_creds}}</td>
@@ -109,7 +109,9 @@
                         <td>{{SS}}</td>
                     </tr>
                     <tr>
-                        <td>{{addtnl1_creds == 3 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: addtnl1_creds == 3, incomplete: addtnl1_creds != 3 }">
+                            {{addtnl1_creds == 3 ? "✔" : "✗"}}
+                        </td>
                         <td>Addtnl {{category1}}</td>
                         <td>3</td>
                         <td>{{addtnl1_creds}}</td>
@@ -117,7 +119,9 @@
                         <td>{{addtnl1}}</td>
                     </tr>
                     <tr>
-                        <td>{{addtnl2_creds == 3 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: addtnl2_creds == 3, incomplete: addtnl2_creds != 3 }">
+                            {{addtnl2_creds == 3 ? "✔" : "✗"}}
+                        </td>
                         <td>Addtnl {{category2}}</td>
                         <td>3</td>
                         <td>{{addtnl2_creds}}</td>
@@ -125,7 +129,9 @@
                         <td>{{addtnl2}}</td>
                     </tr>
                     <tr>
-                        <td>{{addtnl3_creds == 3 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: addtnl3_creds == 3, incomplete: addtnl3_creds != 3 }">
+                            {{addtnl3_creds == 3 ? "✔" : "✗"}}
+                        </td>
                         <td>Addtnl {{category3}}</td>
                         <td>3</td>
                         <td>{{addtnl3_creds}}</td>
@@ -151,7 +157,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ULCS_creds == 16 ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: ULCS_creds == 16, incomplete: ULCS_creds != 16 }">
+                            {{ULCS_creds == 16 ? "✔" : "✗"}}
+                        </td>
                         <td>ULCS</td>
                         <td>16</td>
                         <td>{{ULCS_creds}}</td>
@@ -159,7 +167,9 @@
                         <td>{{ULCS}}</td>
                     </tr>
                     <tr>
-                        <td>{{capstone != null ? "✔" : "✗"}}</td>
+                        <td ng-class="{ complete: capstone != null, incomplete: capstone == null }">
+                            {{capstone != null ? "✔" : "✗"}}
+                        </td>
                         <td>Senior Capstone</td>
                         <td>4</td>
                         <td>{{capstone != null ? "4" : "0"}}</td>

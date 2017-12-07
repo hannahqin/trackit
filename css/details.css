@@ -11,6 +11,7 @@
 
 .main-content {
     margin: 40px 200px 80px;
+    visibility: hidden;
 }
 
 .page-header h2 {
@@ -50,5 +51,11 @@
     font-size: 16px;
 }
 
-.table tr td:first-child {
+.table td.complete {
+    color: green;
 }
+
+.table td.incomplete {
+    color: red;
+}
+
