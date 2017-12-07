@@ -225,8 +225,8 @@ app.controller('planner',[ '$scope', function($scope) {
         console.log($scope.semesters);
 
 
-        $('.courses').append('<div class="semester semester' + 
-            ($('.courses .semester').length + 1).toString() + '"></div>');
+        // $('.courses').append('<div class="semester semester' + 
+        //     ($('.courses .semester').length + 1).toString() + '"></div>');
 
     });
 
