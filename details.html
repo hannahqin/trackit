@@ -41,30 +41,12 @@
             </div>
             <table class="table table-hover borderless">
                 <tbody>
-                    <tr>
-                        <td  class="col-md-1"ng-class="{ complete: FYWR != null, incomplete: FYWR == null }">{{FYWR != null ? "✔" : "✗"}}</td>
-                        <td class="col-md-5 medium">First-Year Writing</td>
-                        <td>{{FYWR}}</td>
-                    </tr>
-                    <tr>
-                        <td ng-class="{ complete: ULWR != null, incomplete: ULWR == null }">{{ULWR != null ? "✔" : "✗"}}</td>
-                        <td class="medium">Upper-Level Writing</td>
-                        <td>{{ULWR}}</td>
-                    </tr>
-                    <tr>
-                        <td ng-class="{ complete: QR != null, incomplete: QR == null }">{{QR != null ? "✔" : "✗"}}</td>
-                        <td class="medium">Quantitative Reasoning</td>
-                        <td>{{QR}}</td>
-                    </tr>
-                    <tr>
-                        <td ng-class="{ complete: RE != null, incomplete: RE == null }">{{RE != null ? "✔" : "✗"}}</td>
-                        <td class="medium">Race and Ethnicity</td>
-                        <td>{{RE}}</td>
-                    </tr>
-                    <tr>
-                        <td ng-class="{ complete: LANG != null, incomplete: LANG == null }">{{LANG != null ? "✔" : "✗"}}</td>
-                        <td class="medium">Language</td>
-                        <td>{{LANG}}</td>
+                    <tr ng-repeat="req in incompleteCollegeWide">
+                        <td  class="col-md-1" ng-class="{ complete: req.done, incomplete: !req.done }">
+                            {{ req.done ? "✔" : "✗" }}
+                        </td>
+                        <td class="col-md-5 medium">{{ req.fullName }}</td>
+                        <td>{{ req.course }}</td>
                     </tr>
                 </tbody>
             </table>

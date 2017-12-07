@@ -18,29 +18,33 @@ app.controller('details',[ '$scope', function($scope) {
     console.log("CS Reqs:", $scope.cs_reqs);
 
 
+    // ---- SCOPE VARIABLES ---- //
+
+    $scope.incompleteCollegeWide = [];
+
 
     // ---- COLLEGE WIDE DISTRIBUTION ---- //
 
-    if ($scope.college_wide_reqs["FYWR"].length > 0) {
-    	$scope.FYWR = $scope.college_wide_reqs["FYWR"][0]["course"];
-    }
+    var collegeWideDict = {
+        FYWR: "First-Year Writing",
+        ULWR: "Upper-Level Writing",
+        QR: "Quantitative Reasoning",
+        RE: "Race and Ethnicity",
+        LANG: "Language Requirement",
+    };
 
-    if ($scope.college_wide_reqs["ULWR"].length > 0) {
-    	$scope.ULWR = $scope.college_wide_reqs["ULWR"][0]["course"];
+    for (key in collegeWideDict) {
+        var details = {
+            done: false,
+            fullName: collegeWideDict[key],
+            course: ""
+        };
+        if ($scope.college_wide_reqs[key].length > 0) {
+            details.done = true;
+            details.course = $scope.college_wide_reqs[key][0]["course"];
+        }
+        $scope.incompleteCollegeWide.push(details);
     }
-
-    if ($scope.college_wide_reqs["QR"].length > 0) {
-    	$scope.QR = $scope.college_wide_reqs["QR"][0]["course"];
-    }
-
-    if ($scope.college_wide_reqs["RE"].length > 0) {
-    	$scope.RE = $scope.college_wide_reqs["RE"][0]["course"];
-    }
-
-    if ($scope.college_wide_reqs["LANG"].length > 0) {
-    	$scope.LANG = $scope.college_wide_reqs["LANG"][0]["course"];
-    }
-
 
 
     // ---- AREA DISTRIBUTION ---- //
