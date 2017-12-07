@@ -13,6 +13,26 @@ function resetReqInputsOnModal() {
     $('#add-course-modal .reqs-section').append('<span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>');
 }
 
+function getClassInput() {
+    // Retrieve data from modal
+    var courseName = $(".main-input").val();
+    var semester = $(".form-control option:selected").val();
+    var credits = $(".num-credits-input").val();
+    var reqs = [];
+    $(".req-input").each(function(index, input) {
+        reqs.push($(input).val());
+    });
+
+    return {
+        "course": courseName,
+        "sem": semester,
+        "credits": credits,
+        "reqs": reqs,
+        "taken": false,
+        "top": 40,
+    };
+}
+
 var app = angular.module('trackit', []);
 app.controller('planner',[ '$scope', function($scope) {
     $scope.name = window.localStorage.getItem("fullname");
@@ -20,7 +40,7 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.areaDist = JSON.parse(window.localStorage.getItem("area_distribution"));
     $scope.csReqs = JSON.parse(window.localStorage.getItem("cs_reqs"));
 
-    console.log(JSON.stringify($scope.name));
+    console.log("Hi " + $scope.name + "!");
     console.log($scope.collegeWideReqs);
     console.log($scope.areaDist);
     console.log($scope.csReqs);
@@ -113,8 +133,24 @@ app.controller('planner',[ '$scope', function($scope) {
         $scope.addedSemesters.push(newSem);
         $scope.semesters.push(newSem);
         $scope.showNextSemester();
+    }
 
-        console.log($scope.addedSemesters);
+    $scope.addCourse = function() {
+        var newCourse = getClassInput();
+
+        if ($scope.courses[newCourse["sem"]] === undefined) {
+            $scope.courses[newCourse["sem"]] = {}
+        }
+        $scope.courses[newCourse["sem"]][newCourse["course"]] = newCourse; 
+
+        // Set top value
+        for (var key in $scope.courses) {
+            var top = 40;
+            for (var key2 in $scope.courses[key]) {
+                $scope.courses[key][key2]["top"] = top;
+                top += parseInt($scope.courses[key][key2]["credits"]) * 20;
+            }
+        }
     }
 
 
@@ -251,52 +287,10 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.semesters = semesters;
     $scope.showingSemesters = [ semesters[4], semesters[5], semesters[6], semesters[7] ];
 
-    console.log("Semesters:", semesters);
+    // console.log("Semesters:", semesters);
     console.log("Showing Semesters:", $scope.showingSemesters);
     console.log("Classes per sem:", tempSemDict);
-
-    $("#approve-add-course-btn").on("click", function() {
-        tempSemDict = addClass(tempSemDict);
-        $scope.courses = tempSemDict;
-    });
 }]);
 
-function addClass(dict) {
-    // Retrieve data from modal
-    var courseName = $(".main-input").val();
-    var semester = $(".form-control option:selected").val();
-    var credits = $(".num-credits-input").val();
-    var reqs = [];
-    $(".req-input").each(function(index, input) {
-        reqs.push($(input).val());
-    });
-
-    var classInfo = {
-        "course": courseName,
-        "sem": semester,
-        "credits": credits,
-        "reqs": reqs,
-        "taken": false,
-        "top": 40,
-    };
-    // console.log("classInfo:", classInfo);
-
-    // Add new class to course dict
-    if (dict[semester] === undefined) {
-        dict[semester] = {};
-    }
-    dict[semester][courseName] = classInfo;
-
-    // Set top value
-    for (var key in dict) {
-        var top = 40;
-        for (var key2 in dict[key]) {
-            dict[key][key2]["top"] = top;
-            top += parseInt(dict[key][key2]["credits"]) * 20;
-        }
-    }
-    
-    return dict;
-}
 
 
