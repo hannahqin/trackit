@@ -142,7 +142,7 @@
                             <div class="courses-wrapper">
                                 <div class="courses">
                                     <div class="semester" ng-repeat="semester in showingSemesters" ng-data-index="{{ $index }}">
-                                        <div class="course" ng-repeat="course in courses[semester]" style="height: {{ course.credits * 20 }}px; top: {{ course.top }}px">
+                                        <div class="course" ng-repeat="course in courses[semester]" ng-class="{taken: course.taken == true}" style="height: {{ course.credits * 20 }}px; top: {{ course.top }}px">
                                             <h5>{{ course.course }}</h5>
                                         </div>
                                     </div>

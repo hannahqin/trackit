@@ -225,6 +225,7 @@ function getClassDict(reqArray, index) {
     }
     classInfo['credits'] = reqArray[index+4];
     classInfo['grade'] = reqArray[index+5];
+    classInfo['taken'] = true;
     console.log("classInfo:", classInfo);
     return classInfo;
 }

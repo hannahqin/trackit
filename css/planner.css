@@ -37,6 +37,12 @@
     padding: 5px 10px;
 }
 
+.courses-wrapper .courses .semester .course.taken {
+    background-color: lightgrey;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -4px 0 rgba(0, 0, 0, 0.5);
+}
+
+
 
 
 /* ----------- Incomplete Requirements ----------- */
@@ -371,6 +377,3 @@
     .modal-footer .btn-add:hover {
         background-color: #397dce;
     }
-
-
-
