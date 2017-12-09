@@ -44,8 +44,9 @@ app.controller('planner',[ '$scope', function($scope) {
 
     $scope.checkCommonReqCredits = function(keyName, reqName, reqAbbreviation) {
         if (! $scope.collegeWideReqs[keyName].length) {
-            if (reqAbbreviation == "LANG" && !$scope.collegeWideReqs["placedOutLANG"]) {
-                var req = { name: reqName, abbreviation: reqAbbreviation };
+            var req = { name: reqName, abbreviation: reqAbbreviation };
+            if (reqAbbreviation != "LANG" ||
+                (reqAbbreviation == "LANG" && ! $scope.collegeWideReqs["placedOutLANG"])) {
                 $scope.incompleteCommonReqs.push(req);
             }
         }
@@ -54,9 +55,10 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.checkAreaDistCredits = function(credits, keyName) {
         var numCreditsLeft = credits;
         if (! $scope.areaDist[keyName].length == 0) {
-            for (course in $scope.areaDist[keyName]) {
-                numCreditsLeft -= course.credits;
-            }
+            var courses = $scope.areaDist[keyName];
+            for (var i = 0; i < courses.length; i++) {
+                numCreditsLeft -= courses[i].credits;
+            };
         }
         if (numCreditsLeft) {
             var req = { req: keyName.substring(1), credits: numCreditsLeft };
@@ -152,6 +154,7 @@ app.controller('planner',[ '$scope', function($scope) {
             }
         }
 
+        // remove these credits from incomplete
         for (var i = 0; i < newCourse["reqs"].length; i++) {
             var req = newCourse["reqs"][i];
 
@@ -165,7 +168,7 @@ app.controller('planner',[ '$scope', function($scope) {
             for (var j = 0; j < $scope.incompleteAreaDistReqs.length; j++) {
                 var incomplete = $scope.incompleteAreaDistReqs[j];
                 if (req == incomplete.req) {
-                    if (incomplete.credits - newCourse.credits === 0) {
+                    if (incomplete.credits - newCourse.credits <= 0) {
                         $scope.incompleteAreaDistReqs.splice(j, 1);
                     } else {
                         $scope.incompleteAreaDistReqs[j].credits -= newCourse.credits;
@@ -176,7 +179,7 @@ app.controller('planner',[ '$scope', function($scope) {
             for (var j = 0; j < $scope.incompleteCsReqs.length; j++) {
                 var incomplete = $scope.incompleteCsReqs[j];
                 if (req == incomplete.courseName) {
-                    if (incomplete.credits - newCourse.credits === 0) {
+                    if (incomplete.credits - newCourse.credits <= 0) {
                         $scope.incompleteCsReqs.splice(j, 1);
                     } else {
                         $scope.incompleteCsReqs[j].credits -= newCourse.credits;
