@@ -61,7 +61,6 @@
                     <th class="col-md-1"></th>
                     <th class="col-md-2">Requirement</th>
                     <th class="col-md-2">Total Credits</th>
-                    <th class="col-md-2"># Credits Completed</th>
                     <th class="col-md-2"># Credits Left</th>
                     <th class="col-md-4">Courses</th>
                 </thead>
@@ -70,7 +69,6 @@
                         <td ng-class="{ complete: req.done, incomplete: !req.done }">{{ req.done ? "✔" : "✗" }}</td>
                         <td>{{ req.displayName }}</td>
                         <td>{{ req.creditsRequired }}</td>
-                        <td>{{ req.creditsDone }}</td>
                         <td>{{ req.creditsRequired - req.creditsDone }}</td>
                         <td>{{ req.coursesTaken }}</td>
                     </tr>
@@ -87,7 +85,6 @@
                     <th class="col-md-1"></th>
                     <th class="col-md-2">Requirement</th>
                     <th class="col-md-2">Total Credits</th>
-                    <th class="col-md-2"># Credits Completed</th>
                     <th class="col-md-2"># Credits Left</th>
                     <th class="col-md-4">Courses</th>
                 </thead>
@@ -98,7 +95,6 @@
                         </td>
                         <td>ULCS</td>
                         <td>16</td>
-                        <td>{{ULCS_creds}}</td>
                         <td>{{16-ULCS_creds}}</td>
                         <td>{{ULCS}}</td>
                     </tr>
@@ -108,7 +104,6 @@
                         </td>
                         <td>Senior Capstone</td>
                         <td>4</td>
-                        <td>{{capstone != null ? "4" : "0"}}</td>
                         <td>{{capstone != null ? "0" : "4"}}</td>
                         <td>{{capstone}}</td>
                     </tr>
