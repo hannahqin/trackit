@@ -64,26 +64,30 @@ app.controller('planner',[ '$scope', function($scope) {
         }
     };
 
-    // reqDict is one of the 3 we got from localstorage
+    // create dictionary of semester:[courses]
     $scope.createSemesterDicts = function(reqDict, tempSemDict) {
         for (var key in reqDict) {
             for (var i in reqDict[key]) {
-                var sem = reqDict[key][i].sem;
+                var courseInfo = reqDict[key][i];
+                var badgeString = badgeKeyDict[key] ? badgeKeyDict[key] : key; // for displaying req on calendar
 
-                // if this semester hasn't been created before, initialize it
-                if (tempSemDict[sem] === undefined) {
-                    tempSemDict[sem] = {};
+                // if we haven't created this semester yet, add it as a key in the dict
+                if (tempSemDict[courseInfo.sem] === undefined) {
+                    tempSemDict[courseInfo.sem] = {};
                 }
 
-                var badgeString = badgeKeyDict[key] ? badgeKeyDict[key] : key;
-                // if this course hasn't been created before for this semester, initialize it
-                if (tempSemDict[sem][reqDict[key][i].course] === undefined) {
-                    tempSemDict[sem][reqDict[key][i].course] = reqDict[key][i];
-                    tempSemDict[sem][reqDict[key][i].course]["reqs"] = [ badgeString ];
+                // if we haven't added this course to this semester yet, add it
+                if (tempSemDict[courseInfo.sem][courseInfo.course] === undefined) {
+                    tempSemDict[courseInfo.sem][courseInfo.course] = courseInfo;
+                    tempSemDict[courseInfo.sem][courseInfo.course]["reqs"] = [ badgeString ];
 
-                // otherwise, add this requirement to the existing course
+                // otherwise, if we have added this course already, add this badgeString
+                // to the list of requirements that the course fulfills
                 } else {
-                    tempSemDict[sem][reqDict[key][i].course]["reqs"].push(badgeString);
+                    var reqsList = tempSemDict[courseInfo.sem][courseInfo.course]["reqs"];
+                    if (reqsList.indexOf(badgeString) == -1) {
+                        tempSemDict[courseInfo.sem][courseInfo.course]["reqs"].push(badgeString);
+                    }
                 }
             }
         }
