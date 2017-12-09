@@ -90,8 +90,9 @@
 
     .calendar-header .semester-picker .glyphicon {
         margin: 0 5px;
-        font-size: 14px;
+        font-size: 16px;
         color: #4A90E2;
+        font-weight: 700;
     }
 
     .calendar-header .semester-picker .glyphicon:hover {
