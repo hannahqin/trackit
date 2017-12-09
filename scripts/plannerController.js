@@ -37,7 +37,7 @@ app.controller('planner',[ '$scope', function($scope) {
     $scope.courses = {};
     $scope.semesters = [];
     $scope.showingSemesters = [];
-    $scope.addedSemesters = ['Semester'];
+    $scope.futureSemesters = ['Semester'];
 
 
     // ----------- FUNCTIONS ----------- //
@@ -123,7 +123,7 @@ app.controller('planner',[ '$scope', function($scope) {
             newSem = "FA " + year.toString();
         }
 
-        $scope.addedSemesters.push(newSem);
+        $scope.futureSemesters.push(newSem);
         $scope.semesters.push(newSem);
         $scope.showNextSemester();
     }
@@ -300,15 +300,20 @@ app.controller('planner',[ '$scope', function($scope) {
     var semesters = [];
     semesters.push(earliest_sem);
     var last = earliest_sem.substring(0,2);
+    var year = earliest_year;
 
     while (semesters.length < 8) {
         if (last === "WN") {
             last = "FA";
-            semesters.push("FA " + earliest_year.toString());
         } else {
             last = "WN";
-            earliest_year += 1;
-            semesters.push("WN " + earliest_year.toString());
+            year += 1;
+        }
+        var sem = last + " " +  year.toString();
+        semesters.push(sem);
+
+        if (!(sem in tempSemDict)) {
+            $scope.futureSemesters.push(sem);
         }
     }
 

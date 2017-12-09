@@ -100,7 +100,7 @@
                         <div class="calendar-buttons">
                             <button id="add-course" class="btn-default add-btn"  
                                     data-toggle="modal" data-target="#add-course-modal"
-                                    ng-disabled="addedSemesters.length == 1">
+                                    ng-disabled="futureSemesters.length == 1">
                                 + Course
                             </button>
                             <button id="add-semester" class="btn-default add-btn" 
@@ -174,7 +174,7 @@
                         <div class="row">
                             <div class="dropdown" id="semester-dropdown">
                                 <select class="form-control" id="semester-selection" ng-model="course.sem">
-                                    <option ng-repeat="semester in addedSemesters" 
+                                    <option ng-repeat="semester in futureSemesters" 
                                             ng-selected="semesters[semester].selected == true" 
                                             value="{{ semester }}" ng-disabled="$index == 0">
                                         {{ semester }}
