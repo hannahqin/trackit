@@ -142,7 +142,7 @@
                             </table>
                             <div class="courses-wrapper">
                                 <div class="courses">
-                                    <div class="semester" ng-repeat="semester in showingSemesters" ng-data-index="{{ $index }}">
+                                    <div class="semester" ng-repeat="semester in showingSemesters track by $index" ng-data-index="{{ $index }}">
                                         <div class="course no-select" ng-repeat="course in courses[semester]" 
                                              ng-class="{taken: course.taken == true}" 
                                              data-orig-height="{{ course.credits * 20 }}px"

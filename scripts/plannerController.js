@@ -165,14 +165,22 @@ app.controller('planner',[ '$scope', function($scope) {
             for (var j = 0; j < $scope.incompleteAreaDistReqs.length; j++) {
                 var incomplete = $scope.incompleteAreaDistReqs[j];
                 if (req == incomplete.req) {
-                    $scope.incompleteAreaDistReqs.splice(j, 1);
+                    if (incomplete.credits - newCourse.credits === 0) {
+                        $scope.incompleteAreaDistReqs.splice(j, 1);
+                    } else {
+                        $scope.incompleteAreaDistReqs[j].credits -= newCourse.credits;
+                    }
                 }
             }
 
             for (var j = 0; j < $scope.incompleteCsReqs.length; j++) {
                 var incomplete = $scope.incompleteCsReqs[j];
                 if (req == incomplete.courseName) {
-                    $scope.incompleteCsReqs.splice(j, 1);
+                    if (incomplete.credits - newCourse.credits === 0) {
+                        $scope.incompleteCsReqs.splice(j, 1);
+                    } else {
+                        $scope.incompleteCsReqs[j].credits -= newCourse.credits;
+                    }
                 }
             }
 
