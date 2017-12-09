@@ -225,7 +225,7 @@ app.controller('planner',[ '$scope', function($scope) {
             additionalCredits.push(keys[i]);
         }
     }
-    
+
     for (var i = 0; i < additionalCredits.length; i++) {
         $scope.checkAreaDistCredits(3, additionalCredits[i]);
     }
@@ -325,7 +325,8 @@ app.controller('planner',[ '$scope', function($scope) {
         var sem = lastSem + " " +  year.toString();
         semesters.push(sem);
 
-        if (!(sem in tempSemDict)) {
+        // if it's a future semester, add it to futureSemesters dict
+        if (year > 2018 || (sem === "FA 2018")) {
             $scope.futureSemesters.push(sem);
         }
     }
