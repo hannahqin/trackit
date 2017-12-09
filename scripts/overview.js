@@ -73,10 +73,10 @@ app.controller('overview',[ '$scope', function($scope) {
     }
 
     //ULCS
-    $scope.ulcs1 = "";
-    $scope.ulcs2 = "";
-    $scope.ulcs3 = "";
-    $scope.ulcs4 = "";
+    $scope.ulcs1 = "ULCS";
+    $scope.ulcs2 = "ULCS";
+    $scope.ulcs3 = "ULCS";
+    $scope.ulcs4 = "ULCS";
     var uppers = cs_reqs["ul"].length;
     if(uppers > 0) {
         for(var i = 0; i < uppers; ++i) {
