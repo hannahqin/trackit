@@ -134,6 +134,19 @@ app.controller('planner',[ '$scope', function($scope) {
         $scope.showNextSemester();
     }
 
+    $scope.updateIncompleteCredits = function(incompleteCourses, reqKey, newCourseCredits, newCourseReq) {
+        for (var j = 0; j < incompleteCourses.length; j++) {
+            var incompleteCourse = incompleteCourses[j];
+            if (newCourseReq == incompleteCourse[reqKey]) {
+                if (incompleteCourse.credits - newCourseCredits <= 0) {
+                    incompleteCourses.splice(j, 1);
+                } else {
+                    incompleteCourses[j].credits -= newCourseCredits;
+                }
+            }
+        }
+    }
+
     $scope.addCourse = function() {
         // get input and clear form so it's blank the next time it's clicked
         var newCourse = getClassInput();
@@ -157,7 +170,9 @@ app.controller('planner',[ '$scope', function($scope) {
         // remove these credits from incomplete
         for (var i = 0; i < newCourse["reqs"].length; i++) {
             var req = newCourse["reqs"][i];
+            console.log(req);
 
+            // common reqs
             for (var j = 0; j < $scope.incompleteCommonReqs.length; j++) {
                 var incomplete = $scope.incompleteCommonReqs[j];
                 if (req == incomplete.abbreviation) {
@@ -165,28 +180,9 @@ app.controller('planner',[ '$scope', function($scope) {
                 }
             }
 
-            for (var j = 0; j < $scope.incompleteAreaDistReqs.length; j++) {
-                var incomplete = $scope.incompleteAreaDistReqs[j];
-                if (req == incomplete.req) {
-                    if (incomplete.credits - newCourse.credits <= 0) {
-                        $scope.incompleteAreaDistReqs.splice(j, 1);
-                    } else {
-                        $scope.incompleteAreaDistReqs[j].credits -= newCourse.credits;
-                    }
-                }
-            }
-
-            for (var j = 0; j < $scope.incompleteCsReqs.length; j++) {
-                var incomplete = $scope.incompleteCsReqs[j];
-                if (req == incomplete.courseName) {
-                    if (incomplete.credits - newCourse.credits <= 0) {
-                        $scope.incompleteCsReqs.splice(j, 1);
-                    } else {
-                        $scope.incompleteCsReqs[j].credits -= newCourse.credits;
-                    }
-                }
-            }
-
+            // area dist reqs & cs reqs
+            $scope.updateIncompleteCredits($scope.incompleteAreaDistReqs, "req", newCourse.credits, req);
+            $scope.updateIncompleteCredits($scope.incompleteCsReqs, "courseName", newCourse.credits, req);
         };
     }
 
@@ -214,14 +210,12 @@ app.controller('planner',[ '$scope', function($scope) {
     // ------- AREA DISTRIBUTION ------- //
 
     // Core Area Dist: 7 credits each of HU, SS, and NS
-
     $scope.checkAreaDistCredits(7, "7HU");     // 7 Humanities
     $scope.checkAreaDistCredits(7, "7SS");     // 7 Social Science
     $scope.checkAreaDistCredits(7, "7NS");     // 7 Natural Science
 
 
     // Additional : 3 credits of 3/5 categories
-
     var additionalCredits = [];
 
     // figure out which 3 categories to display as incomplete
@@ -231,7 +225,7 @@ app.controller('planner',[ '$scope', function($scope) {
             additionalCredits.push(keys[i]);
         }
     }
-
+    
     for (var i = 0; i < additionalCredits.length; i++) {
         $scope.checkAreaDistCredits(3, additionalCredits[i]);
     }
@@ -315,19 +309,20 @@ app.controller('planner',[ '$scope', function($scope) {
             }
         }
     }
+
+    // add 8 semesters from first semester
     var semesters = [];
     semesters.push(earliest_sem);
-    var last = earliest_sem.substring(0,2);
+    var lastSem = earliest_sem.substring(0,2);
     var year = earliest_year;
 
     while (semesters.length < 8) {
-        if (last === "WN") {
-            last = "FA";
-        } else {
-            last = "WN";
+        if (lastSem === "FA") {
             year += 1;
         }
-        var sem = last + " " +  year.toString();
+        lastSem = (lastSem === "WN") ? "FA" : "WN";
+
+        var sem = lastSem + " " +  year.toString();
         semesters.push(sem);
 
         if (!(sem in tempSemDict)) {
