@@ -147,13 +147,13 @@
                                              ng-class="{taken: course.taken == true}" 
                                              data-orig-height="{{ course.credits * 20 }}px"
                                              ng-mouseover="mouseoverCourse($event)" ng-mouseleave="mouseleaveCourse($event)"
-                                             style="height: {{ course.credits * 20 }}px; top: {{ course.top }}px; padding-top: {{ course.credits * 2.5 }}px">
-                                            <!-- <div style="display: inline; vertical-align:middle;"> -->
-                                                <h5>{{ course.course }}</h5>
-                                                <span class="badge" ng-if="course.reqs" ng-repeat="req in course.reqs">
-                                                    {{ req }}
-                                                </span>
-                                            <!-- </div> -->
+                                             style="height: {{ course.credits * 20 }}px; 
+                                                    top: {{ course.top }}px; 
+                                                    padding-top: {{ course.credits * 2.5 }}px">
+                                            <h5>{{ course.course }}</h5>
+                                            <span class="badge" ng-if="course.reqs" ng-repeat="req in course.reqs" ng-show="req">
+                                                {{ req }}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
