@@ -129,7 +129,10 @@ app.controller('planner',[ '$scope', function($scope) {
     }
 
     $scope.addCourse = function() {
+        // get input and clear form so it's blank the next time it's clicked
         var newCourse = getClassInput();
+        $('#add-course-form')[0].reset();
+        $('#semester-selection').val('');
 
         if ($scope.courses[newCourse["sem"]] === undefined) {
             $scope.courses[newCourse["sem"]] = {}

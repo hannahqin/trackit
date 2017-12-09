@@ -167,7 +167,7 @@
         <div id="add-course-modal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <form id="add-course-form" class="modal-body">
                         <input class="main-input" type="text" name="course-name"
                                placeholder="Course Name (e.g. EECS 183)"
                                ng-model="course.name" autofocus>
@@ -192,7 +192,7 @@
                                 <span id="plus-req-btn" class="glyphicon glyphicon-plus"></span>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="modal-footer">
                         <button id="cancel-add-course-btn" class="btn btn-cancel"
                                 type="button" data-dismiss="modal">
