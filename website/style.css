@@ -81,6 +81,7 @@ body {
 }
 
     .about h1 {
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 32px;
         color: #444;
     }
@@ -96,7 +97,7 @@ body {
 
     .col-md-4 h2 {
         font-weight: 400;
-        /*text-align: center;*/
+        /*color: #4A90E2;*/
     }
 
 
