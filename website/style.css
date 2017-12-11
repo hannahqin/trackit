@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.flex-content {
+    margin: 0 auto;
+}
+
+
+
+.top {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    margin: 20px 15%;
+}
+
+.top .logo {
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+}
+
+.homepage {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: bottom center;
+}
+
+.homepage-content {
+    margin: 0 15%;
+}
+
+.tagline {
+    margin: 0;
+    font-size: 54px;
+    line-height: 70px;
+    color: white;
+}
+
+.learn-more {
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+    margin-top: 25px;
+    padding: 9px 35px;
+}
+
+.learn-more a {
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1.1px;
+    color: white;
+}
+
+
+.learn-more:hover {
+    background-color: rgba(256,256,256,0.1);
+    cursor: pointer;
+}
+
+
+
+
