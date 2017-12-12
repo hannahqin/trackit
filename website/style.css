@@ -21,8 +21,6 @@ body {
     margin: 0 auto;
 }
 
-
-
 .top {
     position: absolute;
     top: 0;
@@ -38,7 +36,7 @@ body {
 }
 
 .homepage {
-    background-image: url('img/background2.jpg');
+    background-image: url('img/background.jpg');
     background-size: cover;
     background-position: bottom center;
 }
@@ -103,38 +101,47 @@ body {
 
     .col-md-4 h2 {
         font-size: 20px;
-        color: #1A3657;
-        /*color: #4A90E2;*/
+        color: #5B7184;
         font-family: 'Nunito Sans', sans-serif;
     }
 
-
-.get-started {
+.page {
     width: calc(100vw - 30%);
-    height: 500px;
+    height: 540px;
     padding: 40px 15%;
     color: white;
-    background-color: #4782c7;
     text-align: center;
 }
 
+    .screenshot {
+        width: 70%;
+    }
 
-    .get-started h1 {
+    .page-description h1 {
         font-family: 'Nunito Sans', sans-serif;
         margin-top: 0;
-        text-align: left;
+        margin-bottom: 15px;
+        font-size: 26px;
     }
 
-    .get-started p {
+    .page-description p {
         font-size: 20px;
-        text-align: left;
-        margin-bottom: 0;
+        font-weight: 300;
+        margin: 0 auto 20px;
+        max-width: 85%;
     }
 
-    .get-started img {
-        margin: 0 auto;
-        display: inline-block;
-    }
+.get-started {
+    background-color: #4782c7;
+}
 
+.overview-page,
+.planner-page {
+    background-color: #5B7184;
+}
+
+.details-page {
+    background-color: #3DADAA;
+}
 
 
