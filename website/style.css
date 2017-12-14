@@ -107,7 +107,6 @@ body {
 
 .page {
     width: calc(100vw - 30%);
-    height: 540px;
     padding: 40px 15%;
     color: white;
     text-align: center;
